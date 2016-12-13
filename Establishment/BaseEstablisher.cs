@@ -14,12 +14,21 @@ namespace Establishment {
     /// </remarks>
     public abstract class BaseEstablisher {
 
+        public BaseEstablisher() {
+            ThrowExceptionOnEstablishmentFailure = true;
+        }
+
         protected bool HandleFailure(Exception ex) {
-            if (Establish.ThrowExceptionOnEstablishmentFailure) {
+            if (ThrowExceptionOnEstablishmentFailure) {
                 throw ex;
             }
 
             return false;
+        }
+
+        public bool ThrowExceptionOnEstablishmentFailure {
+            get;
+            set;
         }
 
     }

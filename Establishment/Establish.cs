@@ -8,17 +8,28 @@ namespace Establishment {
 
     public static class Establish {
 
+        private static bool _throwExceptionOnFailure;
+        private static readonly IEnumerable<BaseEstablisher> _establishers;
+
         static Establish() {
-            ThrowExceptionOnEstablishmentFailure = true;
+            _throwExceptionOnFailure = true;
 
             // use reflection to set them all
+            var establishers = new List<BaseEstablisher>(16);
             foreach (var property in typeof(Establish).GetProperties()) {
                 if (!property.CanWrite) {
                     continue;
                 }
 
-                property.SetValue(null, Activator.CreateInstance(property.PropertyType));
+                var establisher = Activator.CreateInstance(property.PropertyType);
+                property.SetValue(null, establisher);
+
+                if (establisher is BaseEstablisher) {
+                    establishers.Add(establisher as BaseEstablisher);
+                }
             }
+
+            _establishers = establishers;
         }
 
         public static BaseClassEstablisher<object> ReferenceType { get; private set; }
@@ -47,7 +58,20 @@ namespace Establishment {
 
         public static TimeSpanEstablisher TimeSpan { get; private set; }
 
-        public static bool ThrowExceptionOnEstablishmentFailure { get; set; }
+        public static bool ThrowExceptionOnEstablishmentFailure {
+            get {
+                return _throwExceptionOnFailure;
+            }
+            set {
+                if (value == _throwExceptionOnFailure) {
+                    return;
+                }
+
+                foreach (var establisher in _establishers) {
+                    establisher.ThrowExceptionOnEstablishmentFailure = value;
+                }
+            }
+        }
 
     }
 
