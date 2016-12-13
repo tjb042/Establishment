@@ -40,6 +40,30 @@ namespace Establishment {
             return true;
         }
 
+        public bool HasExactLength(string value, int length) {
+            if (value.Length != length) {
+                return HandleFailure(new ArgumentException(string.Concat("string value is not exactly ", length, " characters")));
+            }
+
+            return true;
+        }
+
+        public bool HasMinimumLength(string value, int minimumLength) {
+            if (value.Length < minimumLength) {
+                return HandleFailure(new ArgumentException(string.Concat("string value is not at least ", minimumLength, " characters")));
+            }
+
+            return true;
+        }
+
+        public bool HasMaximumLength(string value, int maximumLength) {
+            if (value.Length > maximumLength) {
+                return HandleFailure(new ArgumentException(string.Concat("string value is too long")));
+            }
+
+            return true;
+        }
+
     }
 
 }
