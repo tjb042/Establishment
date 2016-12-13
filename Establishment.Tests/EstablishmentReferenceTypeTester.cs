@@ -9,14 +9,16 @@ namespace Establishment.Tests {
     [TestClass]
     public class EstablishmentReferenceTypeTester {
 
-        public EstablishmentReferenceTypeTester() {
-            Establish.ThrowExceptionOnEstablishmentFailure = true;
+        private BaseClassEstablisher<object> CreateObjectEstablisher() {
+            return new BaseClassEstablisher<object>() {
+                ThrowExceptionOnEstablishmentFailure = true,
+            };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestBase_IsNull() {
-            var establisher = new BaseClassEstablisher<object>();
+            var establisher = CreateObjectEstablisher();
 
             establisher.IsNull("a string");
         }
@@ -24,14 +26,14 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestBase_IsNotNull() {
-            var establisher = new BaseClassEstablisher<object>();
+            var establisher = CreateObjectEstablisher();
 
             establisher.IsNotNull(null);
         }
 
         [TestMethod]
         public void TestBase_Nulls() {
-            var establisher = new BaseClassEstablisher<object>();
+            var establisher = CreateObjectEstablisher();
 
             establisher.IsNull(null);
             establisher.IsNotNull("David Bowie");

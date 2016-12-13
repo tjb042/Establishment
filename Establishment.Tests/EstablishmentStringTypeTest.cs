@@ -6,13 +6,15 @@ namespace Establishment.Tests {
     [TestClass]
     public class EstablishmentStringTypeTest {
 
-        public EstablishmentStringTypeTest() {
-            Establish.ThrowExceptionOnEstablishmentFailure = true;
+        private StringEstablisher CreateEstablisher() {
+            return new StringEstablisher() {
+                ThrowExceptionOnEstablishmentFailure = true,
+            };
         }
 
         [TestMethod]
         public void TestString_IsEqual() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsEqual("hot dog", "hot dog");
         }
@@ -20,14 +22,14 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestString_Negative_IsEqual() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsEqual("hot dog", "hotdog");
         }
 
         [TestMethod]
         public void TestString_IsEmpty() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsEmpty("");
         }
@@ -35,14 +37,14 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestString_Negative_IsEmpty() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsEmpty("hotdog");
         }
 
         [TestMethod]
         public void TestString_IsNull() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsNull(null);
         }
@@ -50,14 +52,14 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestString_Negative_IsNull() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsNull("starbuck");
         }
 
         [TestMethod]
         public void TestString_IsNullOrEmpty() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsNullOrEmpty(null);
             establisher.IsNullOrEmpty("");
@@ -66,7 +68,7 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestString_Negative_IsNullOrEmpty() {
-            var establisher = new StringEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsNullOrEmpty("lee");
         }

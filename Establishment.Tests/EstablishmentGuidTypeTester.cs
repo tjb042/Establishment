@@ -10,14 +10,16 @@ namespace Establishment.Tests {
     [TestClass]
     public class EstablishmentGuidTypeTester {
 
-        public EstablishmentGuidTypeTester() {
-            Establish.ThrowExceptionOnEstablishmentFailure = true;
+        private GuidEstablisher CreateEstablisher() {
+            return new GuidEstablisher() {
+                ThrowExceptionOnEstablishmentFailure = true,
+            };
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestGuid_IsDefault() {
-            var establisher = new GuidEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsDefault(Guid.Parse("1759DD80-5737-4552-8F46-943D134D2D35"));
         }
@@ -25,7 +27,7 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestGuid_IsNotDefault() {
-            var establisher = new GuidEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsNotDefault(Guid.Empty);
         }
@@ -33,14 +35,14 @@ namespace Establishment.Tests {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestGuid_IsNotDefaultNew() {
-            var establisher = new GuidEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsNotDefault(new Guid());
         }
 
         [TestMethod]
         public void TestGuid_Defaults() {
-            var establisher = new GuidEstablisher();
+            var establisher = CreateEstablisher();
 
             establisher.IsDefault(Guid.Empty);
             establisher.IsNotDefault(Guid.Parse("1759DD80-5737-4552-8F46-943D134D2D35"));
