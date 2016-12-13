@@ -5,7 +5,10 @@ namespace Establishment.Tests {
 
     [TestClass]
     public class EstablishmentIntTypeTest {
-   
+
+        public EstablishmentIntTypeTest() {
+            Establish.ThrowExceptionOnEstablishmentFailure = true;
+        }
 
         [TestMethod]
         public void TestInt_IsDefault() {
