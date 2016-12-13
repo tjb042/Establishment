@@ -58,6 +58,14 @@ namespace Establishment {
             return true;
         }
 
+        public bool IsBeforeUnixEpoch(DateTime baseline) {
+            if (baseline >= UnixEpoch) {
+                return HandleFailure(new ArgumentException("DateTime value must occur before UnixEpoch"));
+            }
+
+            return true;
+        }
+
         public bool IsAfterUnixEpoch(DateTime baseline) {
             if (baseline < UnixEpoch) {
                 return HandleFailure(new ArgumentException("DateTime value must occur after UnixEpoch"));
