@@ -32,7 +32,7 @@ namespace Establishment {
             _establishers = establishers;
         }
 
-        public static BaseClassEstablisher<object> ReferenceType { get; private set; }
+        public static BaseClassEstablisher<object> Object { get; private set; }
 
         public static StringEstablisher String { get; private set; }
 
