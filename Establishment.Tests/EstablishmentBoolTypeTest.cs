@@ -15,6 +15,40 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
+        public void TestBool_IsEqual() {
+            var establisher = new BooleanEstablisher();
+
+            var test = true;
+            establisher.IsEqual(test, test);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestBool_Negative_IsEqual() {
+            var establisher = new BooleanEstablisher();
+
+            var test = true;
+            establisher.IsEqual(test, !test);
+        }
+
+        [TestMethod]
+        public void TestBool_IsNotEqual() {
+            var establisher = new BooleanEstablisher();
+
+            var test = true;
+            establisher.IsNotEqual(test, !test);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestBool_Negative_IsNotEqual() {
+            var establisher = new BooleanEstablisher();
+
+            var test = true;
+            establisher.IsNotEqual(test, test);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void TestBool_IsTrue() {
             var establisher = new BooleanEstablisher();
