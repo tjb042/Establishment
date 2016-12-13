@@ -12,7 +12,12 @@ namespace Establishment {
     /// <typeparam name="TType">A reference type</typeparam>
     public class BaseClassEstablisher<TType> : BaseEstablisher where TType : class {
 
-        protected string _typeName = typeof(TType).Name;
+        protected readonly Type _type;
+        protected readonly string _typeName;
+
+        public BaseClassEstablisher() {
+            _type = typeof(TType);
+        }
 
         public virtual bool IsNull(TType value) {
             if (value != null) {
@@ -25,6 +30,22 @@ namespace Establishment {
         public virtual bool IsNotNull(TType value) {
             if (value == null) {
                 return HandleFailure(new ArgumentException(_typeName + " value cannot be null"));
+            }
+
+            return true;
+        }
+
+        public virtual bool IsEqual(TType value, TType constraint) {
+            if (value != constraint) {
+                return HandleFailure(new ArgumentException(_typeName + " value must equal constraint"));
+            }
+
+            return true;
+        }
+
+        public virtual bool IsNotEqual(TType value, TType constraint) {
+            if (value == constraint) {
+                return HandleFailure(new ArgumentNullException(_typeName + "value must not equal constraint"));
             }
 
             return true;
