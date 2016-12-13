@@ -14,12 +14,15 @@ namespace Establishment {
 
         protected readonly Type _type;
         protected readonly string _typeName;
+        protected readonly IEqualityComparer<TType> _defaultComparer;
 
         /// <summary>
         /// Initializes a new instance of <see cref="BaseClassEstablisher<TType>"/>
         /// </summary>
         public BaseClassEstablisher() {
             _type = typeof(TType);
+            _typeName = _type.Name;
+            _defaultComparer = EqualityComparer<TType>.Default;
         }
 
         /// <summary>
@@ -55,7 +58,7 @@ namespace Establishment {
         /// <param name="constraint">The target value for comparison</param>
         /// <returns><c>true</c> if <paramref name="value"/> equals <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         public virtual bool IsEqual(TType value, TType constraint) {
-            if (value != constraint) {
+            if (!_defaultComparer.Equals(value, constraint)) {
                 return HandleFailure(new ArgumentException(_typeName + " value must equal constraint"));
             }
             
@@ -69,7 +72,7 @@ namespace Establishment {
         /// <param name="constraint">The target value for comparison</param>
         /// <returns><c>true</c> if <paramref name="value"/> does not equal <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         public virtual bool IsNotEqual(TType value, TType constraint) {
-            if (value == constraint) {
+            if (_defaultComparer.Equals(value, constraint)) {
                 return HandleFailure(new ArgumentNullException(_typeName + "value must not equal constraint"));
             }
 
