@@ -56,6 +56,38 @@ namespace Establishment {
             return true;
         }
 
+        public bool IsMinValue(double value) {
+            if (value != double.MinValue) {
+                return HandleFailure(new ArgumentException("value must equal double.MinValue"));
+            }
+
+            return true;
+        }
+
+        public bool IsNotMinValue(double value) {
+            if (value == double.MinValue) {
+                return HandleFailure(new ArgumentException("value must not equal double.MinValue"));
+            }
+
+            return true;
+        }
+
+        public bool IsMaxValue(double value) {
+            if (value != double.MaxValue) {
+                return HandleFailure(new ArgumentException("value must equal double.MaxValue"));
+            }
+
+            return true;
+        }
+
+        public bool IsNotMaxValue(double value) {
+            if (value == double.MaxValue) {
+                return HandleFailure(new ArgumentException("value must not equal double.MaxValue"));
+            }
+
+            return true;
+        }
+
     }
 
 }
