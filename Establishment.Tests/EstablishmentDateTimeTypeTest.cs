@@ -167,6 +167,55 @@ namespace Establishment.Tests {
             establisher.IsUnixEpoch(value);
         }
 
+        [TestMethod]
+        public void TestDateTime_IsWeekDay() {
+            var establisher = CreateEstablisher();
+
+            establisher.IsWeekday(new DateTime(2016, 12, 20));
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestDateTime_Negative_IsWeekDay() {
+            var establisher = CreateEstablisher();
+
+            establisher.IsWeekday(new DateTime(2016, 12, 18));
+        }
+
+        [TestMethod]
+        public void TestDateTime_IsInTheFuture() {
+            var establisher = CreateEstablisher();
+            var date = DateTime.Now.AddDays(1D);
+
+            establisher.IsInTheFuture(date);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestDateTime_Negative_IsInTheFuture() {
+            var establisher = CreateEstablisher();
+            var date = DateTime.Now.AddDays(-1D);
+
+            establisher.IsInTheFuture(date);
+        }
+
+        [TestMethod]
+        public void TestDateTime_IsInThePast() {
+            var establisher = CreateEstablisher();
+            var date = DateTime.Now.AddDays(-1D);
+
+            establisher.IsInThePast(date);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestDateTime__Negative_IsInThePast() {
+            var establisher = CreateEstablisher();
+            var date = DateTime.Now.AddDays(1D);
+
+            establisher.IsInThePast(date);
+        }
+
     }
 
 }
