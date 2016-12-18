@@ -106,6 +106,42 @@ namespace Establishment {
             return true;
         }
 
+        public bool IsInTheFuture(DateTime baseline) {
+            if (DateTime.Now >= baseline) {
+                return HandleFailure(new ArgumentException("DateTime value must be a date and time in the future"));
+            }
+
+            return true;
+        }
+
+        public bool IsInThePast(DateTime baseline) {
+            if (DateTime.Now <= baseline) {
+                return HandleFailure(new ArgumentException("DateTime value must be a date and time in the past"));
+            }
+
+            return true;
+        }
+
+        public bool IsWeekday(DateTime baseline) {
+            switch (baseline.DayOfWeek) {
+                case DayOfWeek.Sunday:
+                case DayOfWeek.Saturday:
+                    return HandleFailure(new ArgumentException("DateTime value must fall on a weekday"));
+            }
+
+            return true;
+        }
+
+        public bool IsNotWeekday(DateTime baseline) {
+            switch (baseline.DayOfWeek) {
+                case DayOfWeek.Sunday:
+                case DayOfWeek.Saturday:
+                    return true;
+            }
+
+            return HandleFailure(new ArgumentException("DateTime value must not fall on a weekday"));
+        }
+
     }
 
 }
