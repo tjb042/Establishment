@@ -56,6 +56,38 @@ namespace Establishment {
             return true;
         }
 
+        public bool IsMinValue(decimal value) {
+            if (value != decimal.MinValue) {
+                return HandleFailure(new ArgumentException("value must equal decimal.MinValue"));
+            }
+
+            return true;
+        }
+
+        public bool IsNotMinValue(decimal value) {
+            if (value == decimal.MinValue) {
+                return HandleFailure(new ArgumentException("value must not equal decimal.MinValue"));
+            }
+
+            return true;
+        }
+
+        public bool IsMaxValue(decimal value) {
+            if (value != decimal.MaxValue) {
+                return HandleFailure(new ArgumentException("value must equal decimal.MaxValue"));
+            }
+
+            return true;
+        }
+
+        public bool IsNotMaxValue(decimal value) {
+            if (value == decimal.MaxValue) {
+                return HandleFailure(new ArgumentException("value must not equal decimal.MaxValue"));
+            }
+
+            return true;
+        }
+
     }
 
 }
