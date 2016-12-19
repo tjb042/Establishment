@@ -27,7 +27,7 @@ namespace Establishment {
         }
 
         public StringEstablisher IsEmpty() {
-            if (Value != string.Empty) {
+            if (Value.Length != 0) {
                 HandleFailure(new ArgumentException("string value must be empty"));
             }
 
@@ -35,7 +35,7 @@ namespace Establishment {
         }
 
         public StringEstablisher IsNotEmpty() {
-            if (Value == string.Empty) {
+            if (Value.Length == 0) {
                 HandleFailure(new ArgumentException("string value must not be empty"));
             }
 
