@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
+    [CLSCompliant(false)]
     public class UIntegerEstablisher : BaseStructEstablisher<uint> {
 
         internal UIntegerEstablisher(uint value) : base(value) { }

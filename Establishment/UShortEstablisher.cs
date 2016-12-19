@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
+    [CLSCompliant(false)]
     public class UShortEstablisher : BaseStructEstablisher<ushort> {
 
         internal UShortEstablisher(ushort value) : base(value) {

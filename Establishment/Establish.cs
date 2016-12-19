@@ -66,6 +66,7 @@ namespace Establishment {
             };
         }
 
+        [CLSCompliant(false)]
         public static SByteEstablisher For(sbyte input) {
             return new SByteEstablisher(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
@@ -90,18 +91,21 @@ namespace Establishment {
             };
         }
 
+        [CLSCompliant(false)]
         public static UIntegerEstablisher For(uint input) {
             return new UIntegerEstablisher(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
             };
         }
 
+        [CLSCompliant(false)]
         public static ULongEstablisher For(ulong input) {
             return new ULongEstablisher(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
             };
         }
 
+        [CLSCompliant(false)]
         public static UShortEstablisher For(ushort input) {
             return new UShortEstablisher(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure

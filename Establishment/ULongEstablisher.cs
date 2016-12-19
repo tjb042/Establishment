@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
+    [CLSCompliant(false)]
     public class ULongEstablisher : BaseStructEstablisher<ulong> {
 
         internal ULongEstablisher(ulong value) : base(value) {

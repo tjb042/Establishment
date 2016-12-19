@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
+    [CLSCompliant(false)]
     public class SByteEstablisher : BaseStructEstablisher<sbyte> {
 
         internal SByteEstablisher(sbyte value) : base(value) { }

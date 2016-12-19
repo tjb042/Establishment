@@ -14,7 +14,7 @@ using System;
 [assembly: AssemblyProduct("Establishment")]
 [assembly: AssemblyCopyright("Timothy James ©  2016")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("en-US")]
+[assembly: AssemblyCulture("")]
 [assembly: CLSCompliant(true)]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
