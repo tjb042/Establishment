@@ -8,7 +8,7 @@ namespace Establishment {
 
     public abstract class BaseEstablisher<TType> {
 
-        public BaseEstablisher(TType value) {
+        protected BaseEstablisher(TType value) {
             Value = value;
             ThrowExceptionOnFailure = true;
             GenericType = typeof(TType);
