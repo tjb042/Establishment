@@ -50,13 +50,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="EstablishmentBoolTypeTest.cs" />
-    <Compile Include="EstablishmentReferenceTypeTester.cs" />
-    <Compile Include="EstablishmentGuidTypeTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="EstablishmentIntTypeTest.cs" />
-    <Compile Include="EstablishmentStringTypeTest.cs" />
-    <Compile Include="EstablishmentDateTimeTypeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Establishment\Establishment.csproj">
