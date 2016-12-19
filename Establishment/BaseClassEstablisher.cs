@@ -25,8 +25,6 @@ namespace Establishment {
             _defaultComparer = EqualityComparer<TType>.Default;
         }
 
-        public bool ThrowExceptionOnFailure { get; set; }
-
         /// <summary>
         /// Establishes whether or not <paramref name="value"/> is <c>null</c>
         /// </summary>
