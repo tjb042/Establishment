@@ -64,7 +64,6 @@
     <Compile Include="UShortEstablisher.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="CodeAnalysisRuleSet.ruleset" />
     <None Include="EstablishmentKey.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
