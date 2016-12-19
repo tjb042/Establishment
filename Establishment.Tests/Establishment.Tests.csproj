@@ -51,8 +51,23 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BooleanEstablisherTests.cs" />
+    <Compile Include="ByteEstablisherTests.cs" />
+    <Compile Include="DateTimeEstablisherTests.cs" />
+    <Compile Include="DecimalEstablisherTests.cs" />
+    <Compile Include="DoubleEstablisherTests.cs" />
+    <Compile Include="FloatEstablisherTests.cs" />
+    <Compile Include="GuidEstablisherTests.cs" />
+    <Compile Include="IntegerEstablisherTests.cs" />
+    <Compile Include="LongEstablisherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NegativeBooleanEstablisherTests.cs" />
+    <Compile Include="SByteEstablisherTests.cs" />
+    <Compile Include="ShortEstablisherTests.cs" />
+    <Compile Include="StringEstablisherTests.cs" />
+    <Compile Include="TimeSpanEstablisherTests.cs" />
+    <Compile Include="UIntegerEstablisherTests.cs" />
+    <Compile Include="ULongEstablisherTests.cs" />
+    <Compile Include="UShortEstablisherTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Establishment\Establishment.csproj">
