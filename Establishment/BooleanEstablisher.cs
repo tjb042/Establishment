@@ -8,20 +8,22 @@ namespace Establishment {
 
     public class BooleanEstablisher : BaseStructEstablisher<bool> {
 
-        public bool IsTrue(bool value) {
-            if (!value) {
-                return HandleFailure(new ArgumentException("bool value must be true"));
+        internal BooleanEstablisher(bool value) : base(value) { }
+
+        public BooleanEstablisher IsTrue(bool value) {
+            if (!Value) {
+                HandleFailure(new ArgumentException("bool value must be true"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsFalse(bool value) {
-            if (value) {
-                return HandleFailure(new ArgumentException("bool value must be false"));
+        public BooleanEstablisher IsFalse(bool value) {
+            if (Value) {
+                HandleFailure(new ArgumentException("bool value must be false"));
             }
 
-            return true;
+            return this;
         }
 
     }

@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class IntegerEstablisher : BaseStructEstablisher<int> {
 
-        public bool IsGreaterThan(int baseline, int threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("int value must be greater than " + threshold.ToString()));
+        internal IntegerEstablisher(int value) : base(value) { }
+
+        public IntegerEstablisher IsGreaterThan(int threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("int value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(int baseline, int threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("int value must be greater than or equal to " + threshold.ToString()));
+        public IntegerEstablisher IsGreaterThanOrEqualTo(int threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("int value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(int baseline, int threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("int value must be less than " + threshold.ToString()));
+        public IntegerEstablisher IsLessThan(int threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("int value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(int baseline, int threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("int value must be less than or equal to " + threshold.ToString()));
+        public IntegerEstablisher IsLessThanOrEqualTo(int threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("int value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(int value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public IntegerEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(int value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public IntegerEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(int value) {
-            if (value != int.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal int.MinValue"));
+        public IntegerEstablisher IsMinValue() {
+            if (Value != int.MinValue) {
+                HandleFailure(new ArgumentException("value must equal int.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(int value) {
-            if (value == int.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal int.MinValue"));
+        public IntegerEstablisher IsNotMinValue() {
+            if (Value == int.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal int.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(int value) {
-            if (value != int.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal int.MaxValue"));
+        public IntegerEstablisher IsMaxValue() {
+            if (Value != int.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal int.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(int value) {
-            if (value == int.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal int.MaxValue"));
+        public IntegerEstablisher IsNotMaxValue() {
+            if (Value == int.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal int.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

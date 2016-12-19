@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class TimeSpanEstablisher : BaseStructEstablisher<TimeSpan> {
 
-        public bool IsZero(TimeSpan baseline) {
-            if (baseline.Ticks != TimeSpan.Zero.Ticks) {
-                return HandleFailure(new ArgumentException("TimeSpan must equal zero"));
+        internal TimeSpanEstablisher(TimeSpan value) : base(value) { }
+
+        public TimeSpanEstablisher IsZero() {
+            if (Value.Ticks != TimeSpan.Zero.Ticks) {
+                HandleFailure(new ArgumentException("TimeSpan must equal zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(TimeSpan baseline) {
-            if (baseline.Ticks == TimeSpan.Zero.Ticks) {
-                return HandleFailure(new ArgumentException("TimeSpan must not equal zero"));
+        public TimeSpanEstablisher IsNotZero() {
+            if (Value.Ticks == TimeSpan.Zero.Ticks) {
+                HandleFailure(new ArgumentException("TimeSpan must not equal zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxSpan(TimeSpan baseline) {
-            if (baseline.Ticks != TimeSpan.MaxValue.Ticks) {
-                return HandleFailure(new ArgumentException("TimeSpan must equal TimeSpan.MaxValue"));
+        public TimeSpanEstablisher IsMaxSpan() {
+            if (Value.Ticks != TimeSpan.MaxValue.Ticks) {
+                HandleFailure(new ArgumentException("TimeSpan must equal TimeSpan.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxSpan(TimeSpan baseline) {
-            if (baseline.Ticks == TimeSpan.MaxValue.Ticks) {
-                return HandleFailure(new ArgumentException("TimeSpan must not equal TimeSpan.MaxValue"));
+        public TimeSpanEstablisher IsNotMaxSpan() {
+            if (Value.Ticks == TimeSpan.MaxValue.Ticks) {
+                HandleFailure(new ArgumentException("TimeSpan must not equal TimeSpan.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinSpan(TimeSpan baseline) {
-            if (baseline.Ticks != TimeSpan.MinValue.Ticks) {
-                return HandleFailure(new ArgumentException("TimeSpan must equal TimeSpan.MinValue"));
+        public TimeSpanEstablisher IsMinSpan() {
+            if (Value.Ticks != TimeSpan.MinValue.Ticks) {
+                HandleFailure(new ArgumentException("TimeSpan must equal TimeSpan.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinSpan(TimeSpan baseline) {
-            if (baseline.Ticks == TimeSpan.MinValue.Ticks) {
-                return HandleFailure(new ArgumentException("TimeSpan must not equal TimeSpan.MinValue"));
+        public TimeSpanEstablisher IsNotMinSpan() {
+            if (Value.Ticks == TimeSpan.MinValue.Ticks) {
+                HandleFailure(new ArgumentException("TimeSpan must not equal TimeSpan.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThan(TimeSpan baseline, TimeSpan threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("TimeSpan value must be greater than " + threshold.ToString()));
+        public TimeSpanEstablisher IsGreaterThan(TimeSpan threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("TimeSpan value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(TimeSpan baseline, TimeSpan threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("TimeSpan value must be greater than or equal to " + threshold.ToString()));
+        public TimeSpanEstablisher IsGreaterThanOrEqualTo(TimeSpan threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("TimeSpan value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(TimeSpan baseline, TimeSpan threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("TimeSpan value must be less than " + threshold.ToString()));
+        public TimeSpanEstablisher IsLessThan(TimeSpan threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("TimeSpan value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(TimeSpan baseline, TimeSpan threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("TimeSpan value must be less than or equal to " + threshold.ToString()));
+        public TimeSpanEstablisher IsLessThanOrEqualTo(TimeSpan threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("TimeSpan value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
     }

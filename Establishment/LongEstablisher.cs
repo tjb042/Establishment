@@ -8,84 +8,86 @@ namespace Establishment {
     
     public class LongEstablisher : BaseStructEstablisher<long> {
 
-        public bool IsGreaterThan(long baseline, long threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("long value must be greater than " + threshold.ToString()));
+        internal LongEstablisher(long value) : base(value) { }
+
+        public LongEstablisher IsGreaterThan(long threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("long value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(long baseline, long threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("long value must be greater than or equal to " + threshold.ToString()));
+        public LongEstablisher IsGreaterThanOrEqualTo(long threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("long value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(long baseline, long threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("long value must be less than " + threshold.ToString()));
+        public LongEstablisher IsLessThan(long threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("long value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(long baseline, long threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("long value must be less than or equal to " + threshold.ToString()));
+        public LongEstablisher IsLessThanOrEqualTo(long threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("long value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(long value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public LongEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(long value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public LongEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(long value) {
-            if (value != long.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal long.MinValue"));
+        public LongEstablisher IsMinValue() {
+            if (Value != long.MinValue) {
+                HandleFailure(new ArgumentException("value must equal long.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(long value) {
-            if (value == long.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal long.MinValue"));
+        public LongEstablisher IsNotMinValue() {
+            if (Value == long.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal long.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(long value) {
-            if (value != long.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal long.MaxValue"));
+        public LongEstablisher IsMaxValue() {
+            if (Value != long.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal long.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(long value) {
-            if (value == long.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal long.MaxValue"));
+        public LongEstablisher IsNotMaxValue() {
+            if (Value == long.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal long.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

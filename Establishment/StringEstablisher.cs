@@ -8,60 +8,62 @@ namespace Establishment {
 
     public class StringEstablisher : BaseClassEstablisher<string> {
 
-        public bool IsNullOrEmpty(string value) {
-            if (!string.IsNullOrEmpty(value)) {
-                return HandleFailure(new ArgumentException("string value must be null or empty"));
+        internal StringEstablisher(string value) : base(value) { }
+
+        public StringEstablisher IsNullOrEmpty() {
+            if (!string.IsNullOrEmpty(Value)) {
+                HandleFailure(new ArgumentException("string value must be null or empty"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotNullOrEmpty(string value) {
-            if (string.IsNullOrEmpty(value)) {
-                return HandleFailure(new ArgumentException("string value must not be null or empty"));
+        public StringEstablisher IsNotNullOrEmpty() {
+            if (string.IsNullOrEmpty(Value)) {
+                HandleFailure(new ArgumentException("string value must not be null or empty"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsEmpty(string value) {
-            if (value != string.Empty) {
-                return HandleFailure(new ArgumentException("string value must be empty"));
+        public StringEstablisher IsEmpty() {
+            if (Value != string.Empty) {
+                HandleFailure(new ArgumentException("string value must be empty"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotEmpty(string value) {
-            if (value == string.Empty) {
-                return HandleFailure(new ArgumentException("string value must not be empty"));
+        public StringEstablisher IsNotEmpty() {
+            if (Value == string.Empty) {
+                HandleFailure(new ArgumentException("string value must not be empty"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool HasExactLength(string value, int length) {
-            if (value.Length != length) {
-                return HandleFailure(new ArgumentException(string.Concat("string value is not exactly ", length, " characters")));
+        public StringEstablisher HasExactLength(int length) {
+            if (Value.Length != length) {
+                HandleFailure(new ArgumentException(string.Concat("string value is not exactly ", length, " characters")));
             }
 
-            return true;
+            return this;
         }
 
-        public bool HasMinimumLength(string value, int minimumLength) {
-            if (value.Length < minimumLength) {
-                return HandleFailure(new ArgumentException(string.Concat("string value is not at least ", minimumLength, " characters")));
+        public StringEstablisher HasMinimumLength(int minimumLength) {
+            if (Value.Length < minimumLength) {
+                HandleFailure(new ArgumentException(string.Concat("string value is not at least ", minimumLength, " characters")));
             }
 
-            return true;
+            return this;
         }
 
-        public bool HasMaximumLength(string value, int maximumLength) {
-            if (value.Length > maximumLength) {
-                return HandleFailure(new ArgumentException(string.Concat("string value is too long")));
+        public StringEstablisher HasMaximumLength(int maximumLength) {
+            if (Value.Length > maximumLength) {
+                HandleFailure(new ArgumentException(string.Concat("string value is too long")));
             }
 
-            return true;
+            return this;
         }
 
     }

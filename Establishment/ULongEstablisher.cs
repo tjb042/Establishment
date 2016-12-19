@@ -6,86 +6,90 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class UlongEstablisher : BaseStructEstablisher<ulong> {
+    public class ULongEstablisher : BaseStructEstablisher<ulong> {
 
-        public bool IsGreaterThan(ulong baseline, ulong threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("ulong value must be greater than " + threshold.ToString()));
-            }
-
-            return true;
+        internal ULongEstablisher(ulong value) : base(value) {
+            
         }
 
-        public bool IsGreaterThanOrEqualTo(ulong baseline, ulong threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("ulong value must be greater than or equal to " + threshold.ToString()));
+        public ULongEstablisher IsGreaterThan(ulong threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("ulong value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(ulong baseline, ulong threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("ulong value must be less than " + threshold.ToString()));
+        public ULongEstablisher IsGreaterThanOrEqualTo(ulong threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("ulong value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(ulong baseline, ulong threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("ulong value must be less than or equal to " + threshold.ToString()));
+        public ULongEstablisher IsLessThan(ulong threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("ulong value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(ulong value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public ULongEstablisher IsLessThanOrEqualTo(ulong threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("ulong value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(ulong value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public ULongEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(ulong value) {
-            if (value != ulong.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal ulong.MinValue"));
+        public ULongEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(ulong value) {
-            if (value == ulong.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal ulong.MinValue"));
+        public ULongEstablisher IsMinValue() {
+            if (Value != ulong.MinValue) {
+                HandleFailure(new ArgumentException("value must equal ulong.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(ulong value) {
-            if (value != ulong.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal ulong.MaxValue"));
+        public ULongEstablisher IsNotMinValue() {
+            if (Value == ulong.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal ulong.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(ulong value) {
-            if (value == ulong.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal ulong.MaxValue"));
+        public ULongEstablisher IsMaxValue() {
+            if (Value != ulong.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal ulong.MaxValue"));
             }
 
-            return true;
+            return this;
+        }
+
+        public ULongEstablisher IsNotMaxValue() {
+            if (Value == ulong.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal ulong.MaxValue"));
+            }
+
+            return this;
         }
 
     }

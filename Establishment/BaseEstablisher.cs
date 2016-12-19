@@ -6,29 +6,40 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    /// <summary>
-    /// Base establishment provider
-    /// </summary>
-    /// <remarks>
-    /// Adds shared <c>protected</c> functionality for all Establishment objects
-    /// </remarks>
-    public abstract class BaseEstablisher {
+    public abstract class BaseEstablisher<TType> {
 
-        public BaseEstablisher() {
-            ThrowExceptionOnEstablishmentFailure = true;
+        public BaseEstablisher(TType value) {
+            Value = value;
+            ThrowExceptionOnFailure = true;
         }
 
-        protected bool HandleFailure(Exception ex) {
-            if (ThrowExceptionOnEstablishmentFailure) {
+        public TType Value {
+            get;
+            protected set;
+        }
+
+        public bool HasExceptions {
+            get;
+            protected set;
+        }
+
+        public Exception LastException {
+            get;
+            protected set;
+        }
+
+        public bool ThrowExceptionOnFailure { 
+            get; 
+            set; 
+        }
+
+        protected virtual void HandleFailure(Exception ex) {
+            HasExceptions = true;
+            LastException = ex;
+
+            if (ThrowExceptionOnFailure) {
                 throw ex;
             }
-
-            return false;
-        }
-
-        public bool ThrowExceptionOnEstablishmentFailure {
-            get;
-            set;
         }
 
     }

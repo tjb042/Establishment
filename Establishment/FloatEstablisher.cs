@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class FloatEstablisher : BaseStructEstablisher<float> {
 
-        public bool IsGreaterThan(float baseline, float threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("float value must be greater than " + threshold.ToString()));
+        internal FloatEstablisher(float value) : base(value) { }
+
+        public FloatEstablisher IsGreaterThan(float threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("float value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(float baseline, float threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("float value must be greater than or equal to " + threshold.ToString()));
+        public FloatEstablisher IsGreaterThanOrEqualTo(float threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("float value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(float baseline, float threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("float value must be less than " + threshold.ToString()));
+        public FloatEstablisher IsLessThan(float threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("float value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(float baseline, float threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("float value must be less than or equal to " + threshold.ToString()));
+        public FloatEstablisher IsLessThanOrEqualTo(float threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("float value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(float value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public FloatEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(float value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public FloatEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(float value) {
-            if (value != float.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal float.MinValue"));
+        public FloatEstablisher IsMinValue() {
+            if (Value != float.MinValue) {
+                HandleFailure(new ArgumentException("value must equal float.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(float value) {
-            if (value == float.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal float.MinValue"));
+        public FloatEstablisher IsNotMinValue() {
+            if (Value == float.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal float.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(float value) {
-            if (value != float.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal float.MaxValue"));
+        public FloatEstablisher IsMaxValue() {
+            if (Value != float.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal float.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(float value) {
-            if (value == float.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal float.MaxValue"));
+        public FloatEstablisher IsNotMaxValue() {
+            if (Value == float.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal float.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

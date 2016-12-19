@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class UIntegerEstablisher : BaseStructEstablisher<uint> {
 
-        public bool IsGreaterThan(uint baseline, uint threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("uint value must be greater than " + threshold.ToString()));
+        internal UIntegerEstablisher(uint value) : base(value) { }
+
+        public UIntegerEstablisher IsGreaterThan(uint threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("uint value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(uint baseline, uint threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("uint value must be greater than or equal to " + threshold.ToString()));
+        public UIntegerEstablisher IsGreaterThanOrEqualTo(uint threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("uint value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(uint baseline, uint threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("uint value must be less than " + threshold.ToString()));
+        public UIntegerEstablisher IsLessThan(uint threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("uint value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(uint baseline, uint threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("uint value must be less than or equal to " + threshold.ToString()));
+        public UIntegerEstablisher IsLessThanOrEqualTo(uint threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("uint value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(uint value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public UIntegerEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(uint value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public UIntegerEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(uint value) {
-            if (value != uint.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal uint.MinValue"));
+        public UIntegerEstablisher IsMinValue() {
+            if (Value != uint.MinValue) {
+                HandleFailure(new ArgumentException("value must equal uint.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(uint value) {
-            if (value == uint.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal uint.MinValue"));
+        public UIntegerEstablisher IsNotMinValue() {
+            if (Value == uint.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal uint.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(uint value) {
-            if (value != uint.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal uint.MaxValue"));
+        public UIntegerEstablisher IsMaxValue() {
+            if (Value != uint.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal uint.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(uint value) {
-            if (value == uint.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal uint.MaxValue"));
+        public UIntegerEstablisher IsNotMaxValue() {
+            if (Value == uint.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal uint.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

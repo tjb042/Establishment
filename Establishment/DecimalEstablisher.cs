@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class DecimalEstablisher : BaseStructEstablisher<decimal> {
 
-        public bool IsGreaterThan(decimal baseline, decimal threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("decimal value must be greater than " + threshold.ToString()));
+        internal DecimalEstablisher(decimal value) : base(value) { }
+
+        public DecimalEstablisher IsGreaterThan(decimal threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("decimal value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(decimal baseline, decimal threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("decimal value must be greater than or equal to " + threshold.ToString()));
+        public DecimalEstablisher IsGreaterThanOrEqualTo(decimal threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("decimal value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(decimal baseline, decimal threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("decimal value must be less than " + threshold.ToString()));
+        public DecimalEstablisher IsLessThan(decimal threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("decimal value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(decimal baseline, decimal threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("decimal value must be less than or equal to " + threshold.ToString()));
+        public DecimalEstablisher IsLessThanOrEqualTo(decimal threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("decimal value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(decimal value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public DecimalEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(decimal value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public DecimalEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(decimal value) {
-            if (value != decimal.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal decimal.MinValue"));
+        public DecimalEstablisher IsMinValue() {
+            if (Value != decimal.MinValue) {
+                HandleFailure(new ArgumentException("value must equal decimal.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(decimal value) {
-            if (value == decimal.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal decimal.MinValue"));
+        public DecimalEstablisher IsNotMinValue() {
+            if (Value == decimal.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal decimal.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(decimal value) {
-            if (value != decimal.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal decimal.MaxValue"));
+        public DecimalEstablisher IsMaxValue() {
+            if (Value != decimal.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal decimal.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(decimal value) {
-            if (value == decimal.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal decimal.MaxValue"));
+        public DecimalEstablisher IsNotMaxValue() {
+            if (Value == decimal.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal decimal.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

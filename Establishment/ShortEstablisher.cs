@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class ShortEstablisher : BaseStructEstablisher<short> {
 
-        public bool IsGreaterThan(short baseline, short threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("short value must be greater than " + threshold.ToString()));
+        internal ShortEstablisher(short value) : base(value) { }
+
+        public ShortEstablisher IsGreaterThan(short threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("short value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(short baseline, short threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("short value must be greater than or equal to " + threshold.ToString()));
+        public ShortEstablisher IsGreaterThanOrEqualTo(short threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("short value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(short baseline, short threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("short value must be less than " + threshold.ToString()));
+        public ShortEstablisher IsLessThan(short threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("short value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(short baseline, short threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("short value must be less than or equal to " + threshold.ToString()));
+        public ShortEstablisher IsLessThanOrEqualTo(short threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("short value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(short value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public ShortEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(short value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public ShortEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(short value) {
-            if (value != short.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal short.MinValue"));
+        public ShortEstablisher IsMinValue() {
+            if (Value != short.MinValue) {
+                HandleFailure(new ArgumentException("value must equal short.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(short value) {
-            if (value == short.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal short.MinValue"));
+        public ShortEstablisher IsNotMinValue() {
+            if (Value == short.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal short.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(short value) {
-            if (value != short.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal short.MaxValue"));
+        public ShortEstablisher IsMaxValue() {
+            if (Value != short.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal short.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(short value) {
-            if (value == short.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal short.MaxValue"));
+        public ShortEstablisher IsNotMaxValue() {
+            if (Value == short.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal short.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

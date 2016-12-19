@@ -8,84 +8,86 @@ namespace Establishment {
 
     public class ByteEstablisher : BaseStructEstablisher<byte> {
 
-        public bool IsGreaterThan(byte baseline, byte threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("byte value must be greater than " + threshold.ToString()));
+        internal ByteEstablisher(byte value) : base(value) { }
+
+        public ByteEstablisher IsGreaterThan(byte threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("byte value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(byte baseline, byte threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("byte value must be greater than or equal to " + threshold.ToString()));
+        public ByteEstablisher IsGreaterThanOrEqualTo(byte threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("byte value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(byte baseline, byte threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("byte value must be less than " + threshold.ToString()));
+        public ByteEstablisher IsLessThan(byte threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("byte value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(byte baseline, byte threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("byte value must be less than or equal to " + threshold.ToString()));
+        public ByteEstablisher IsLessThanOrEqualTo(byte threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("byte value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsZero(byte value) {
-            if (value != 0) {
-                return HandleFailure(new ArgumentException("value must be zero"));
+        public ByteEstablisher IsZero() {
+            if (Value != 0) {
+                HandleFailure(new ArgumentException("value must be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotZero(byte value) {
-            if (value == 0) {
-                return HandleFailure(new ArgumentException("value must not be zero"));
+        public ByteEstablisher IsNotZero() {
+            if (Value == 0) {
+                HandleFailure(new ArgumentException("value must not be zero"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMinValue(byte value) {
-            if (value != byte.MinValue) {
-                return HandleFailure(new ArgumentException("value must equal byte.MinValue"));
+        public ByteEstablisher IsMinValue() {
+            if (Value != byte.MinValue) {
+                HandleFailure(new ArgumentException("value must equal byte.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinValue(byte value) {
-            if (value == byte.MinValue) {
-                return HandleFailure(new ArgumentException("value must not equal byte.MinValue"));
+        public ByteEstablisher IsNotMinValue() {
+            if (Value == byte.MinValue) {
+                HandleFailure(new ArgumentException("value must not equal byte.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxValue(byte value) {
-            if (value != byte.MaxValue) {
-                return HandleFailure(new ArgumentException("value must equal byte.MaxValue"));
+        public ByteEstablisher IsMaxValue() {
+            if (Value != byte.MaxValue) {
+                HandleFailure(new ArgumentException("value must equal byte.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxValue(byte value) {
-            if (value == byte.MaxValue) {
-                return HandleFailure(new ArgumentException("value must not equal byte.MaxValue"));
+        public ByteEstablisher IsNotMaxValue() {
+            if (Value == byte.MaxValue) {
+                HandleFailure(new ArgumentException("value must not equal byte.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
     }

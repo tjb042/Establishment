@@ -10,136 +10,143 @@ namespace Establishment {
 
         private static DateTime UnixEpoch = new DateTime(1970, 1, 1);
 
-        public bool IsMinDate(DateTime baseline) {
-            if (baseline != DateTime.MinValue) {
-                return HandleFailure(new ArgumentException("DateTime value must be equal to DateTime.MinValue"));
+        internal DateTimeEstablisher(DateTime value) : base(value) { }
+
+        public DateTimeEstablisher IsMinDate() {
+            if (Value != DateTime.MinValue) {
+                HandleFailure(new ArgumentException("DateTime value must be equal to DateTime.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMinDate(DateTime baseline) {
-            if (baseline == DateTime.MinValue) {
-                return HandleFailure(new ArgumentException("DateTime value must not be equal to DateTime.MinValue"));
+        public DateTimeEstablisher IsNotMinDate() {
+            if (Value == DateTime.MinValue) {
+                HandleFailure(new ArgumentException("DateTime value must not be equal to DateTime.MinValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsMaxDate(DateTime baseline) {
-            if (baseline != DateTime.MaxValue) {
-                return HandleFailure(new ArgumentException("DateTime value must be equal to DateTime.MaxValue"));
+        public DateTimeEstablisher IsMaxDate() {
+            if (Value != DateTime.MaxValue) {
+                HandleFailure(new ArgumentException("DateTime value must be equal to DateTime.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotMaxDate(DateTime baseline) {
-            if (baseline == DateTime.MaxValue) {
-                return HandleFailure(new ArgumentException("DateTime value must not be equal to DateTime.MaxValue"));
+        public DateTimeEstablisher IsNotMaxDate() {
+            if (Value == DateTime.MaxValue) {
+                HandleFailure(new ArgumentException("DateTime value must not be equal to DateTime.MaxValue"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsUnixEpoch(DateTime baseline) {
-            if (baseline != UnixEpoch) {
-                return HandleFailure(new ArgumentException("DateTime value must be equal to UnixEpoch"));
+        public DateTimeEstablisher IsUnixEpoch() {
+            if (Value != UnixEpoch) {
+                HandleFailure(new ArgumentException("DateTime value must be equal to UnixEpoch"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotUnixEpoch(DateTime baseline) {
-            if (baseline == UnixEpoch) {
-                return HandleFailure(new ArgumentException("DateTime value must not be equal to UnixEpoch"));
+        public DateTimeEstablisher IsNotUnixEpoch() {
+            if (Value == UnixEpoch) {
+                HandleFailure(new ArgumentException("DateTime value must not be equal to UnixEpoch"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsBeforeUnixEpoch(DateTime baseline) {
-            if (baseline >= UnixEpoch) {
-                return HandleFailure(new ArgumentException("DateTime value must occur before UnixEpoch"));
+        public DateTimeEstablisher IsBeforeUnixEpoch() {
+            if (Value >= UnixEpoch) {
+                HandleFailure(new ArgumentException("DateTime value must occur before UnixEpoch"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsAfterUnixEpoch(DateTime baseline) {
-            if (baseline < UnixEpoch) {
-                return HandleFailure(new ArgumentException("DateTime value must occur after UnixEpoch"));
+        public DateTimeEstablisher IsAfterUnixEpoch() {
+            if (Value < UnixEpoch) {
+                HandleFailure(new ArgumentException("DateTime value must occur after UnixEpoch"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThan(DateTime baseline, DateTime threshold) {
-            if (baseline <= threshold) {
-                return HandleFailure(new ArgumentException("DateTime value must be greater than " + threshold.ToString()));
+        public DateTimeEstablisher IsGreaterThan(DateTime threshold) {
+            if (Value <= threshold) {
+                HandleFailure(new ArgumentException("DateTime value must be greater than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsGreaterThanOrEqualTo(DateTime baseline, DateTime threshold) {
-            if (baseline < threshold) {
-                return HandleFailure(new ArgumentException("DateTime value must be greater than or equal to " + threshold.ToString()));
+        public DateTimeEstablisher IsGreaterThanOrEqualTo(DateTime threshold) {
+            if (Value < threshold) {
+                HandleFailure(new ArgumentException("DateTime value must be greater than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThan(DateTime baseline, DateTime threshold) {
-            if (baseline >= threshold) {
-                return HandleFailure(new ArgumentException("DateTime value must be less than " + threshold.ToString()));
+        public DateTimeEstablisher IsLessThan(DateTime threshold) {
+            if (Value >= threshold) {
+                HandleFailure(new ArgumentException("DateTime value must be less than " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsLessThanOrEqualTo(DateTime baseline, DateTime threshold) {
-            if (baseline > threshold) {
-                return HandleFailure(new ArgumentException("DateTime value must be less than or equal to " + threshold.ToString()));
+        public DateTimeEstablisher IsLessThanOrEqualTo(DateTime threshold) {
+            if (Value > threshold) {
+                HandleFailure(new ArgumentException("DateTime value must be less than or equal to " + threshold.ToString()));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsInTheFuture(DateTime baseline) {
-            if (DateTime.Now >= baseline) {
-                return HandleFailure(new ArgumentException("DateTime value must be a date and time in the future"));
+        public DateTimeEstablisher IsInTheFuture() {
+            if (DateTime.Now >= Value) {
+                HandleFailure(new ArgumentException("DateTime value must be a date and time in the future"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsInThePast(DateTime baseline) {
-            if (DateTime.Now <= baseline) {
-                return HandleFailure(new ArgumentException("DateTime value must be a date and time in the past"));
+        public DateTimeEstablisher IsInThePast() {
+            if (DateTime.Now <= Value) {
+                HandleFailure(new ArgumentException("DateTime value must be a date and time in the past"));
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsWeekday(DateTime baseline) {
-            switch (baseline.DayOfWeek) {
+        public DateTimeEstablisher IsWeekday() {
+            switch (Value.DayOfWeek) {
                 case DayOfWeek.Sunday:
                 case DayOfWeek.Saturday:
-                    return HandleFailure(new ArgumentException("DateTime value must fall on a weekday"));
+                    HandleFailure(new ArgumentException("DateTime value must fall on a weekday"));
+                    break;
             }
 
-            return true;
+            return this;
         }
 
-        public bool IsNotWeekday(DateTime baseline) {
-            switch (baseline.DayOfWeek) {
-                case DayOfWeek.Sunday:
-                case DayOfWeek.Saturday:
-                    return true;
+        public DateTimeEstablisher IsNotWeekday() {
+            switch (Value.DayOfWeek) {
+                case DayOfWeek.Monday:
+                case DayOfWeek.Tuesday:
+                case DayOfWeek.Wednesday:
+                case DayOfWeek.Thursday:
+                case DayOfWeek.Friday:
+                    HandleFailure(new ArgumentException("DateTime value must not fall on a weekday")); 
+                    break;
             }
 
-            return HandleFailure(new ArgumentException("DateTime value must not fall on a weekday"));
+            return this;
         }
 
     }
