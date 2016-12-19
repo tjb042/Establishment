@@ -91,6 +91,22 @@ namespace Establishment {
             return this;
         }
 
+        public DecimalEstablisher IsPositive() {
+            if (Value < 0m) {
+                HandleFailure(new ArgumentException("value must be greater than zero"));
+            }
+
+            return this;
+        }
+
+        public DecimalEstablisher IsNegative() {
+            if (Value > 0m) {
+                HandleFailure(new ArgumentException("value must be less than zero"));
+            }
+
+            return this;
+        }
+
     }
 
 }

@@ -91,6 +91,22 @@ namespace Establishment {
             return this;
         }
 
+        public DoubleEstablisher IsPositive() {
+            if (Value < 0D) {
+                HandleFailure(new ArgumentException("value must be greater than zero"));
+            }
+
+            return this;
+        }
+
+        public DoubleEstablisher IsNegative() {
+            if (Value > 0D) {
+                HandleFailure(new ArgumentException("value must be less than zero"));
+            }
+
+            return this;
+        }
+
     }
 
 }

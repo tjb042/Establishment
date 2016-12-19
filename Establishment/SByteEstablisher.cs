@@ -92,6 +92,22 @@ namespace Establishment {
             return this;
         }
 
+        public SByteEstablisher IsPositive() {
+            if (Value < 0) {
+                HandleFailure(new ArgumentException("value must be greater than zero"));
+            }
+
+            return this;
+        }
+
+        public SByteEstablisher IsNegative() {
+            if (Value > 0) {
+                HandleFailure(new ArgumentException("value must be less than zero"));
+            }
+
+            return this;
+        }
+
     }
 
 }

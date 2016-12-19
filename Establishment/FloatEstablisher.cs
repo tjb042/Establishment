@@ -91,6 +91,22 @@ namespace Establishment {
             return this;
         }
 
+        public FloatEstablisher IsPositive() {
+            if (Value < 0f) {
+                HandleFailure(new ArgumentException("value must be greater than zero"));
+            }
+
+            return this;
+        }
+
+        public FloatEstablisher IsNegative() {
+            if (Value > 0f) {
+                HandleFailure(new ArgumentException("value must be less than zero"));
+            }
+
+            return this;
+        }
+
     }
 
 }
