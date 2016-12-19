@@ -49,7 +49,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="constraint">The target value for comparison</param>
         /// <returns><c>true</c> if <paramref name="value"/> equals <paramref name="constraint"/>; otherwise, <c>false</c></returns>
-        public virtual BaseClassEstablisher<TType> IsEqual(TType constraint) {
+        public virtual BaseClassEstablisher<TType> IsEqualTo(TType constraint) {
             if (!DefaultComparer.Equals(Value, constraint)) {
                 HandleFailure(new ArgumentException(GenericType.Name + " value must equal constraint"));
             }
@@ -62,7 +62,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="constraint">The target value for comparison</param>
         /// <returns><c>true</c> if <paramref name="value"/> does not equal <paramref name="constraint"/>; otherwise, <c>false</c></returns>
-        public virtual BaseClassEstablisher<TType> IsNotEqual(TType constraint) {
+        public virtual BaseClassEstablisher<TType> IsNotEqualTo(TType constraint) {
             if (DefaultComparer.Equals(Value, constraint)) {
                 HandleFailure(new ArgumentNullException(GenericType.Name + "value must not equal constraint"));
             }

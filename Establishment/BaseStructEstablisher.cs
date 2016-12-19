@@ -37,7 +37,7 @@ namespace Establishment {
             return this;
         }
 
-        public virtual BaseStructEstablisher<TType> IsEqual(TType constraint) {
+        public virtual BaseStructEstablisher<TType> IsEqualTo(TType constraint) {
             if (!DefaultComparer.Equals(Value, constraint)) {
                 HandleFailure(new ArgumentException(GenericType.Name + " value must equal constraint"));
             }
@@ -45,7 +45,7 @@ namespace Establishment {
             return this;
         }
 
-        public virtual BaseStructEstablisher<TType> IsNotEqual(TType constraint) {
+        public virtual BaseStructEstablisher<TType> IsNotEqualTo(TType constraint) {
             if (DefaultComparer.Equals(Value, constraint)) {
                 HandleFailure(new ArgumentException(GenericType.Name + " value must nto equal constraint"));
             }

@@ -18,8 +18,8 @@ namespace Establishment.Tests {
             var trueEstablisher = Establish.For(true);
             var falseEstablisher = Establish.For(false);
 
-            trueEstablisher.IsEqual(true);
-            falseEstablisher.IsEqual(false);
+            trueEstablisher.IsEqualTo(true);
+            falseEstablisher.IsEqualTo(false);
         }
 
         [TestMethod]
@@ -41,8 +41,8 @@ namespace Establishment.Tests {
             var trueEstablisher = Establish.For(true);
             var falseEstablisher = Establish.For(false);
 
-            trueEstablisher.IsNotEqual(false);
-            falseEstablisher.IsNotEqual(true);
+            trueEstablisher.IsNotEqualTo(false);
+            falseEstablisher.IsNotEqualTo(true);
         }
 
         [TestMethod]

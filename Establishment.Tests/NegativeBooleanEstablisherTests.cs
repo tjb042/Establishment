@@ -19,7 +19,7 @@ namespace Establishment.Tests {
         public void Negative_Bool_IsEqual1() {
             var trueEstablisher = Establish.For(true);
 
-            trueEstablisher.IsEqual(false);
+            trueEstablisher.IsEqualTo(false);
         }
 
         [TestMethod]
@@ -27,7 +27,7 @@ namespace Establishment.Tests {
         public void Negative_Bool_IsEqual2() {
             var trueEstablisher = Establish.For(false);
 
-            trueEstablisher.IsEqual(true);
+            trueEstablisher.IsEqualTo(true);
         }
 
         [TestMethod]
@@ -51,7 +51,7 @@ namespace Establishment.Tests {
         public void Negative_Bool_IsNotEqual1() {
             var trueEstablisher = Establish.For(true);
 
-            trueEstablisher.IsNotEqual(true);
+            trueEstablisher.IsNotEqualTo(true);
         }
 
         [TestMethod]
@@ -59,7 +59,7 @@ namespace Establishment.Tests {
         public void Negative_Bool_IsNotEqual2() {
             var trueEstablisher = Establish.For(false);
 
-            trueEstablisher.IsNotEqual(false);
+            trueEstablisher.IsNotEqualTo(false);
         }
 
         [TestMethod]
