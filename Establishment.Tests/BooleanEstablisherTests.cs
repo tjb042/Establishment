@@ -7,10 +7,19 @@ namespace Establishment.Tests {
     public class BooleanEstablisherTests {
     
         [TestMethod]
-        public void Bool_IsTrue() {
-            var establisher = Establish.For(true);
+        public void Bool_IsDefault() {
+            var establisher = Establish.For(default(bool));
 
-            establisher.IsTrue();
+            establisher.IsDefault();
+        }
+
+        [TestMethod]
+        public void Bool_IsEqual() {
+            var trueEstablisher = Establish.For(true);
+            var falseEstablisher = Establish.For(false);
+
+            trueEstablisher.IsEqual(true);
+            falseEstablisher.IsEqual(false);
         }
 
         [TestMethod]
@@ -18,6 +27,29 @@ namespace Establishment.Tests {
             var establisher = Establish.For(false);
 
             establisher.IsFalse();
+        }
+
+        [TestMethod]
+        public void Bool_IsNotDefault() {
+            var establisher = Establish.For(!default(bool));
+
+            establisher.IsNotDefault();
+        }
+
+        [TestMethod]
+        public void Bool_IsNotEqual() {
+            var trueEstablisher = Establish.For(true);
+            var falseEstablisher = Establish.For(false);
+
+            trueEstablisher.IsNotEqual(false);
+            falseEstablisher.IsNotEqual(true);
+        }
+
+        [TestMethod]
+        public void Bool_IsTrue() {
+            var establisher = Establish.For(true);
+
+            establisher.IsTrue();
         }
 
     }
