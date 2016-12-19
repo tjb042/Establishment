@@ -10,7 +10,7 @@ namespace Establishment {
 
         internal BooleanEstablisher(bool value) : base(value) { }
 
-        public BooleanEstablisher IsTrue(bool value) {
+        public BooleanEstablisher IsTrue() {
             if (!Value) {
                 HandleFailure(new ArgumentException("bool value must be true"));
             }
@@ -18,7 +18,7 @@ namespace Establishment {
             return this;
         }
 
-        public BooleanEstablisher IsFalse(bool value) {
+        public BooleanEstablisher IsFalse() {
             if (Value) {
                 HandleFailure(new ArgumentException("bool value must be false"));
             }
