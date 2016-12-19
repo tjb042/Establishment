@@ -12,11 +12,6 @@ namespace Establishment {
 
         static Establish() {
             _throwExceptionOnFailure = true;
-
-            // Establish.ForObject<T>(string).IsNotNull().IsNotEmpty();
-            // Establish.ForObject<T>(int).IsNotZero().IsPositive().IsNotMax().IsLessThan(15);
-            // if (Establish.ForObject(long).IsNotZero().IsLessThan(10L).HasException) { /* do things */ }
-            Establish.For("").IsNotNullOrEmpty().HasMaximumLength(10).HasMinimumLength(1);
         }
 
         public static BooleanEstablisher For(bool input) {
