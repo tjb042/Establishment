@@ -11,11 +11,23 @@ namespace Establishment {
         public BaseEstablisher(TType value) {
             Value = value;
             ThrowExceptionOnFailure = true;
+            GenericType = typeof(TType);
+            DefaultComparer = EqualityComparer<TType>.Default;
         }
 
         public TType Value {
             get;
             protected set;
+        }
+
+        protected Type GenericType {
+            get;
+            private set;
+        }
+
+        protected IEqualityComparer<TType> DefaultComparer {
+            get;
+            private set;
         }
 
         public bool HasExceptions {

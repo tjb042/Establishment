@@ -12,17 +12,11 @@ namespace Establishment {
     /// <typeparam name="TType">A reference type</typeparam>
     public class BaseClassEstablisher<TType> : BaseEstablisher<TType> where TType : class {
 
-        protected readonly Type _type;
-        protected readonly string _typeName;
-        protected readonly IEqualityComparer<TType> _defaultComparer;
-
         /// <summary>
         /// Initializes a new instance of <see cref="BaseClassEstablisher"/>
         /// </summary>
         public BaseClassEstablisher(TType baseline) : base(baseline) {
-            _type = typeof(TType);
-            _typeName = _type.Name;
-            _defaultComparer = EqualityComparer<TType>.Default;
+            
         }
 
         /// <summary>
@@ -32,7 +26,7 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> is null; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsNull(TType value) {
             if (value != null) {
-                HandleFailure(new ArgumentException(_typeName + " value must be null"));
+                HandleFailure(new ArgumentException(GenericType.Name + " value must be null"));
             }
 
             return this;
@@ -45,7 +39,7 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> is not null; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsNotNull(TType value) {
             if (value == null) {
-                HandleFailure(new ArgumentException(_typeName + " value cannot be null"));
+                HandleFailure(new ArgumentException(GenericType.Name + " value cannot be null"));
             }
 
             return this;
@@ -58,8 +52,8 @@ namespace Establishment {
         /// <param name="constraint">The target value for comparison</param>
         /// <returns><c>true</c> if <paramref name="value"/> equals <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsEqual(TType value, TType constraint) {
-            if (!_defaultComparer.Equals(value, constraint)) {
-                HandleFailure(new ArgumentException(_typeName + " value must equal constraint"));
+            if (!DefaultComparer.Equals(value, constraint)) {
+                HandleFailure(new ArgumentException(GenericType.Name + " value must equal constraint"));
             }
 
             return this;
@@ -72,8 +66,8 @@ namespace Establishment {
         /// <param name="constraint">The target value for comparison</param>
         /// <returns><c>true</c> if <paramref name="value"/> does not equal <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsNotEqual(TType value, TType constraint) {
-            if (_defaultComparer.Equals(value, constraint)) {
-                HandleFailure(new ArgumentNullException(_typeName + "value must not equal constraint"));
+            if (DefaultComparer.Equals(value, constraint)) {
+                HandleFailure(new ArgumentNullException(GenericType.Name + "value must not equal constraint"));
             }
 
             return this;
