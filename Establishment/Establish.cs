@@ -8,10 +8,8 @@ namespace Establishment {
 
     public static class Establish {
 
-        private static bool _throwExceptionOnFailure;
-
         static Establish() {
-            _throwExceptionOnFailure = true;
+            ThrowExceptionOnFailure = true;
         }
 
         public static BooleanEstablisher For(bool input) {
