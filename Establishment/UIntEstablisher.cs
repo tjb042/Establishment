@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsGreaterThan(uint threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("uint value must be greater than " + threshold.ToString()));
+                HandleFailure(new ArgumentException("uint value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
@@ -20,7 +21,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsGreaterThanOrEqualTo(uint threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("uint value must be greater than or equal to " + threshold.ToString()));
+                HandleFailure(new ArgumentException("uint value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
@@ -28,7 +29,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsLessThan(uint threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("uint value must be less than " + threshold.ToString()));
+                HandleFailure(new ArgumentException("uint value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
@@ -36,7 +37,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsLessThanOrEqualTo(uint threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("uint value must be less than or equal to " + threshold.ToString()));
+                HandleFailure(new ArgumentException("uint value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;

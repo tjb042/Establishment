@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Establishment {
 
         public UShortEstablisher IsGreaterThan(ushort threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("ushort value must be greater than " + threshold.ToString()));
+                HandleFailure(new ArgumentException("ushort value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
@@ -22,7 +23,7 @@ namespace Establishment {
 
         public UShortEstablisher IsGreaterThanOrEqualTo(ushort threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("ushort value must be greater than or equal to " + threshold.ToString()));
+                HandleFailure(new ArgumentException("ushort value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
@@ -30,7 +31,7 @@ namespace Establishment {
 
         public UShortEstablisher IsLessThan(ushort threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("ushort value must be less than " + threshold.ToString()));
+                HandleFailure(new ArgumentException("ushort value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
@@ -38,7 +39,7 @@ namespace Establishment {
 
         public UShortEstablisher IsLessThanOrEqualTo(ushort threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("ushort value must be less than or equal to " + threshold.ToString()));
+                HandleFailure(new ArgumentException("ushort value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
             }
 
             return this;
