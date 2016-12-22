@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class SByteEstablisher : BaseStructEstablisher<sbyte> {
+    public class SByteEstablisher : BaseEstablisher<sbyte>, IStructEstablisher<SByteEstablisher, sbyte> {
 
         internal SByteEstablisher(sbyte value) : base(value) { }
 
@@ -106,6 +106,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public SByteEstablisher IsDefault() {
+            return base.IsDefault<SByteEstablisher>();
+        }
+
+        public SByteEstablisher IsNotDefault() {
+            return base.IsNotDefault<SByteEstablisher>();
+        }
+
+        public SByteEstablisher IsEqualTo(sbyte constraint) {
+            return base.IsEqualTo<SByteEstablisher>(constraint);
+        }
+
+        public SByteEstablisher IsNotEqualTo(sbyte constraint) {
+            return base.IsNotEqualTo<SByteEstablisher>(constraint);
         }
 
     }

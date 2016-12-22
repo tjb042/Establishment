@@ -41,9 +41,9 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseClassEstablisher.cs" />
+    <Compile Include="IClassEstablisher.cs" />
     <Compile Include="BaseEstablisher.cs" />
-    <Compile Include="BaseStructEstablisher.cs" />
+    <Compile Include="IStructEstablisher.cs" />
     <Compile Include="BooleanEstablisher.cs" />
     <Compile Include="ByteEstablisher.cs" />
     <Compile Include="DateTimeEstablisher.cs" />

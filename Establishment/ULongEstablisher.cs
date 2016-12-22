@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class ULongEstablisher : BaseStructEstablisher<ulong> {
+    public class ULongEstablisher : BaseEstablisher<ulong>, IStructEstablisher<ULongEstablisher, ulong> {
 
         internal ULongEstablisher(ulong value) : base(value) {
             
@@ -92,6 +92,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public ULongEstablisher IsDefault() {
+            return base.IsDefault<ULongEstablisher>();
+        }
+
+        public ULongEstablisher IsNotDefault() {
+            return base.IsNotDefault<ULongEstablisher>();
+        }
+
+        public ULongEstablisher IsEqualTo(ulong constraint) {
+            return base.IsEqualTo<ULongEstablisher>(constraint);
+        }
+
+        public ULongEstablisher IsNotEqualTo(ulong constraint) {
+            return base.IsNotEqualTo<ULongEstablisher>(constraint);
         }
 
     }

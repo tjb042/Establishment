@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class StringEstablisher : BaseClassEstablisher<string> {
+    public class StringEstablisher : BaseEstablisher<string>, IClassEstablisher<StringEstablisher, string> {
 
         internal StringEstablisher(string value) : base(value) { }
 
@@ -66,6 +66,21 @@ namespace Establishment {
             return this;
         }
 
+        public StringEstablisher IsNull() {
+            return base.IsDefault<StringEstablisher>();
+        }
+
+        public StringEstablisher IsNotNull() {
+            return base.IsNotDefault<StringEstablisher>();
+        }
+
+        public StringEstablisher IsEqualTo(string constraint) {
+            return base.IsEqualTo<StringEstablisher>(constraint);
+        }
+
+        public StringEstablisher IsNotEqualTo(string constraint) {
+            return base.IsNotEqualTo<StringEstablisher>(constraint);
+        }
     }
 
 }

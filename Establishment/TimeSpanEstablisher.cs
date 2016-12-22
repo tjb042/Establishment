@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class TimeSpanEstablisher : BaseStructEstablisher<TimeSpan> {
+    public class TimeSpanEstablisher : BaseEstablisher<TimeSpan>, IStructEstablisher<TimeSpanEstablisher, TimeSpan> {
 
         internal TimeSpanEstablisher(TimeSpan value) : base(value) { }
 
@@ -88,6 +88,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public TimeSpanEstablisher IsDefault() {
+            return base.IsDefault<TimeSpanEstablisher>();
+        }
+
+        public TimeSpanEstablisher IsNotDefault() {
+            return base.IsNotDefault<TimeSpanEstablisher>();
+        }
+
+        public TimeSpanEstablisher IsEqualTo(TimeSpan constraint) {
+            return base.IsEqualTo<TimeSpanEstablisher>(constraint);
+        }
+
+        public TimeSpanEstablisher IsNotEqualTo(TimeSpan constraint) {
+            return base.IsNotEqualTo<TimeSpanEstablisher>(constraint);
         }
 
     }

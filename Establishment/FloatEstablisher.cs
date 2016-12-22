@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class FloatEstablisher : BaseStructEstablisher<float> {
+    public class FloatEstablisher : BaseEstablisher<float>, IStructEstablisher<FloatEstablisher, float> {
 
         internal FloatEstablisher(float value) : base(value) { }
 
@@ -105,6 +105,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public FloatEstablisher IsDefault() {
+            return base.IsDefault<FloatEstablisher>();
+        }
+
+        public FloatEstablisher IsNotDefault() {
+            return base.IsNotDefault<FloatEstablisher>();
+        }
+
+        public FloatEstablisher IsEqualTo(float constraint) {
+            return base.IsEqualTo<FloatEstablisher>(constraint);
+        }
+
+        public FloatEstablisher IsNotEqualTo(float constraint) {
+            return base.IsNotEqualTo<FloatEstablisher>(constraint);
         }
 
     }

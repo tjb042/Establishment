@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class UIntegerEstablisher : BaseStructEstablisher<uint> {
+    public class UIntegerEstablisher : BaseEstablisher<uint>, IStructEstablisher<UIntegerEstablisher, uint> {
 
         internal UIntegerEstablisher(uint value) : base(value) { }
 
@@ -90,6 +90,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public UIntegerEstablisher IsDefault() {
+            return base.IsDefault<UIntegerEstablisher>();
+        }
+
+        public UIntegerEstablisher IsNotDefault() {
+            return base.IsNotDefault<UIntegerEstablisher>();
+        }
+
+        public UIntegerEstablisher IsEqualTo(uint constraint) {
+            return base.IsEqualTo<UIntegerEstablisher>(constraint);
+        }
+
+        public UIntegerEstablisher IsNotEqualTo(uint constraint) {
+            return base.IsNotEqualTo<UIntegerEstablisher>(constraint);
         }
 
     }

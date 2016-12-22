@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class DateTimeEstablisher : BaseStructEstablisher<DateTime> {
+    public class DateTimeEstablisher : BaseEstablisher<DateTime>, IStructEstablisher<DateTimeEstablisher, DateTime> {
 
         private static DateTime UnixEpoch = new DateTime(1970, 1, 1);
 
@@ -147,6 +147,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public DateTimeEstablisher IsDefault() {
+            return base.IsDefault<DateTimeEstablisher>();
+        }
+
+        public DateTimeEstablisher IsNotDefault() {
+            return base.IsNotDefault<DateTimeEstablisher>();
+        }
+
+        public DateTimeEstablisher IsEqualTo(DateTime constraint) {
+            return base.IsEqualTo<DateTimeEstablisher>(constraint);
+        }
+
+        public DateTimeEstablisher IsNotEqualTo(DateTime constraint) {
+            return base.IsNotEqualTo<DateTimeEstablisher>(constraint);
         }
 
     }

@@ -228,27 +228,27 @@ namespace Establishment {
             };
         }
 
-        public static BaseClassEstablisher<TType> ForObject<TType>(TType input) where TType : class {
-            return new BaseClassEstablisher<TType>(input) {
+        public static BaseEstablisher<TType> ForObject<TType>(TType input) where TType : class {
+            return new BaseEstablisher<TType>(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
             };
         }
 
-        public static BaseClassEstablisher<TType> ForObject<TType>(TType input, string parameterName) where TType : class {
-            return new BaseClassEstablisher<TType>(input) {
+        public static BaseEstablisher<TType> ForObject<TType>(TType input, string parameterName) where TType : class {
+            return new BaseEstablisher<TType>(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure,
                 ParameterName = parameterName
             };
         }
 
-        public static BaseStructEstablisher<TType> ForStruct<TType>(TType input) where TType : struct {
-            return new BaseStructEstablisher<TType>(input) {
+        public static BaseEstablisher<TType> ForStruct<TType>(TType input) where TType : struct {
+            return new BaseEstablisher<TType>(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
             };
         }
 
-        public static BaseStructEstablisher<TType> ForStruct<TType>(TType input, string parameterName) where TType : struct {
-            return new BaseStructEstablisher<TType>(input) {
+        public static BaseEstablisher<TType> ForStruct<TType>(TType input, string parameterName) where TType : struct {
+            return new BaseEstablisher<TType>(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure,
                 ParameterName = parameterName
             };

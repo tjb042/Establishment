@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class ByteEstablisher : BaseStructEstablisher<byte> {
+    public class ByteEstablisher : BaseEstablisher<byte>, IStructEstablisher<ByteEstablisher, byte> {
 
         internal ByteEstablisher(byte value) : base(value) { }
 
@@ -89,6 +89,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public ByteEstablisher IsDefault() {
+            return base.IsDefault<ByteEstablisher>();
+        }
+
+        public ByteEstablisher IsNotDefault() {
+            return base.IsNotDefault<ByteEstablisher>();
+        }
+
+        public ByteEstablisher IsEqualTo(byte constraint) {
+            return base.IsEqualTo<ByteEstablisher>(constraint);
+        }
+
+        public ByteEstablisher IsNotEqualTo(byte constraint) {
+            return base.IsNotEqualTo<ByteEstablisher>(constraint);
         }
 
     }

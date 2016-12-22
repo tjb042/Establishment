@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class ShortEstablisher : BaseStructEstablisher<short> {
+    public class ShortEstablisher : BaseEstablisher<short>, IStructEstablisher<ShortEstablisher, short> {
 
         internal ShortEstablisher(short value) : base(value) { }
 
@@ -105,6 +105,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public ShortEstablisher IsDefault() {
+            return base.IsDefault<ShortEstablisher>();
+        }
+
+        public ShortEstablisher IsNotDefault() {
+            return base.IsNotDefault<ShortEstablisher>();
+        }
+
+        public ShortEstablisher IsEqualTo(short constraint) {
+            return base.IsEqualTo<ShortEstablisher>(constraint);
+        }
+
+        public ShortEstablisher IsNotEqualTo(short constraint) {
+            return base.IsNotEqualTo<ShortEstablisher>(constraint);
         }
 
     }

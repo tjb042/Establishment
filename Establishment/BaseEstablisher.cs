@@ -10,7 +10,7 @@ namespace Establishment {
     /// Base establishment provider for all types
     /// </summary>
     /// <typeparam name="TType">Any generic struct or class type</typeparam>
-    public abstract class BaseEstablisher<TType> {
+    public class BaseEstablisher<TType> {
 
         private string _parameterName = null;
 
@@ -18,11 +18,12 @@ namespace Establishment {
         /// Initializes a new instance of <see cref="BaseEstablisher"/>
         /// </summary>
         /// <param name="value">An instance of <paramref name="TType"/> used for tests</param>
-        protected BaseEstablisher(TType value) {
+        public BaseEstablisher(TType value) {
             Value = value;
             ThrowExceptionOnFailure = true;
             GenericType = typeof(TType);
             DefaultComparer = EqualityComparer<TType>.Default;
+            DefaultTypeValue = default(TType);
         }
 
         /// <summary>
@@ -31,6 +32,11 @@ namespace Establishment {
         public TType Value {
             get;
             protected set;
+        }
+
+        protected TType DefaultTypeValue {
+            get;
+            private set;
         }
 
         /// <summary>
@@ -109,6 +115,38 @@ namespace Establishment {
             if (ThrowExceptionOnFailure) {
                 throw ex;
             }
+        }
+
+        protected TEstablisher IsDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
+            if (!DefaultComparer.Equals(Value, DefaultTypeValue)) {
+                HandleFailure(GenericType.Name + " must equal its default value");
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher IsNotDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
+            if (DefaultComparer.Equals(Value, DefaultTypeValue)) {
+                HandleFailure(GenericType.Name + " must not equal its default value");
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher IsEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
+            if (!DefaultComparer.Equals(Value, constraint)) {
+                HandleFailure(GenericType.Name + " is not equal to a required constraint");
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher IsNotEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
+            if (DefaultComparer.Equals(Value, constraint)) {
+                HandleFailure(GenericType.Name + " must not equal a blacklist constraint");
+            }
+
+            return this as TEstablisher;
         }
 
     }

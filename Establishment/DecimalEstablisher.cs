@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class DecimalEstablisher : BaseStructEstablisher<decimal> {
+    public class DecimalEstablisher : BaseEstablisher<decimal>, IStructEstablisher<DecimalEstablisher, decimal> {
 
         internal DecimalEstablisher(decimal value) : base(value) { }
 
@@ -105,6 +105,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public DecimalEstablisher IsDefault() {
+            return base.IsDefault<DecimalEstablisher>();
+        }
+
+        public DecimalEstablisher IsNotDefault() {
+            return base.IsNotDefault<DecimalEstablisher>();
+        }
+
+        public DecimalEstablisher IsEqualTo(decimal constraint) {
+            return base.IsEqualTo<DecimalEstablisher>(constraint);
+        }
+
+        public DecimalEstablisher IsNotEqualTo(decimal constraint) {
+            return base.IsNotEqualTo<DecimalEstablisher>(constraint);
         }
 
     }

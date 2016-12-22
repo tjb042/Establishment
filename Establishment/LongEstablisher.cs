@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Establishment {
-    
-    public class LongEstablisher : BaseStructEstablisher<long> {
+
+    public class LongEstablisher : BaseEstablisher<long>, IStructEstablisher<LongEstablisher, long> {
 
         internal LongEstablisher(long value) : base(value) { }
 
@@ -105,6 +105,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public LongEstablisher IsDefault() {
+            return base.IsDefault<LongEstablisher>();
+        }
+
+        public LongEstablisher IsNotDefault() {
+            return base.IsNotDefault<LongEstablisher>();
+        }
+
+        public LongEstablisher IsEqualTo(long constraint) {
+            return base.IsEqualTo<LongEstablisher>(constraint);
+        }
+
+        public LongEstablisher IsNotEqualTo(long constraint) {
+            return base.IsNotEqualTo<LongEstablisher>(constraint);
         }
 
     }

@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Establishment {
-    
-    public class DoubleEstablisher : BaseStructEstablisher<double> {
+
+    public class DoubleEstablisher : BaseEstablisher<double>, IStructEstablisher<DoubleEstablisher, double> {
 
         public DoubleEstablisher(double value) : base(value) { }
 
@@ -105,6 +105,22 @@ namespace Establishment {
             }
 
             return this;
+        }
+
+        public DoubleEstablisher IsDefault() {
+            return base.IsDefault<DoubleEstablisher>();
+        }
+
+        public DoubleEstablisher IsNotDefault() {
+            return base.IsNotDefault<DoubleEstablisher>();
+        }
+
+        public DoubleEstablisher IsEqualTo(double constraint) {
+            return base.IsEqualTo<DoubleEstablisher>(constraint);
+        }
+
+        public DoubleEstablisher IsNotEqualTo(double constraint) {
+            return base.IsNotEqualTo<DoubleEstablisher>(constraint);
         }
 
     }
