@@ -11,6 +11,11 @@ namespace Establishment {
 
         internal LongEstablisher(long value) : base(value) { }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsGreaterThan(long threshold) {
             if (Value <= threshold) {
                 HandleFailure("long value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -19,6 +24,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than or equal to <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsGreaterThanOrEqualTo(long threshold) {
             if (Value < threshold) {
                 HandleFailure("long value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -27,6 +37,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsLessThan(long threshold) {
             if (Value >= threshold) {
                 HandleFailure("long value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -35,6 +50,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than or equal to <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsLessThanOrEqualTo(long threshold) {
             if (Value > threshold) {
                 HandleFailure("long value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -43,6 +63,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals zero
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsZero() {
             if (Value != 0) {
                 HandleFailure("value must be zero");
@@ -51,6 +75,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal zero
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsNotZero() {
             if (Value == 0) {
                 HandleFailure("value must not be zero");
@@ -59,6 +87,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>long.MinValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsMinValue() {
             if (Value != long.MinValue) {
                 HandleFailure("value must equal long.MinValue");
@@ -67,6 +99,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>long.MinValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsNotMinValue() {
             if (Value == long.MinValue) {
                 HandleFailure("value must not equal long.MinValue");
@@ -75,6 +111,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>long.MaxValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsMaxValue() {
             if (Value != long.MaxValue) {
                 HandleFailure("value must equal long.MaxValue");
@@ -83,6 +123,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>long.MaxValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsNotMaxValue() {
             if (Value == long.MaxValue) {
                 HandleFailure("value must not equal long.MaxValue");
@@ -91,6 +135,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than or equal to zero
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsPositive() {
             if (Value < 0L) {
                 HandleFailure("value must be greater than zero");
@@ -99,6 +147,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than or equal to zero
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsNegative() {
             if (Value > 0L) {
                 HandleFailure("value must be less than zero");
@@ -107,18 +159,36 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>default(long)</c>
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsDefault() {
             return base.IsDefault<LongEstablisher>();
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>default(long)</c>
+        /// </summary>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsNotDefault() {
             return base.IsNotDefault<LongEstablisher>();
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <paramref name="constraint"/>
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsEqualTo(long constraint) {
             return base.IsEqualTo<LongEstablisher>(constraint);
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns>The current <see cref="LongEstablisher"/></returns>
         public LongEstablisher IsNotEqualTo(long constraint) {
             return base.IsNotEqualTo<LongEstablisher>(constraint);
         }

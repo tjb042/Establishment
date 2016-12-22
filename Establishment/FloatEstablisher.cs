@@ -11,6 +11,11 @@ namespace Establishment {
 
         internal FloatEstablisher(float value) : base(value) { }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsGreaterThan(float threshold) {
             if (Value <= threshold) {
                 HandleFailure("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -19,6 +24,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than or equal to <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsGreaterThanOrEqualTo(float threshold) {
             if (Value < threshold) {
                 HandleFailure("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -27,6 +37,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsLessThan(float threshold) {
             if (Value >= threshold) {
                 HandleFailure("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -35,6 +50,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than or equal to <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsLessThanOrEqualTo(float threshold) {
             if (Value > threshold) {
                 HandleFailure("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
@@ -43,6 +63,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals zero
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsZero() {
             if (Value != 0) {
                 HandleFailure("value must be zero");
@@ -51,6 +75,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal zero
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotZero() {
             if (Value == 0) {
                 HandleFailure("value must not be zero");
@@ -59,6 +87,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>float.MinValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsMinValue() {
             if (Value != float.MinValue) {
                 HandleFailure("value must equal float.MinValue");
@@ -67,6 +99,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>float.MinValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotMinValue() {
             if (Value == float.MinValue) {
                 HandleFailure("value must not equal float.MinValue");
@@ -75,6 +111,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>float.MaxValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsMaxValue() {
             if (Value != float.MaxValue) {
                 HandleFailure("value must equal float.MaxValue");
@@ -83,6 +123,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>float.MaxValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotMaxValue() {
             if (Value == float.MaxValue) {
                 HandleFailure("value must not equal float.MaxValue");
@@ -91,6 +135,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than or equal to zero
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsPositive() {
             if (Value < 0f) {
                 HandleFailure("value must be greater than zero");
@@ -99,6 +147,7 @@ namespace Establishment {
             return this;
         }
 
+        //Establishes that the supplied value is less than or equal to zero
         public FloatEstablisher IsNegative() {
             if (Value > 0f) {
                 HandleFailure("value must be less than zero");
@@ -107,18 +156,36 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>default(float)</c>
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsDefault() {
             return base.IsDefault<FloatEstablisher>();
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>default(float)</c>
+        /// </summary>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotDefault() {
             return base.IsNotDefault<FloatEstablisher>();
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <paramref name="constraint"/>
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsEqualTo(float constraint) {
             return base.IsEqualTo<FloatEstablisher>(constraint);
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotEqualTo(float constraint) {
             return base.IsNotEqualTo<FloatEstablisher>(constraint);
         }

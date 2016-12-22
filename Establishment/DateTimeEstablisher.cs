@@ -12,6 +12,10 @@ namespace Establishment {
 
         internal DateTimeEstablisher(DateTime value) : base(value) { }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>DateTime.MinValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsMinDate() {
             if (Value != DateTime.MinValue) {
                 HandleFailure("DateTime value must be equal to DateTime.MinValue");
@@ -20,6 +24,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>DateTime.MinValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotMinDate() {
             if (Value == DateTime.MinValue) {
                 HandleFailure("DateTime value must not be equal to DateTime.MinValue");
@@ -28,6 +36,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>DateTime.MaxValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsMaxDate() {
             if (Value != DateTime.MaxValue) {
                 HandleFailure("DateTime value must be equal to DateTime.MaxValue");
@@ -36,6 +48,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>DateTime.MaxValue</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotMaxDate() {
             if (Value == DateTime.MaxValue) {
                 HandleFailure("DateTime value must not be equal to DateTime.MaxValue");
@@ -44,6 +60,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals Unix epoch
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsUnixEpoch() {
             if (Value != UnixEpoch) {
                 HandleFailure("DateTime value must be equal to UnixEpoch");
@@ -52,6 +72,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal Unix epoch
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotUnixEpoch() {
             if (Value == UnixEpoch) {
                 HandleFailure("DateTime value must not be equal to UnixEpoch");
@@ -60,6 +84,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value occurs before Unix epoch
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsBeforeUnixEpoch() {
             if (Value >= UnixEpoch) {
                 HandleFailure("DateTime value must occur before UnixEpoch");
@@ -68,6 +96,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value occurs after Unix epoch
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsAfterUnixEpoch() {
             if (Value < UnixEpoch) {
                 HandleFailure("DateTime value must occur after UnixEpoch");
@@ -76,6 +108,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsGreaterThan(DateTime threshold) {
             if (Value <= threshold) {
                 HandleFailure("DateTime value must be greater than " + threshold.ToString());
@@ -84,6 +121,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is greater than or equal to <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsGreaterThanOrEqualTo(DateTime threshold) {
             if (Value < threshold) {
                 HandleFailure("DateTime value must be greater than or equal to " + threshold.ToString());
@@ -92,6 +134,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsLessThan(DateTime threshold) {
             if (Value >= threshold) {
                 HandleFailure("DateTime value must be less than " + threshold.ToString());
@@ -100,6 +147,11 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value is less than or equal to <paramref name="threshold"/>
+        /// </summary>
+        /// <param name="threshold"></param>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsLessThanOrEqualTo(DateTime threshold) {
             if (Value > threshold) {
                 HandleFailure("DateTime value must be less than or equal to " + threshold.ToString());
@@ -108,6 +160,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value occurs after <c>DateTime.Now</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsInTheFuture() {
             if (DateTime.Now >= Value) {
                 HandleFailure("DateTime value must be a date and time in the future");
@@ -116,6 +172,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value occurs before <c>DateTime.Now</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsInThePast() {
             if (DateTime.Now <= Value) {
                 HandleFailure("DateTime value must be a date and time in the past");
@@ -124,6 +184,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value's <c>DayOfWeek</c> does not equal Saturday or Sunday
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsWeekday() {
             switch (Value.DayOfWeek) {
                 case DayOfWeek.Sunday:
@@ -135,6 +199,10 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value's <c>DayOfWeek</c> equals Saturday or Sunday 
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotWeekday() {
             switch (Value.DayOfWeek) {
                 case DayOfWeek.Monday:
@@ -149,18 +217,36 @@ namespace Establishment {
             return this;
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <c>default(DateTime)</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsDefault() {
             return base.IsDefault<DateTimeEstablisher>();
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <c>default(DateTime)</c>
+        /// </summary>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotDefault() {
             return base.IsNotDefault<DateTimeEstablisher>();
         }
 
+        /// <summary>
+        /// Establishes that the supplied value equals <paramref name="constraint"/>
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsEqualTo(DateTime constraint) {
             return base.IsEqualTo<DateTimeEstablisher>(constraint);
         }
 
+        /// <summary>
+        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
+        /// </summary>
+        /// <param name="constraint"></param>
+        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotEqualTo(DateTime constraint) {
             return base.IsNotEqualTo<DateTimeEstablisher>(constraint);
         }

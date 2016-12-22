@@ -34,6 +34,9 @@ namespace Establishment {
             protected set;
         }
 
+        /// <summary>
+        /// The default value for TType (via default(Type))
+        /// </summary>
         protected TType DefaultTypeValue {
             get;
             private set;
@@ -99,7 +102,7 @@ namespace Establishment {
         /// <summary>
         /// Base error handler that throws or catches exceptions based on <see cref="ThrowExceptionOnFailure"/>
         /// </summary>
-        /// <param name="ex"></param>
+        /// <param name="message">The message used in the generated exception</param>
         protected virtual void HandleFailure(string message) {
             Exception ex;
             if (string.IsNullOrEmpty(ParameterName)) {
