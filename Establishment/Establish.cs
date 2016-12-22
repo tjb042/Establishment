@@ -38,6 +38,19 @@ namespace Establishment {
             };
         }
 
+        public static CharEstablisher For(char input) {
+            return new CharEstablisher(input) {
+                ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure,
+            };
+        }
+
+        public static CharEstablisher For(char input, string parameterName) {
+            return new CharEstablisher(input) {
+                ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure,
+                ParameterName = parameterName
+            };
+        }
+
         public static DateTimeEstablisher For(DateTime input) {
             return new DateTimeEstablisher(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure,
