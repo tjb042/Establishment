@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="BooleanEstablisherTests.cs" />
     <Compile Include="ByteEstablisherTests.cs" />
+    <Compile Include="CharEstablisherTests.cs" />
     <Compile Include="DateTimeEstablisherTests.cs" />
     <Compile Include="DecimalEstablisherTests.cs" />
     <Compile Include="DoubleEstablisherTests.cs" />
