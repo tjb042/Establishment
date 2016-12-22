@@ -18,7 +18,7 @@ namespace Establishment {
         /// Initializes a new instance of <see cref="BaseEstablisher"/>
         /// </summary>
         /// <param name="value">An instance of <paramref name="TType"/> used for tests</param>
-        public BaseEstablisher(TType value) {
+        internal BaseEstablisher(TType value) {
             Value = value;
             ThrowExceptionOnFailure = true;
             GenericType = typeof(TType);
