@@ -58,6 +58,7 @@
     <Compile Include="FloatEstablisherTests.cs" />
     <Compile Include="GuidEstablisherTests.cs" />
     <Compile Include="IntegerEstablisherTests.cs" />
+    <Compile Include="Issues\001 - Include Parameters.cs" />
     <Compile Include="LongEstablisherTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NegativeBooleanEstablisherTests.cs" />
