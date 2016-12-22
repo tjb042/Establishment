@@ -13,7 +13,7 @@ namespace Establishment {
 
         public ShortEstablisher IsGreaterThan(short threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("short value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("short value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -21,7 +21,7 @@ namespace Establishment {
 
         public ShortEstablisher IsGreaterThanOrEqualTo(short threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("short value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("short value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -29,7 +29,7 @@ namespace Establishment {
 
         public ShortEstablisher IsLessThan(short threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("short value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("short value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -37,7 +37,7 @@ namespace Establishment {
 
         public ShortEstablisher IsLessThanOrEqualTo(short threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("short value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("short value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
 
         public ShortEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -53,7 +53,7 @@ namespace Establishment {
 
         public ShortEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -61,7 +61,7 @@ namespace Establishment {
 
         public ShortEstablisher IsMinValue() {
             if (Value != short.MinValue) {
-                HandleFailure(new ArgumentException("value must equal short.MinValue"));
+                HandleFailure("value must equal short.MinValue");
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
 
         public ShortEstablisher IsNotMinValue() {
             if (Value == short.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal short.MinValue"));
+                HandleFailure("value must not equal short.MinValue");
             }
 
             return this;
@@ -77,7 +77,7 @@ namespace Establishment {
 
         public ShortEstablisher IsMaxValue() {
             if (Value != short.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal short.MaxValue"));
+                HandleFailure("value must equal short.MaxValue");
             }
 
             return this;
@@ -85,7 +85,7 @@ namespace Establishment {
 
         public ShortEstablisher IsNotMaxValue() {
             if (Value == short.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal short.MaxValue"));
+                HandleFailure("value must not equal short.MaxValue");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
 
         public ShortEstablisher IsPositive() {
             if (Value < 0) {
-                HandleFailure(new ArgumentException("value must be greater than zero"));
+                HandleFailure("value must be greater than zero");
             }
 
             return this;
@@ -101,7 +101,7 @@ namespace Establishment {
 
         public ShortEstablisher IsNegative() {
             if (Value > 0) {
-                HandleFailure(new ArgumentException("value must be less than zero"));
+                HandleFailure("value must be less than zero");
             }
 
             return this;

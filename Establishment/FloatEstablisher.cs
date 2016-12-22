@@ -13,7 +13,7 @@ namespace Establishment {
 
         public FloatEstablisher IsGreaterThan(float threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -21,7 +21,7 @@ namespace Establishment {
 
         public FloatEstablisher IsGreaterThanOrEqualTo(float threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -29,7 +29,7 @@ namespace Establishment {
 
         public FloatEstablisher IsLessThan(float threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -37,7 +37,7 @@ namespace Establishment {
 
         public FloatEstablisher IsLessThanOrEqualTo(float threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
 
         public FloatEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -53,7 +53,7 @@ namespace Establishment {
 
         public FloatEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -61,7 +61,7 @@ namespace Establishment {
 
         public FloatEstablisher IsMinValue() {
             if (Value != float.MinValue) {
-                HandleFailure(new ArgumentException("value must equal float.MinValue"));
+                HandleFailure("value must equal float.MinValue");
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
 
         public FloatEstablisher IsNotMinValue() {
             if (Value == float.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal float.MinValue"));
+                HandleFailure("value must not equal float.MinValue");
             }
 
             return this;
@@ -77,7 +77,7 @@ namespace Establishment {
 
         public FloatEstablisher IsMaxValue() {
             if (Value != float.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal float.MaxValue"));
+                HandleFailure("value must equal float.MaxValue");
             }
 
             return this;
@@ -85,7 +85,7 @@ namespace Establishment {
 
         public FloatEstablisher IsNotMaxValue() {
             if (Value == float.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal float.MaxValue"));
+                HandleFailure("value must not equal float.MaxValue");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
 
         public FloatEstablisher IsPositive() {
             if (Value < 0f) {
-                HandleFailure(new ArgumentException("value must be greater than zero"));
+                HandleFailure("value must be greater than zero");
             }
 
             return this;
@@ -101,7 +101,7 @@ namespace Establishment {
 
         public FloatEstablisher IsNegative() {
             if (Value > 0f) {
-                HandleFailure(new ArgumentException("value must be less than zero"));
+                HandleFailure("value must be less than zero");
             }
 
             return this;

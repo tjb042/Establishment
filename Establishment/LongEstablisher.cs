@@ -13,7 +13,7 @@ namespace Establishment {
 
         public LongEstablisher IsGreaterThan(long threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("long value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("long value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -21,7 +21,7 @@ namespace Establishment {
 
         public LongEstablisher IsGreaterThanOrEqualTo(long threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("long value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("long value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -29,7 +29,7 @@ namespace Establishment {
 
         public LongEstablisher IsLessThan(long threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("long value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("long value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -37,7 +37,7 @@ namespace Establishment {
 
         public LongEstablisher IsLessThanOrEqualTo(long threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("long value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("long value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
 
         public LongEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -53,7 +53,7 @@ namespace Establishment {
 
         public LongEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -61,7 +61,7 @@ namespace Establishment {
 
         public LongEstablisher IsMinValue() {
             if (Value != long.MinValue) {
-                HandleFailure(new ArgumentException("value must equal long.MinValue"));
+                HandleFailure("value must equal long.MinValue");
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
 
         public LongEstablisher IsNotMinValue() {
             if (Value == long.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal long.MinValue"));
+                HandleFailure("value must not equal long.MinValue");
             }
 
             return this;
@@ -77,7 +77,7 @@ namespace Establishment {
 
         public LongEstablisher IsMaxValue() {
             if (Value != long.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal long.MaxValue"));
+                HandleFailure("value must equal long.MaxValue");
             }
 
             return this;
@@ -85,7 +85,7 @@ namespace Establishment {
 
         public LongEstablisher IsNotMaxValue() {
             if (Value == long.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal long.MaxValue"));
+                HandleFailure("value must not equal long.MaxValue");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
 
         public LongEstablisher IsPositive() {
             if (Value < 0L) {
-                HandleFailure(new ArgumentException("value must be greater than zero"));
+                HandleFailure("value must be greater than zero");
             }
 
             return this;
@@ -101,7 +101,7 @@ namespace Establishment {
 
         public LongEstablisher IsNegative() {
             if (Value > 0L) {
-                HandleFailure(new ArgumentException("value must be less than zero"));
+                HandleFailure("value must be less than zero");
             }
 
             return this;

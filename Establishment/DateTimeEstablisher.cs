@@ -14,7 +14,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsMinDate() {
             if (Value != DateTime.MinValue) {
-                HandleFailure(new ArgumentException("DateTime value must be equal to DateTime.MinValue"));
+                HandleFailure("DateTime value must be equal to DateTime.MinValue");
             }
 
             return this;
@@ -22,7 +22,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsNotMinDate() {
             if (Value == DateTime.MinValue) {
-                HandleFailure(new ArgumentException("DateTime value must not be equal to DateTime.MinValue"));
+                HandleFailure("DateTime value must not be equal to DateTime.MinValue");
             }
 
             return this;
@@ -30,7 +30,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsMaxDate() {
             if (Value != DateTime.MaxValue) {
-                HandleFailure(new ArgumentException("DateTime value must be equal to DateTime.MaxValue"));
+                HandleFailure("DateTime value must be equal to DateTime.MaxValue");
             }
 
             return this;
@@ -38,7 +38,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsNotMaxDate() {
             if (Value == DateTime.MaxValue) {
-                HandleFailure(new ArgumentException("DateTime value must not be equal to DateTime.MaxValue"));
+                HandleFailure("DateTime value must not be equal to DateTime.MaxValue");
             }
 
             return this;
@@ -46,7 +46,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsUnixEpoch() {
             if (Value != UnixEpoch) {
-                HandleFailure(new ArgumentException("DateTime value must be equal to UnixEpoch"));
+                HandleFailure("DateTime value must be equal to UnixEpoch");
             }
 
             return this;
@@ -54,7 +54,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsNotUnixEpoch() {
             if (Value == UnixEpoch) {
-                HandleFailure(new ArgumentException("DateTime value must not be equal to UnixEpoch"));
+                HandleFailure("DateTime value must not be equal to UnixEpoch");
             }
 
             return this;
@@ -62,7 +62,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsBeforeUnixEpoch() {
             if (Value >= UnixEpoch) {
-                HandleFailure(new ArgumentException("DateTime value must occur before UnixEpoch"));
+                HandleFailure("DateTime value must occur before UnixEpoch");
             }
 
             return this;
@@ -70,7 +70,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsAfterUnixEpoch() {
             if (Value < UnixEpoch) {
-                HandleFailure(new ArgumentException("DateTime value must occur after UnixEpoch"));
+                HandleFailure("DateTime value must occur after UnixEpoch");
             }
 
             return this;
@@ -78,7 +78,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsGreaterThan(DateTime threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("DateTime value must be greater than " + threshold.ToString()));
+                HandleFailure("DateTime value must be greater than " + threshold.ToString());
             }
 
             return this;
@@ -86,7 +86,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsGreaterThanOrEqualTo(DateTime threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("DateTime value must be greater than or equal to " + threshold.ToString()));
+                HandleFailure("DateTime value must be greater than or equal to " + threshold.ToString());
             }
 
             return this;
@@ -94,7 +94,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsLessThan(DateTime threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("DateTime value must be less than " + threshold.ToString()));
+                HandleFailure("DateTime value must be less than " + threshold.ToString());
             }
 
             return this;
@@ -102,7 +102,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsLessThanOrEqualTo(DateTime threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("DateTime value must be less than or equal to " + threshold.ToString()));
+                HandleFailure("DateTime value must be less than or equal to " + threshold.ToString());
             }
 
             return this;
@@ -110,7 +110,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsInTheFuture() {
             if (DateTime.Now >= Value) {
-                HandleFailure(new ArgumentException("DateTime value must be a date and time in the future"));
+                HandleFailure("DateTime value must be a date and time in the future");
             }
 
             return this;
@@ -118,7 +118,7 @@ namespace Establishment {
 
         public DateTimeEstablisher IsInThePast() {
             if (DateTime.Now <= Value) {
-                HandleFailure(new ArgumentException("DateTime value must be a date and time in the past"));
+                HandleFailure("DateTime value must be a date and time in the past");
             }
 
             return this;
@@ -128,7 +128,7 @@ namespace Establishment {
             switch (Value.DayOfWeek) {
                 case DayOfWeek.Sunday:
                 case DayOfWeek.Saturday:
-                    HandleFailure(new ArgumentException("DateTime value must fall on a weekday"));
+                    HandleFailure("DateTime value must fall on a weekday");
                     break;
             }
 
@@ -142,7 +142,7 @@ namespace Establishment {
                 case DayOfWeek.Wednesday:
                 case DayOfWeek.Thursday:
                 case DayOfWeek.Friday:
-                    HandleFailure(new ArgumentException("DateTime value must not fall on a weekday")); 
+                    HandleFailure("DateTime value must not fall on a weekday"); 
                     break;
             }
 

@@ -12,6 +12,8 @@ namespace Establishment {
     /// <typeparam name="TType">Any generic struct or class type</typeparam>
     public abstract class BaseEstablisher<TType> {
 
+        private string _parameterName = null;
+
         /// <summary>
         /// Initializes a new instance of <see cref="BaseEstablisher"/>
         /// </summary>
@@ -37,6 +39,23 @@ namespace Establishment {
         protected Type GenericType {
             get;
             private set;
+        }
+
+        /// <summary>
+        /// If provided, the name of the parameter wrapped by this instance.
+        /// </summary>
+        public string ParameterName {
+            get {
+                return this._parameterName;
+            }
+            set {
+                if (string.IsNullOrWhiteSpace(value)) {
+                    this._parameterName = null;
+                }
+                else {
+                    this._parameterName = value.Trim();
+                }
+            }
         }
 
         /// <summary>
@@ -75,7 +94,15 @@ namespace Establishment {
         /// Base error handler that throws or catches exceptions based on <see cref="ThrowExceptionOnFailure"/>
         /// </summary>
         /// <param name="ex"></param>
-        protected virtual void HandleFailure(Exception ex) {
+        protected virtual void HandleFailure(string message) {
+            Exception ex;
+            if (string.IsNullOrEmpty(ParameterName)) {
+                ex = new ArgumentException(message);
+            }
+            else {
+                ex = new ArgumentException(message, ParameterName);
+            }
+
             HasExceptions = true;
             LastException = ex;
 

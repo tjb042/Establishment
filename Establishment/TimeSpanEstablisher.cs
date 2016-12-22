@@ -12,7 +12,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsZero() {
             if (Value.Ticks != TimeSpan.Zero.Ticks) {
-                HandleFailure(new ArgumentException("TimeSpan must equal zero"));
+                HandleFailure("TimeSpan must equal zero");
             }
 
             return this;
@@ -20,7 +20,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsNotZero() {
             if (Value.Ticks == TimeSpan.Zero.Ticks) {
-                HandleFailure(new ArgumentException("TimeSpan must not equal zero"));
+                HandleFailure("TimeSpan must not equal zero");
             }
 
             return this;
@@ -28,7 +28,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsMaxSpan() {
             if (Value.Ticks != TimeSpan.MaxValue.Ticks) {
-                HandleFailure(new ArgumentException("TimeSpan must equal TimeSpan.MaxValue"));
+                HandleFailure("TimeSpan must equal TimeSpan.MaxValue");
             }
 
             return this;
@@ -36,7 +36,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsNotMaxSpan() {
             if (Value.Ticks == TimeSpan.MaxValue.Ticks) {
-                HandleFailure(new ArgumentException("TimeSpan must not equal TimeSpan.MaxValue"));
+                HandleFailure("TimeSpan must not equal TimeSpan.MaxValue");
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsMinSpan() {
             if (Value.Ticks != TimeSpan.MinValue.Ticks) {
-                HandleFailure(new ArgumentException("TimeSpan must equal TimeSpan.MinValue"));
+                HandleFailure("TimeSpan must equal TimeSpan.MinValue");
             }
 
             return this;
@@ -52,7 +52,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsNotMinSpan() {
             if (Value.Ticks == TimeSpan.MinValue.Ticks) {
-                HandleFailure(new ArgumentException("TimeSpan must not equal TimeSpan.MinValue"));
+                HandleFailure("TimeSpan must not equal TimeSpan.MinValue");
             }
 
             return this;
@@ -60,7 +60,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsGreaterThan(TimeSpan threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("TimeSpan value must be greater than " + threshold.ToString()));
+                HandleFailure("TimeSpan value must be greater than " + threshold.ToString());
             }
 
             return this;
@@ -68,7 +68,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsGreaterThanOrEqualTo(TimeSpan threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("TimeSpan value must be greater than or equal to " + threshold.ToString()));
+                HandleFailure("TimeSpan value must be greater than or equal to " + threshold.ToString());
             }
 
             return this;
@@ -76,7 +76,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsLessThan(TimeSpan threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("TimeSpan value must be less than " + threshold.ToString()));
+                HandleFailure("TimeSpan value must be less than " + threshold.ToString());
             }
 
             return this;
@@ -84,7 +84,7 @@ namespace Establishment {
 
         public TimeSpanEstablisher IsLessThanOrEqualTo(TimeSpan threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("TimeSpan value must be less than or equal to " + threshold.ToString()));
+                HandleFailure("TimeSpan value must be less than or equal to " + threshold.ToString());
             }
 
             return this;

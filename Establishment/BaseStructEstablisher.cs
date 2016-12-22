@@ -23,7 +23,7 @@ namespace Establishment {
 
         public virtual BaseStructEstablisher<TType> IsDefault() {
             if (!DefaultComparer.Equals(Value, DefaultTType)) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value must be default"));
+                HandleFailure(GenericType.Name + " value must be default");
             }
 
             return this;
@@ -31,7 +31,7 @@ namespace Establishment {
 
         public virtual BaseStructEstablisher<TType> IsNotDefault() {
             if (DefaultComparer.Equals(Value, DefaultTType)) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value must not be default"));
+                HandleFailure(GenericType.Name + " value must not be default");
             }
 
             return this;
@@ -39,7 +39,7 @@ namespace Establishment {
 
         public virtual BaseStructEstablisher<TType> IsEqualTo(TType constraint) {
             if (!DefaultComparer.Equals(Value, constraint)) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value must equal constraint"));
+                HandleFailure(GenericType.Name + " value must equal constraint");
             }
 
             return this;
@@ -47,7 +47,7 @@ namespace Establishment {
 
         public virtual BaseStructEstablisher<TType> IsNotEqualTo(TType constraint) {
             if (DefaultComparer.Equals(Value, constraint)) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value must nto equal constraint"));
+                HandleFailure(GenericType.Name + " value must nto equal constraint");
             }
 
             return this;

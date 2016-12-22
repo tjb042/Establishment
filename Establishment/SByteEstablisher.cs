@@ -14,7 +14,7 @@ namespace Establishment {
 
         public SByteEstablisher IsGreaterThan(sbyte threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("sbyte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("sbyte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -22,7 +22,7 @@ namespace Establishment {
 
         public SByteEstablisher IsGreaterThanOrEqualTo(sbyte threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("sbyte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("sbyte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -30,7 +30,7 @@ namespace Establishment {
 
         public SByteEstablisher IsLessThan(sbyte threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("sbyte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("sbyte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -38,7 +38,7 @@ namespace Establishment {
 
         public SByteEstablisher IsLessThanOrEqualTo(sbyte threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("sbyte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("sbyte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -46,7 +46,7 @@ namespace Establishment {
 
         public SByteEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -54,7 +54,7 @@ namespace Establishment {
 
         public SByteEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -62,7 +62,7 @@ namespace Establishment {
 
         public SByteEstablisher IsMinValue() {
             if (Value != sbyte.MinValue) {
-                HandleFailure(new ArgumentException("value must equal sbyte.MinValue"));
+                HandleFailure("value must equal sbyte.MinValue");
             }
 
             return this;
@@ -70,7 +70,7 @@ namespace Establishment {
 
         public SByteEstablisher IsNotMinValue() {
             if (Value == sbyte.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal sbyte.MinValue"));
+                HandleFailure("value must not equal sbyte.MinValue");
             }
 
             return this;
@@ -78,7 +78,7 @@ namespace Establishment {
 
         public SByteEstablisher IsMaxValue() {
             if (Value != sbyte.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal sbyte.MaxValue"));
+                HandleFailure("value must equal sbyte.MaxValue");
             }
 
             return this;
@@ -86,7 +86,7 @@ namespace Establishment {
 
         public SByteEstablisher IsNotMaxValue() {
             if (Value == sbyte.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal sbyte.MaxValue"));
+                HandleFailure("value must not equal sbyte.MaxValue");
             }
 
             return this;
@@ -94,7 +94,7 @@ namespace Establishment {
 
         public SByteEstablisher IsPositive() {
             if (Value < 0) {
-                HandleFailure(new ArgumentException("value must be greater than zero"));
+                HandleFailure("value must be greater than zero");
             }
 
             return this;
@@ -102,7 +102,7 @@ namespace Establishment {
 
         public SByteEstablisher IsNegative() {
             if (Value > 0) {
-                HandleFailure(new ArgumentException("value must be less than zero"));
+                HandleFailure("value must be less than zero");
             }
 
             return this;

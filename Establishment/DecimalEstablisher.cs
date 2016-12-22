@@ -13,7 +13,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsGreaterThan(decimal threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("decimal value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("decimal value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -21,7 +21,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsGreaterThanOrEqualTo(decimal threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("decimal value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("decimal value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -29,7 +29,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsLessThan(decimal threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("decimal value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("decimal value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -37,7 +37,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsLessThanOrEqualTo(decimal threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("decimal value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("decimal value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -53,7 +53,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -61,7 +61,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsMinValue() {
             if (Value != decimal.MinValue) {
-                HandleFailure(new ArgumentException("value must equal decimal.MinValue"));
+                HandleFailure("value must equal decimal.MinValue");
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsNotMinValue() {
             if (Value == decimal.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal decimal.MinValue"));
+                HandleFailure("value must not equal decimal.MinValue");
             }
 
             return this;
@@ -77,7 +77,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsMaxValue() {
             if (Value != decimal.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal decimal.MaxValue"));
+                HandleFailure("value must equal decimal.MaxValue");
             }
 
             return this;
@@ -85,7 +85,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsNotMaxValue() {
             if (Value == decimal.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal decimal.MaxValue"));
+                HandleFailure("value must not equal decimal.MaxValue");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsPositive() {
             if (Value < 0m) {
-                HandleFailure(new ArgumentException("value must be greater than zero"));
+                HandleFailure("value must be greater than zero");
             }
 
             return this;
@@ -101,7 +101,7 @@ namespace Establishment {
 
         public DecimalEstablisher IsNegative() {
             if (Value > 0m) {
-                HandleFailure(new ArgumentException("value must be less than zero"));
+                HandleFailure("value must be less than zero");
             }
 
             return this;

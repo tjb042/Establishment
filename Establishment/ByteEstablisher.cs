@@ -13,7 +13,7 @@ namespace Establishment {
 
         public ByteEstablisher IsGreaterThan(byte threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("byte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("byte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -21,7 +21,7 @@ namespace Establishment {
 
         public ByteEstablisher IsGreaterThanOrEqualTo(byte threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("byte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("byte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -29,7 +29,7 @@ namespace Establishment {
 
         public ByteEstablisher IsLessThan(byte threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("byte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("byte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -37,7 +37,7 @@ namespace Establishment {
 
         public ByteEstablisher IsLessThanOrEqualTo(byte threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("byte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("byte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
 
         public ByteEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -53,7 +53,7 @@ namespace Establishment {
 
         public ByteEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -61,7 +61,7 @@ namespace Establishment {
 
         public ByteEstablisher IsMinValue() {
             if (Value != byte.MinValue) {
-                HandleFailure(new ArgumentException("value must equal byte.MinValue"));
+                HandleFailure("value must equal byte.MinValue");
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
 
         public ByteEstablisher IsNotMinValue() {
             if (Value == byte.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal byte.MinValue"));
+                HandleFailure("value must not equal byte.MinValue");
             }
 
             return this;
@@ -77,7 +77,7 @@ namespace Establishment {
 
         public ByteEstablisher IsMaxValue() {
             if (Value != byte.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal byte.MaxValue"));
+                HandleFailure("value must equal byte.MaxValue");
             }
 
             return this;
@@ -85,7 +85,7 @@ namespace Establishment {
 
         public ByteEstablisher IsNotMaxValue() {
             if (Value == byte.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal byte.MaxValue"));
+                HandleFailure("value must not equal byte.MaxValue");
             }
 
             return this;

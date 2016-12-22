@@ -14,7 +14,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsGreaterThan(uint threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("uint value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("uint value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -22,7 +22,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsGreaterThanOrEqualTo(uint threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("uint value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("uint value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -30,7 +30,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsLessThan(uint threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("uint value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("uint value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -38,7 +38,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsLessThanOrEqualTo(uint threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("uint value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("uint value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -46,7 +46,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -54,7 +54,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -62,7 +62,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsMinValue() {
             if (Value != uint.MinValue) {
-                HandleFailure(new ArgumentException("value must equal uint.MinValue"));
+                HandleFailure("value must equal uint.MinValue");
             }
 
             return this;
@@ -70,7 +70,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsNotMinValue() {
             if (Value == uint.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal uint.MinValue"));
+                HandleFailure("value must not equal uint.MinValue");
             }
 
             return this;
@@ -78,7 +78,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsMaxValue() {
             if (Value != uint.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal uint.MaxValue"));
+                HandleFailure("value must equal uint.MaxValue");
             }
 
             return this;
@@ -86,7 +86,7 @@ namespace Establishment {
 
         public UIntegerEstablisher IsNotMaxValue() {
             if (Value == uint.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal uint.MaxValue"));
+                HandleFailure("value must not equal uint.MaxValue");
             }
 
             return this;

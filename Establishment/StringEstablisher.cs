@@ -12,7 +12,7 @@ namespace Establishment {
 
         public StringEstablisher IsNullOrEmpty() {
             if (!string.IsNullOrEmpty(Value)) {
-                HandleFailure(new ArgumentException("string value must be null or empty"));
+                HandleFailure("string value must be null or empty");
             }
 
             return this;
@@ -20,7 +20,7 @@ namespace Establishment {
 
         public StringEstablisher IsNotNullOrEmpty() {
             if (string.IsNullOrEmpty(Value)) {
-                HandleFailure(new ArgumentException("string value must not be null or empty"));
+                HandleFailure("string value must not be null or empty");
             }
 
             return this;
@@ -28,7 +28,7 @@ namespace Establishment {
 
         public StringEstablisher IsEmpty() {
             if (Value.Length != 0) {
-                HandleFailure(new ArgumentException("string value must be empty"));
+                HandleFailure("string value must be empty");
             }
 
             return this;
@@ -36,7 +36,7 @@ namespace Establishment {
 
         public StringEstablisher IsNotEmpty() {
             if (Value.Length == 0) {
-                HandleFailure(new ArgumentException("string value must not be empty"));
+                HandleFailure("string value must not be empty");
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
 
         public StringEstablisher HasExactLength(int length) {
             if (Value.Length != length) {
-                HandleFailure(new ArgumentException(string.Concat("string value is not exactly ", length, " characters")));
+                HandleFailure(string.Concat("string value is not exactly ", length, " characters"));
             }
 
             return this;
@@ -52,7 +52,7 @@ namespace Establishment {
 
         public StringEstablisher HasMinimumLength(int minimumLength) {
             if (Value.Length < minimumLength) {
-                HandleFailure(new ArgumentException(string.Concat("string value is not at least ", minimumLength, " characters")));
+                HandleFailure(string.Concat("string value is not at least ", minimumLength, " characters"));
             }
 
             return this;
@@ -60,7 +60,7 @@ namespace Establishment {
 
         public StringEstablisher HasMaximumLength(int maximumLength) {
             if (Value.Length > maximumLength) {
-                HandleFailure(new ArgumentException(string.Concat("string value is too long")));
+                HandleFailure(string.Concat("string value is too long"));
             }
 
             return this;

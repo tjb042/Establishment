@@ -12,7 +12,7 @@ namespace Establishment {
 
         public BooleanEstablisher IsTrue() {
             if (!Value) {
-                HandleFailure(new ArgumentException("bool value must be true"));
+                HandleFailure("bool value must be true");
             }
 
             return this;
@@ -20,7 +20,7 @@ namespace Establishment {
 
         public BooleanEstablisher IsFalse() {
             if (Value) {
-                HandleFailure(new ArgumentException("bool value must be false"));
+                HandleFailure("bool value must be false");
             }
 
             return this;

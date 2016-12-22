@@ -26,7 +26,7 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> is null; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsNull() {
             if (Value != null) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value must be null"));
+                HandleFailure(GenericType.Name + " value must be null");
             }
 
             return this;
@@ -38,7 +38,7 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> is not null; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsNotNull() {
             if (Value == null) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value cannot be null"));
+                HandleFailure(GenericType.Name + " value cannot be null");
             }
 
             return this;
@@ -51,7 +51,7 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> equals <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsEqualTo(TType constraint) {
             if (!DefaultComparer.Equals(Value, constraint)) {
-                HandleFailure(new ArgumentException(GenericType.Name + " value must equal constraint"));
+                HandleFailure(GenericType.Name + " value must equal constraint");
             }
 
             return this;
@@ -64,7 +64,7 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> does not equal <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         public virtual BaseClassEstablisher<TType> IsNotEqualTo(TType constraint) {
             if (DefaultComparer.Equals(Value, constraint)) {
-                HandleFailure(new ArgumentNullException(GenericType.Name + "value must not equal constraint"));
+                HandleFailure(GenericType.Name + "value must not equal constraint");
             }
 
             return this;

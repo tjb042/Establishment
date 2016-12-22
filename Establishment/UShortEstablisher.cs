@@ -16,7 +16,7 @@ namespace Establishment {
 
         public UShortEstablisher IsGreaterThan(ushort threshold) {
             if (Value <= threshold) {
-                HandleFailure(new ArgumentException("ushort value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("ushort value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -24,7 +24,7 @@ namespace Establishment {
 
         public UShortEstablisher IsGreaterThanOrEqualTo(ushort threshold) {
             if (Value < threshold) {
-                HandleFailure(new ArgumentException("ushort value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("ushort value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -32,7 +32,7 @@ namespace Establishment {
 
         public UShortEstablisher IsLessThan(ushort threshold) {
             if (Value >= threshold) {
-                HandleFailure(new ArgumentException("ushort value must be less than " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("ushort value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -40,7 +40,7 @@ namespace Establishment {
 
         public UShortEstablisher IsLessThanOrEqualTo(ushort threshold) {
             if (Value > threshold) {
-                HandleFailure(new ArgumentException("ushort value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture)));
+                HandleFailure("ushort value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -48,7 +48,7 @@ namespace Establishment {
 
         public UShortEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure(new ArgumentException("value must be zero"));
+                HandleFailure("value must be zero");
             }
 
             return this;
@@ -56,7 +56,7 @@ namespace Establishment {
 
         public UShortEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure(new ArgumentException("value must not be zero"));
+                HandleFailure("value must not be zero");
             }
 
             return this;
@@ -64,7 +64,7 @@ namespace Establishment {
 
         public UShortEstablisher IsMinValue() {
             if (Value != ushort.MinValue) {
-                HandleFailure(new ArgumentException("value must equal ushort.MinValue"));
+                HandleFailure("value must equal ushort.MinValue");
             }
 
             return this;
@@ -72,7 +72,7 @@ namespace Establishment {
 
         public UShortEstablisher IsNotMinValue() {
             if (Value == ushort.MinValue) {
-                HandleFailure(new ArgumentException("value must not equal ushort.MinValue"));
+                HandleFailure("value must not equal ushort.MinValue");
             }
 
             return this;
@@ -80,7 +80,7 @@ namespace Establishment {
 
         public UShortEstablisher IsMaxValue() {
             if (Value != ushort.MaxValue) {
-                HandleFailure(new ArgumentException("value must equal ushort.MaxValue"));
+                HandleFailure("value must equal ushort.MaxValue");
             }
 
             return this;
@@ -88,7 +88,7 @@ namespace Establishment {
 
         public UShortEstablisher IsNotMaxValue() {
             if (Value == ushort.MaxValue) {
-                HandleFailure(new ArgumentException("value must not equal ushort.MaxValue"));
+                HandleFailure("value must not equal ushort.MaxValue");
             }
 
             return this;
