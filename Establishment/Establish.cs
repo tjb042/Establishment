@@ -241,6 +241,19 @@ namespace Establishment {
             };
         }
 
+        public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input) {
+            return new IEnumerableEstablisher<TSource>(input) {
+                ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
+            };
+        }
+
+        public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input, string parameterName) {
+            return new IEnumerableEstablisher<TSource>(input) {
+                ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure,
+                ParameterName = parameterName
+            };
+        }
+
         public static BaseEstablisher<TType> ForObject<TType>(TType input) where TType : class {
             return new BaseEstablisher<TType>(input) {
                 ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure

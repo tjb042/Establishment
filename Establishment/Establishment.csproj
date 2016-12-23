@@ -44,6 +44,7 @@
     <Compile Include="CharEstablisher.cs" />
     <Compile Include="IClassEstablisher.cs" />
     <Compile Include="BaseEstablisher.cs" />
+    <Compile Include="IEnumerableEstablisher.cs" />
     <Compile Include="IStructEstablisher.cs" />
     <Compile Include="BooleanEstablisher.cs" />
     <Compile Include="ByteEstablisher.cs" />
