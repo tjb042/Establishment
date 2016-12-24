@@ -170,6 +170,8 @@ namespace Establishment {
         }
 
         protected TEstablisher Satisfies<TEstablisher>(Action<TType> action) where TEstablisher : BaseEstablisher<TType> {
+            Establish.ForObject(action).IsNotDefault();
+
             try {
                 action(Value);
             }
@@ -181,6 +183,8 @@ namespace Establishment {
         }
 
         protected TEstablisher Satisfies<TEstablisher>(Func<TType, bool> predicate) where TEstablisher : BaseEstablisher<TType> {
+            Establish.ForObject(predicate).IsNotDefault();
+
             try {
                 if (!predicate(Value)) {
                     // failure
