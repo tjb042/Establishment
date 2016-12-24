@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Establishment.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Establishment {
     /// <typeparam name="TType">Any generic struct or class type</typeparam>
     public class BaseEstablisher<TType> {
 
-        private string _parameterName = null;
+        private EstablisherOptions _establisherOptions = null;
 
         /// <summary>
         /// Initializes a new instance of <see cref="BaseEstablisher"/>
@@ -20,10 +21,10 @@ namespace Establishment {
         /// <param name="value">An instance of <paramref name="TType"/> used for tests</param>
         internal BaseEstablisher(TType value) {
             Value = value;
-            ThrowExceptionOnFailure = true;
             GenericType = typeof(TType);
-            DefaultComparer = EqualityComparer<TType>.Default;
             DefaultTypeValue = default(TType);
+
+            DefaultComparer = EqualityComparer<TType>.Default;
         }
 
         /// <summary>
@@ -50,20 +51,18 @@ namespace Establishment {
             private set;
         }
 
-        /// <summary>
-        /// If provided, the name of the parameter wrapped by this instance.
-        /// </summary>
-        public string ParameterName {
+        public EstablisherOptions Options {
             get {
-                return this._parameterName;
+                if (_establisherOptions == null) {
+                    _establisherOptions = new EstablisherOptions() {
+                        ThrowExceptionOnFailure = Establish.ThrowExceptionOnFailure
+                    };
+                }
+
+                return _establisherOptions;
             }
-            set {
-                if (string.IsNullOrWhiteSpace(value)) {
-                    this._parameterName = null;
-                }
-                else {
-                    this._parameterName = value.Trim();
-                }
+            internal set {
+                _establisherOptions = value;
             }
         }
 
@@ -92,32 +91,32 @@ namespace Establishment {
         }
 
         /// <summary>
-        /// Indicates if a test should throw an exception is a value does not meet the supplied criteria, or fail silently
-        /// </summary>
-        public bool ThrowExceptionOnFailure { 
-            get; 
-            set; 
-        }
-
-        /// <summary>
         /// Base error handler that throws or catches exceptions based on <see cref="ThrowExceptionOnFailure"/>
         /// </summary>
         /// <param name="message">The message used in the generated exception</param>
         protected virtual void HandleFailure(string message) {
             Exception ex;
-            if (string.IsNullOrEmpty(ParameterName)) {
+            if (string.IsNullOrEmpty(Options.ParameterName)) {
                 ex = new ArgumentException(message);
             }
             else {
-                ex = new ArgumentException(message, ParameterName);
+                ex = new ArgumentException(message, Options.ParameterName);
             }
 
             HasExceptions = true;
             LastException = ex;
 
-            if (ThrowExceptionOnFailure) {
+            if (Options.ThrowExceptionOnFailure.GetValueOrDefault(Establish.ThrowExceptionOnFailure)) {
                 throw ex;
             }
+        }
+
+        public BaseEstablisher<TType> IsDefault() {
+            return IsDefault<BaseEstablisher<TType>>();
+        }
+
+        public BaseEstablisher<TType> IsNotDefault() {
+            return IsNotDefault<BaseEstablisher<TType>>();
         }
 
         protected TEstablisher IsDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
