@@ -1,4 +1,5 @@
-﻿using Establishment.Models;
+﻿using Establishment.Exceptions;
+using Establishment.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -106,10 +107,10 @@ namespace Establishment {
         protected virtual void HandleException(string message, Exception innerException) {
             Exception ex;
             if (string.IsNullOrEmpty(Options.ParameterName)) {
-                ex = new ArgumentException(message, innerException);
+                ex = new EstablishmentException(message, innerException);
             }
             else {
-                ex = new ArgumentException(message, Options.ParameterName, innerException);
+                ex = new EstablishmentException(message, Options.ParameterName, innerException);
             }
 
             HasExceptions = true;
