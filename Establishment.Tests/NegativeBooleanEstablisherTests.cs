@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Establishment.Exceptions;
 
 namespace Establishment.Tests {
 
@@ -7,7 +8,7 @@ namespace Establishment.Tests {
     public class NegativeBooleanEstablisherTests {
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsDefault() {
             var establisher = Establish.For(!default(bool));
 
@@ -15,7 +16,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsEqual1() {
             var trueEstablisher = Establish.For(true);
 
@@ -23,7 +24,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsEqual2() {
             var trueEstablisher = Establish.For(false);
 
@@ -31,7 +32,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsFalse() {
             var establisher = Establish.For(true);
 
@@ -39,7 +40,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsNotDefault() {
             var establisher = Establish.For(default(bool));
 
@@ -47,7 +48,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsNotEqual1() {
             var trueEstablisher = Establish.For(true);
 
@@ -55,7 +56,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsNotEqual2() {
             var trueEstablisher = Establish.For(false);
 
@@ -63,7 +64,7 @@ namespace Establishment.Tests {
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
+        [ExpectedException(typeof(EstablishmentException))]
         public void Negative_Bool_IsTrue() {
             var establisher = Establish.For(false);
 

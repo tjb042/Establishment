@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Establishment.Models;
+using Establishment.Exceptions;
 
 namespace Establishment.Tests.Issues {
 
@@ -16,7 +17,7 @@ namespace Establishment.Tests.Issues {
                 establish.IsFalse();
                 Assert.Fail();
             }
-            catch (ArgumentException ae) {
+            catch (EstablishmentException ae) {
                 Assert.AreEqual(ae.ParamName, parameterName);
             }
         }
@@ -29,7 +30,7 @@ namespace Establishment.Tests.Issues {
                 establish.IsFalse();
                 Assert.Fail();
             }
-            catch (ArgumentException ae) {
+            catch (EstablishmentException ae) {
                 Assert.IsTrue(string.IsNullOrEmpty(ae.ParamName));
             }
         }
