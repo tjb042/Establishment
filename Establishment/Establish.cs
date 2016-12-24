@@ -183,6 +183,18 @@ namespace Establishment {
             };
         }
 
+        public static TypeEstablisher For(Type input) {
+            return new TypeEstablisher(input);
+        }
+
+        public static TypeEstablisher For(Type input, EstablisherOptions options) {
+            Establish.ForObject(options).IsNotDefault();
+
+            return new TypeEstablisher(input) {
+                Options = options
+            };
+        }
+
         [CLSCompliant(false)]
         public static UIntegerEstablisher For(uint input) {
             return new UIntegerEstablisher(input);
