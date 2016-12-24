@@ -64,6 +64,7 @@
     <Compile Include="ShortEstablisher.cs" />
     <Compile Include="StringEstablisher.cs" />
     <Compile Include="TimeSpanEstablisher.cs" />
+    <Compile Include="TypeEstablisher.cs" />
     <Compile Include="UIntEstablisher.cs" />
     <Compile Include="ULongEstablisher.cs" />
     <Compile Include="UShortEstablisher.cs" />
