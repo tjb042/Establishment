@@ -8,6 +8,8 @@ namespace Establishment {
 
     public class TypeEstablisher : BaseEstablisher<Type>, IClassEstablisher<TypeEstablisher, Type> {
 
+        internal TypeEstablisher(Type value) : base(value) { }
+
         public TypeEstablisher IsClass() {
             if (!Value.IsClass) {
                 HandleException("Type must represent a class");
