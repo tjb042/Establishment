@@ -35,8 +35,6 @@ namespace Establishment {
         }
 
         public IEnumerableEstablisher<TSource> HasMaximumLength(int maximumElements) {
-            var array = new int[] { 1, 2, 3 };
-
             if (Value.Count() > maximumElements) {
                 HandleFailure(string.Concat("IEnumerable value must not have more than ", maximumElements, " elements"));
             }
