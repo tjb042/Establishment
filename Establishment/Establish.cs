@@ -203,12 +203,12 @@ namespace Establishment {
             };
         }
 
-        public static BaseEstablisher<TType> ForObject<TType>(TType input) where TType : class {
-            return new BaseEstablisher<TType>(input);
+        public static ObjectEstablisher ForObject<TType>(TType input) where TType : class {
+            return new ObjectEstablisher(input);
         }
 
-        public static BaseEstablisher<TType> ForObject<TType>(TType input, EstablisherOptions options) where TType : class {
-            return new BaseEstablisher<TType>(input) {
+        public static ObjectEstablisher ForObject<TType>(TType input, EstablisherOptions options) where TType : class {
+            return new ObjectEstablisher(input) {
                 Options = options,
             };
         }

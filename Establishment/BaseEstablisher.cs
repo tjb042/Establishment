@@ -120,14 +120,6 @@ namespace Establishment {
             }
         }
 
-        public BaseEstablisher<TType> IsDefault() {
-            return IsDefault<BaseEstablisher<TType>>();
-        }
-
-        public BaseEstablisher<TType> IsNotDefault() {
-            return IsNotDefault<BaseEstablisher<TType>>();
-        }
-
         protected TEstablisher IsDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
             if (!DefaultComparer.Equals(Value, DefaultTypeValue)) {
                 HandleException(GenericType.Name + " must equal its default value");
@@ -139,6 +131,22 @@ namespace Establishment {
         protected TEstablisher IsNotDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
             if (DefaultComparer.Equals(Value, DefaultTypeValue)) {
                 HandleException(GenericType.Name + " must not equal its default value");
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher IsDBNull<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
+            if (!Convert.IsDBNull(Value)) {
+                HandleException(GenericType.Name + " must equal DBNull.Value");
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher IsNotDBNull<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
+            if (Convert.IsDBNull(Value)) {
+                HandleException(GenericType.Name + " must not equal DBNull.Value");
             }
 
             return this as TEstablisher;

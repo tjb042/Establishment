@@ -14,7 +14,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(Guid)</c>
         /// </summary>
         /// <returns>The current <see cref="GuidEstablisher"/></returns>
-        public new GuidEstablisher IsDefault() {
+        public GuidEstablisher IsDefault() {
             return base.IsDefault<GuidEstablisher>();
         }
         
@@ -22,7 +22,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(Guid)</c>
         /// </summary>
         /// <returns>The current <see cref="GuidEstablisher"/></returns>
-        public new GuidEstablisher IsNotDefault() {
+        public GuidEstablisher IsNotDefault() {
             return base.IsNotDefault<GuidEstablisher>();
         }
 

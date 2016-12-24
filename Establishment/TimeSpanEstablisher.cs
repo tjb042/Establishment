@@ -138,7 +138,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(TimeSpan)</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public new TimeSpanEstablisher IsDefault() {
+        public TimeSpanEstablisher IsDefault() {
             return base.IsDefault<TimeSpanEstablisher>();
         }
 
@@ -146,7 +146,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(TimeSpan)</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public new TimeSpanEstablisher IsNotDefault() {
+        public TimeSpanEstablisher IsNotDefault() {
             return base.IsNotDefault<TimeSpanEstablisher>();
         }
 

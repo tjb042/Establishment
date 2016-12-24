@@ -139,7 +139,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(byte)</c>
         /// </summary>
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
-        public new ByteEstablisher IsDefault() {
+        public ByteEstablisher IsDefault() {
             return base.IsDefault<ByteEstablisher>();
         }
 
@@ -147,7 +147,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(byte)</c>
         /// </summary>
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
-        public new ByteEstablisher IsNotDefault() {
+        public ByteEstablisher IsNotDefault() {
             return base.IsNotDefault<ByteEstablisher>();
         }
 

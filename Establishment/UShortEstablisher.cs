@@ -142,7 +142,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(ushort)</c>
         /// </summary>
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
-        public new UShortEstablisher IsDefault() {
+        public UShortEstablisher IsDefault() {
             return base.IsDefault<UShortEstablisher>();
         }
 
@@ -150,7 +150,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(ushort)</c>
         /// </summary>
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
-        public new UShortEstablisher IsNotDefault() {
+        public UShortEstablisher IsNotDefault() {
             return base.IsNotDefault<UShortEstablisher>();
         }
 

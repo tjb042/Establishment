@@ -163,7 +163,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(int)</c>
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public new IntegerEstablisher IsDefault() {
+        public IntegerEstablisher IsDefault() {
             return base.IsDefault<IntegerEstablisher>();
         }
 
@@ -171,7 +171,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(int)</c>
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public new IntegerEstablisher IsNotDefault() {
+        public IntegerEstablisher IsNotDefault() {
             return base.IsNotDefault<IntegerEstablisher>();
         }
 

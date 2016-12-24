@@ -160,7 +160,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(float)</c>
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public new FloatEstablisher IsDefault() {
+        public FloatEstablisher IsDefault() {
             return base.IsDefault<FloatEstablisher>();
         }
 
@@ -168,7 +168,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(float)</c>
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public new FloatEstablisher IsNotDefault() {
+        public FloatEstablisher IsNotDefault() {
             return base.IsNotDefault<FloatEstablisher>();
         }
 

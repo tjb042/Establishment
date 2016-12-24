@@ -140,7 +140,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(uint)</c>
         /// </summary>
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
-        public new UIntegerEstablisher IsDefault() {
+        public UIntegerEstablisher IsDefault() {
             return base.IsDefault<UIntegerEstablisher>();
         }
 
@@ -148,7 +148,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(uint)</c>
         /// </summary>
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
-        public new UIntegerEstablisher IsNotDefault() {
+        public UIntegerEstablisher IsNotDefault() {
             return base.IsNotDefault<UIntegerEstablisher>();
         }
 

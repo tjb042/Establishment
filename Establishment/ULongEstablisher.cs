@@ -142,7 +142,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(ulong)</c>
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public new ULongEstablisher IsDefault() {
+        public ULongEstablisher IsDefault() {
             return base.IsDefault<ULongEstablisher>();
         }
 
@@ -150,7 +150,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(ulong)</c>
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public new ULongEstablisher IsNotDefault() {
+        public ULongEstablisher IsNotDefault() {
             return base.IsNotDefault<ULongEstablisher>();
         }
 

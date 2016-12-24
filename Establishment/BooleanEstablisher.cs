@@ -38,7 +38,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(bool)</c>
         /// </summary>
         /// <returns>The current <see cref="BooleanEstablisher"/></returns>
-        public new BooleanEstablisher IsDefault() {
+        public BooleanEstablisher IsDefault() {
             return base.IsDefault<BooleanEstablisher>();
         }
 
@@ -46,7 +46,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(bool)</c>
         /// </summary>
         /// <returns>The current <see cref="BooleanEstablisher"/></returns>
-        public new BooleanEstablisher IsNotDefault() {
+        public BooleanEstablisher IsNotDefault() {
             return base.IsNotDefault<BooleanEstablisher>();
         }
 

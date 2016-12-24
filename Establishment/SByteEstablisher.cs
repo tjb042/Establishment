@@ -164,7 +164,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(sbyte)</c>
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public new SByteEstablisher IsDefault() {
+        public SByteEstablisher IsDefault() {
             return base.IsDefault<SByteEstablisher>();
         }
 
@@ -172,7 +172,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(sbyte)</c>
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public new SByteEstablisher IsNotDefault() {
+        public SByteEstablisher IsNotDefault() {
             return base.IsNotDefault<SByteEstablisher>();
         }
 
