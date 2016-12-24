@@ -251,6 +251,14 @@ namespace Establishment {
             return base.IsNotEqualTo<DateTimeEstablisher>(constraint);
         }
 
+        public DateTimeEstablisher Satisfies(Action<DateTime> action) {
+            return base.Satisfies<DateTimeEstablisher>(action);
+        }
+
+        public DateTimeEstablisher Satisfies(Func<DateTime, bool> predicate) {
+            return base.Satisfies<DateTimeEstablisher>(predicate);
+        }
+
     }
 
 }

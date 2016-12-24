@@ -169,6 +169,14 @@ namespace Establishment {
             return base.IsNotEqualTo<ByteEstablisher>(constraint);
         }
 
+        public ByteEstablisher Satisfies(Action<byte> action) {
+            return base.Satisfies<ByteEstablisher>(action);
+        }
+
+        public ByteEstablisher Satisfies(Func<byte, bool> predicate) {
+            return base.Satisfies<ByteEstablisher>(predicate);
+        }
+
     }
 
 }

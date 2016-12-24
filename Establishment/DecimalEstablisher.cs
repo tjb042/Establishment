@@ -193,6 +193,14 @@ namespace Establishment {
             return base.IsNotEqualTo<DecimalEstablisher>(constraint);
         }
 
+        public DecimalEstablisher Satisfies(Action<decimal> action) {
+            return base.Satisfies<DecimalEstablisher>(action);
+        }
+
+        public DecimalEstablisher Satisfies(Func<decimal, bool> predicate) {
+            return base.Satisfies<DecimalEstablisher>(predicate);
+        }
+
     }
 
 }

@@ -194,6 +194,14 @@ namespace Establishment {
             return base.IsNotEqualTo<SByteEstablisher>(constraint);
         }
 
+        public SByteEstablisher Satisfies(Action<sbyte> action) {
+            return base.Satisfies<SByteEstablisher>(action);
+        }
+
+        public SByteEstablisher Satisfies(Func<sbyte, bool> predicate) {
+            return base.Satisfies<SByteEstablisher>(predicate);
+        }
+
     }
 
 }

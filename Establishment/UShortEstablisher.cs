@@ -172,6 +172,14 @@ namespace Establishment {
             return base.IsNotEqualTo<UShortEstablisher>(constraint);
         }
 
+        public UShortEstablisher Satisfies(Action<ushort> action) {
+            return base.Satisfies<UShortEstablisher>(action);
+        }
+
+        public UShortEstablisher Satisfies(Func<ushort, bool> predicate) {
+            return base.Satisfies<UShortEstablisher>(predicate);
+        }
+
     }
 
 }

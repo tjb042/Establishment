@@ -44,6 +44,14 @@ namespace Establishment {
             return base.IsNotEqualTo<GuidEstablisher>(constraint);
         }
 
+        public GuidEstablisher Satisfies(Action<Guid> action) {
+            return base.Satisfies<GuidEstablisher>(action);
+        }
+
+        public GuidEstablisher Satisfies(Func<Guid, bool> predicate) {
+            return base.Satisfies<GuidEstablisher>(predicate);
+        }
+
     }
 
 }

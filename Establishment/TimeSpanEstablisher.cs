@@ -168,6 +168,14 @@ namespace Establishment {
             return base.IsNotEqualTo<TimeSpanEstablisher>(constraint);
         }
 
+        public TimeSpanEstablisher Satisfies(Action<TimeSpan> action) {
+            return base.Satisfies<TimeSpanEstablisher>(action);
+        }
+
+        public TimeSpanEstablisher Satisfies(Func<TimeSpan, bool> predicate) {
+            return base.Satisfies<TimeSpanEstablisher>(predicate);
+        }
+
     }
 
 }

@@ -193,6 +193,14 @@ namespace Establishment {
             return base.IsNotEqualTo<LongEstablisher>(constraint);
         }
 
+        public LongEstablisher Satisfies(Action<long> action) {
+            return base.Satisfies<LongEstablisher>(action);
+        }
+
+        public LongEstablisher Satisfies(Func<long, bool> predicate) {
+            return base.Satisfies<LongEstablisher>(predicate);
+        }
+
     }
 
 }

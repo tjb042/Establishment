@@ -193,6 +193,14 @@ namespace Establishment {
             return base.IsNotEqualTo<DoubleEstablisher>(constraint);
         }
 
+        public DoubleEstablisher Satisfies(Action<double> action) {
+            return base.Satisfies<DoubleEstablisher>(action);
+        }
+
+        public DoubleEstablisher Satisfies(Func<double, bool> predicate) {
+            return base.Satisfies<DoubleEstablisher>(predicate);
+        }
+
     }
 
 }

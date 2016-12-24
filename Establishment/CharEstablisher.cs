@@ -481,6 +481,14 @@ namespace Establishment {
             return this;
         }
 
+        public CharEstablisher Satisfies(Action<char> action) {
+            return base.Satisfies<CharEstablisher>(action);
+        }
+
+        public CharEstablisher Satisfies(Func<char, bool> predicate) {
+            return base.Satisfies<CharEstablisher>(predicate);
+        }
+
     }
 
 }

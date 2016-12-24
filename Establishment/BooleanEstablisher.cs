@@ -68,6 +68,14 @@ namespace Establishment {
             return base.IsNotEqualTo<BooleanEstablisher>(constraint);
         }
 
+        public BooleanEstablisher Satisfies(Action<bool> action) {
+            return base.Satisfies<BooleanEstablisher>(action);
+        }
+
+        public BooleanEstablisher Satisfies(Func<bool, bool> predicate) {
+            return base.Satisfies<BooleanEstablisher>(predicate);
+        }
+
     }
 
 }

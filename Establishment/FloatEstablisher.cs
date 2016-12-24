@@ -190,6 +190,14 @@ namespace Establishment {
             return base.IsNotEqualTo<FloatEstablisher>(constraint);
         }
 
+        public FloatEstablisher Satisfies(Action<float> action) {
+            return base.Satisfies<FloatEstablisher>(action);
+        }
+
+        public FloatEstablisher Satisfies(Func<float, bool> predicate) {
+            return base.Satisfies<FloatEstablisher>(predicate);
+        }
+
     }
 
 }

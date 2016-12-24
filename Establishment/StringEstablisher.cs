@@ -131,6 +131,14 @@ namespace Establishment {
             return base.IsNotEqualTo<StringEstablisher>(constraint);
         }
 
+        public StringEstablisher Satisfies(Action<string> action) {
+            return base.Satisfies<StringEstablisher>(action);
+        }
+
+        public StringEstablisher Satisfies(Func<string, bool> predicate) {
+            return base.Satisfies<StringEstablisher>(predicate);
+        }
+
     }
 
 }

@@ -170,6 +170,14 @@ namespace Establishment {
             return base.IsNotEqualTo<UIntegerEstablisher>(constraint);
         }
 
+        public UIntegerEstablisher Satisfies(Action<uint> action) {
+            return base.Satisfies<UIntegerEstablisher>(action);
+        }
+
+        public UIntegerEstablisher Satisfies(Func<uint, bool> predicate) {
+            return base.Satisfies<UIntegerEstablisher>(predicate);
+        }
+
     }
 
 }

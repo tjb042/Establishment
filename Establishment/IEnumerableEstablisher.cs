@@ -66,6 +66,14 @@ namespace Establishment {
             return base.IsNotEqualTo<IEnumerableEstablisher<TSource>>(constraint);
         }
 
+        public IEnumerableEstablisher<TSource> Satisfies(Action<IEnumerable<TSource>> action) {
+            return base.Satisfies<IEnumerableEstablisher<TSource>>(action);
+        }
+
+        public IEnumerableEstablisher<TSource> Satisfies(Func<IEnumerable<TSource>, bool> predicate) {
+            return base.Satisfies<IEnumerableEstablisher<TSource>>(predicate);
+        }
+
     }
 
 }

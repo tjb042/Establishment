@@ -95,12 +95,21 @@ namespace Establishment {
         /// </summary>
         /// <param name="message">The message used in the generated exception</param>
         protected virtual void HandleException(string message) {
+            HandleException(message, null);
+        }
+
+        /// <summary>
+        /// Base error handler that throws or catches exceptions based on <see cref="ThrowExceptionOnFailure"/>
+        /// </summary>
+        /// <param name="message">The message used in the generated exception</param>
+        /// <param name="innerException">The inner exception capture during validation</param>
+        protected virtual void HandleException(string message, Exception innerException) {
             Exception ex;
             if (string.IsNullOrEmpty(Options.ParameterName)) {
-                ex = new ArgumentException(message);
+                ex = new ArgumentException(message, innerException);
             }
             else {
-                ex = new ArgumentException(message, Options.ParameterName);
+                ex = new ArgumentException(message, Options.ParameterName, innerException);
             }
 
             HasExceptions = true;
@@ -146,6 +155,32 @@ namespace Establishment {
         protected TEstablisher IsNotEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
             if (DefaultComparer.Equals(Value, constraint)) {
                 HandleException(GenericType.Name + " must not equal a blacklist constraint");
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher Satisfies<TEstablisher>(Action<TType> action) where TEstablisher : BaseEstablisher<TType> {
+            try {
+                action(Value);
+            }
+            catch (Exception ex) {
+                HandleException("bool value does not satisfy user action", ex);
+            }
+
+            return this as TEstablisher;
+        }
+
+        protected TEstablisher Satisfies<TEstablisher>(Func<TType, bool> predicate) where TEstablisher : BaseEstablisher<TType> {
+            try {
+                if (!predicate(Value)) {
+                    // failure
+                    HandleException("bool value does not satisfy user action");
+                }
+            }
+            catch (Exception ex) {
+                // failure
+                HandleException("bool value does not satisfy user action", ex);
             }
 
             return this as TEstablisher;

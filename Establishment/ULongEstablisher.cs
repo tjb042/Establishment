@@ -172,6 +172,14 @@ namespace Establishment {
             return base.IsNotEqualTo<ULongEstablisher>(constraint);
         }
 
+        public ULongEstablisher Satisfies(Action<ulong> action) {
+            return base.Satisfies<ULongEstablisher>(action);
+        }
+
+        public ULongEstablisher Satisfies(Func<ulong, bool> predicate) {
+            return base.Satisfies<ULongEstablisher>(predicate);
+        }
+
     }
 
 }
