@@ -163,7 +163,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(long)</c>
         /// </summary>
         /// <returns>The current <see cref="LongEstablisher"/></returns>
-        public LongEstablisher IsDefault() {
+        public new LongEstablisher IsDefault() {
             return base.IsDefault<LongEstablisher>();
         }
 
@@ -171,7 +171,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(long)</c>
         /// </summary>
         /// <returns>The current <see cref="LongEstablisher"/></returns>
-        public LongEstablisher IsNotDefault() {
+        public new LongEstablisher IsNotDefault() {
             return base.IsNotDefault<LongEstablisher>();
         }
 

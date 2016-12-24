@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Establishment.Models;
 
 namespace Establishment.Tests.Issues {
 
@@ -9,7 +10,7 @@ namespace Establishment.Tests.Issues {
         [TestMethod]
         public void IncludeParameterName() {
             var parameterName = "isEnabled";
-            var establish = Establish.For(true, parameterName);
+            var establish = Establish.For(true, new EstablisherOptions() { ParameterName = parameterName });
 
             try {
                 establish.IsFalse();

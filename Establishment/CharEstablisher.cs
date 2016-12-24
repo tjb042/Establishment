@@ -15,7 +15,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(char)</c>
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public CharEstablisher IsDefault() {
+        public new CharEstablisher IsDefault() {
             return base.IsDefault<CharEstablisher>();
         }
 
@@ -23,7 +23,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(char)</c>
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public CharEstablisher IsNotDefault() {
+        public new CharEstablisher IsNotDefault() {
             return base.IsNotDefault<CharEstablisher>();
         }
 

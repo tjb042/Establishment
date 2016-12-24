@@ -163,7 +163,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(short)</c>
         /// </summary>
         /// <returns></returns>
-        public ShortEstablisher IsDefault() {
+        public new ShortEstablisher IsDefault() {
             return base.IsDefault<ShortEstablisher>();
         }
 
@@ -171,7 +171,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(short)</c>
         /// </summary>
         /// <returns></returns>
-        public ShortEstablisher IsNotDefault() {
+        public new ShortEstablisher IsNotDefault() {
             return base.IsNotDefault<ShortEstablisher>();
         }
 

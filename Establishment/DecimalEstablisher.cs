@@ -163,7 +163,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(decimal)</c>
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public DecimalEstablisher IsDefault() {
+        public new DecimalEstablisher IsDefault() {
             return base.IsDefault<DecimalEstablisher>();
         }
 
@@ -171,7 +171,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(decimal)</c>
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public DecimalEstablisher IsNotDefault() {
+        public new DecimalEstablisher IsNotDefault() {
             return base.IsNotDefault<DecimalEstablisher>();
         }
 

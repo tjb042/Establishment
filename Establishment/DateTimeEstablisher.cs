@@ -221,7 +221,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>default(DateTime)</c>
         /// </summary>
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
-        public DateTimeEstablisher IsDefault() {
+        public new DateTimeEstablisher IsDefault() {
             return base.IsDefault<DateTimeEstablisher>();
         }
 
@@ -229,7 +229,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>default(DateTime)</c>
         /// </summary>
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
-        public DateTimeEstablisher IsNotDefault() {
+        public new DateTimeEstablisher IsNotDefault() {
             return base.IsNotDefault<DateTimeEstablisher>();
         }
 
