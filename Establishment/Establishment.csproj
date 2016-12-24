@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharEstablisher.cs" />
+    <Compile Include="Exceptions\EstablishmentException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="IClassEstablisher.cs" />
     <Compile Include="BaseEstablisher.cs" />
