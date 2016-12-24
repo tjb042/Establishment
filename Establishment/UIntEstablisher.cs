@@ -19,7 +19,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsGreaterThan(uint threshold) {
             if (Value <= threshold) {
-                HandleFailure("uint value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("uint value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -32,7 +32,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsGreaterThanOrEqualTo(uint threshold) {
             if (Value < threshold) {
-                HandleFailure("uint value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("uint value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsLessThan(uint threshold) {
             if (Value >= threshold) {
-                HandleFailure("uint value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("uint value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -58,7 +58,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsLessThanOrEqualTo(uint threshold) {
             if (Value > threshold) {
-                HandleFailure("uint value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("uint value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -70,7 +70,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -82,7 +82,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -94,7 +94,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsMinValue() {
             if (Value != uint.MinValue) {
-                HandleFailure("value must equal uint.MinValue");
+                HandleException("value must equal uint.MinValue");
             }
 
             return this;
@@ -106,7 +106,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsNotMinValue() {
             if (Value == uint.MinValue) {
-                HandleFailure("value must not equal uint.MinValue");
+                HandleException("value must not equal uint.MinValue");
             }
 
             return this;
@@ -118,7 +118,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsMaxValue() {
             if (Value != uint.MaxValue) {
-                HandleFailure("value must equal uint.MaxValue");
+                HandleException("value must equal uint.MaxValue");
             }
 
             return this;
@@ -130,7 +130,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
         public UIntegerEstablisher IsNotMaxValue() {
             if (Value == uint.MaxValue) {
-                HandleFailure("value must not equal uint.MaxValue");
+                HandleException("value must not equal uint.MaxValue");
             }
 
             return this;

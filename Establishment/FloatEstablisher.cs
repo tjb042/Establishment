@@ -18,7 +18,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsGreaterThan(float threshold) {
             if (Value <= threshold) {
-                HandleFailure("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -31,7 +31,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsGreaterThanOrEqualTo(float threshold) {
             if (Value < threshold) {
-                HandleFailure("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsLessThan(float threshold) {
             if (Value >= threshold) {
-                HandleFailure("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -57,7 +57,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsLessThanOrEqualTo(float threshold) {
             if (Value > threshold) {
-                HandleFailure("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -81,7 +81,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsMinValue() {
             if (Value != float.MinValue) {
-                HandleFailure("value must equal float.MinValue");
+                HandleException("value must equal float.MinValue");
             }
 
             return this;
@@ -105,7 +105,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotMinValue() {
             if (Value == float.MinValue) {
-                HandleFailure("value must not equal float.MinValue");
+                HandleException("value must not equal float.MinValue");
             }
 
             return this;
@@ -117,7 +117,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsMaxValue() {
             if (Value != float.MaxValue) {
-                HandleFailure("value must equal float.MaxValue");
+                HandleException("value must equal float.MaxValue");
             }
 
             return this;
@@ -129,7 +129,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsNotMaxValue() {
             if (Value == float.MaxValue) {
-                HandleFailure("value must not equal float.MaxValue");
+                HandleException("value must not equal float.MaxValue");
             }
 
             return this;
@@ -141,7 +141,7 @@ namespace Establishment {
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
         public FloatEstablisher IsPositive() {
             if (Value < 0f) {
-                HandleFailure("value must be greater than zero");
+                HandleException("value must be greater than zero");
             }
 
             return this;
@@ -150,7 +150,7 @@ namespace Establishment {
         //Establishes that the supplied value is less than or equal to zero
         public FloatEstablisher IsNegative() {
             if (Value > 0f) {
-                HandleFailure("value must be less than zero");
+                HandleException("value must be less than zero");
             }
 
             return this;

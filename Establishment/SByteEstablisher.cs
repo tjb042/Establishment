@@ -19,7 +19,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsGreaterThan(sbyte threshold) {
             if (Value <= threshold) {
-                HandleFailure("sbyte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("sbyte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -32,7 +32,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsGreaterThanOrEqualTo(sbyte threshold) {
             if (Value < threshold) {
-                HandleFailure("sbyte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("sbyte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -45,7 +45,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsLessThan(sbyte threshold) {
             if (Value >= threshold) {
-                HandleFailure("sbyte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("sbyte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -58,7 +58,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsLessThanOrEqualTo(sbyte threshold) {
             if (Value > threshold) {
-                HandleFailure("sbyte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("sbyte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -70,7 +70,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -82,7 +82,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -94,7 +94,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsMinValue() {
             if (Value != sbyte.MinValue) {
-                HandleFailure("value must equal sbyte.MinValue");
+                HandleException("value must equal sbyte.MinValue");
             }
 
             return this;
@@ -106,7 +106,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsNotMinValue() {
             if (Value == sbyte.MinValue) {
-                HandleFailure("value must not equal sbyte.MinValue");
+                HandleException("value must not equal sbyte.MinValue");
             }
 
             return this;
@@ -118,7 +118,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsMaxValue() {
             if (Value != sbyte.MaxValue) {
-                HandleFailure("value must equal sbyte.MaxValue");
+                HandleException("value must equal sbyte.MaxValue");
             }
 
             return this;
@@ -130,7 +130,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsNotMaxValue() {
             if (Value == sbyte.MaxValue) {
-                HandleFailure("value must not equal sbyte.MaxValue");
+                HandleException("value must not equal sbyte.MaxValue");
             }
 
             return this;
@@ -142,7 +142,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsPositive() {
             if (Value < 0) {
-                HandleFailure("value must be greater than zero");
+                HandleException("value must be greater than zero");
             }
 
             return this;
@@ -154,7 +154,7 @@ namespace Establishment {
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
         public SByteEstablisher IsNegative() {
             if (Value > 0) {
-                HandleFailure("value must be less than zero");
+                HandleException("value must be less than zero");
             }
 
             return this;

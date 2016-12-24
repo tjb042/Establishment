@@ -12,7 +12,7 @@ namespace Establishment {
 
         public IEnumerableEstablisher<TSource> HasElements() {
             if (!Value.Any()) {
-                HandleFailure("IEnumerable value must contain at least one element");
+                HandleException("IEnumerable value must contain at least one element");
             }
 
             return this;
@@ -20,7 +20,7 @@ namespace Establishment {
 
         public IEnumerableEstablisher<TSource> HasNoElements() {
             if (Value.Any()) {
-                HandleFailure("IEnumerable value must not contain any elements");
+                HandleException("IEnumerable value must not contain any elements");
             }
 
             return this;
@@ -28,7 +28,7 @@ namespace Establishment {
 
         public IEnumerableEstablisher<TSource> HasMinimumLength(int minimumElements) {
             if (Value.Count() < minimumElements) {
-                HandleFailure(string.Concat("IEnumerable value must have at least ", minimumElements, " elements"));
+                HandleException(string.Concat("IEnumerable value must have at least ", minimumElements, " elements"));
             }
 
             return this;
@@ -36,7 +36,7 @@ namespace Establishment {
 
         public IEnumerableEstablisher<TSource> HasMaximumLength(int maximumElements) {
             if (Value.Count() > maximumElements) {
-                HandleFailure(string.Concat("IEnumerable value must not have more than ", maximumElements, " elements"));
+                HandleException(string.Concat("IEnumerable value must not have more than ", maximumElements, " elements"));
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
 
         public IEnumerableEstablisher<TSource> HasExactLength(int totalElements) {
             if (Value.Count() != totalElements) {
-                HandleFailure(string.Concat("IEnumerable value must contain exactly ", totalElements, " elements"));
+                HandleException(string.Concat("IEnumerable value must contain exactly ", totalElements, " elements"));
             }
 
             return this;

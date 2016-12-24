@@ -51,7 +51,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsControl() {
             if (!char.IsControl(Value)) {
-                HandleFailure("char must be a control character");
+                HandleException("char must be a control character");
             }
 
             return this;
@@ -63,7 +63,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotControl() {
             if (char.IsControl(Value)) {
-                HandleFailure("char must not be a control character");
+                HandleException("char must not be a control character");
             }
 
             return this;
@@ -75,7 +75,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsDigit() {
             if (!char.IsDigit(Value)) {
-                HandleFailure("char must be a digit");
+                HandleException("char must be a digit");
             }
 
             return this;
@@ -87,7 +87,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotDigit() {
             if (char.IsDigit(Value)) {
-                HandleFailure("char must not be a digit");
+                HandleException("char must not be a digit");
             }
 
             return this;
@@ -99,7 +99,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsHighSurrogate() {
             if (!char.IsHighSurrogate(Value)) {
-                HandleFailure("char must be a high surrogage");
+                HandleException("char must be a high surrogage");
             }
 
             return this;
@@ -111,7 +111,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotHighSurrogate() {
             if (char.IsHighSurrogate(Value)) {
-                HandleFailure("char must not be a high surrogate");
+                HandleException("char must not be a high surrogate");
             }
 
             return this;
@@ -123,7 +123,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsLetter() {
             if (!char.IsLetter(Value)) {
-                HandleFailure("char must be a letter");
+                HandleException("char must be a letter");
             }
 
             return this;
@@ -135,7 +135,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotLetter() {
             if (char.IsLetter(Value)) {
-                HandleFailure("char must not be a letter");
+                HandleException("char must not be a letter");
             }
 
             return this;
@@ -147,7 +147,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsLetterOrDigit() {
             if (!char.IsLetterOrDigit(Value)) {
-                HandleFailure("char must be a letter or digit");
+                HandleException("char must be a letter or digit");
             }
 
             return this;
@@ -159,7 +159,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotLetterOrDigit() {
             if (char.IsLetterOrDigit(Value)) {
-                HandleFailure("char must not be a letter or digit");
+                HandleException("char must not be a letter or digit");
             }
 
             return this;
@@ -171,7 +171,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsLower() {
             if (!char.IsLower(Value)) {
-                HandleFailure("char must be lowercase");
+                HandleException("char must be lowercase");
             }
 
             return this;
@@ -183,7 +183,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotLower() {
             if (char.IsLower(Value)) {
-                HandleFailure("char must not be lowercase");
+                HandleException("char must not be lowercase");
             }
 
             return this;
@@ -195,7 +195,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsLowSurrogate() {
             if (!char.IsLowSurrogate(Value)) {
-                HandleFailure("char must be low surrogate");
+                HandleException("char must be low surrogate");
             }
 
             return this;
@@ -207,7 +207,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotLowSurrogate() {
             if (char.IsLowSurrogate(Value)) {
-                HandleFailure("char must not be low surrogate");
+                HandleException("char must not be low surrogate");
             }
 
             return this;
@@ -219,7 +219,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNumber() {
             if (!char.IsNumber(Value)) {
-                HandleFailure("char must be a number");
+                HandleException("char must be a number");
             }
 
             return this;
@@ -231,7 +231,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotNumber() {
             if (char.IsNumber(Value)) {
-                HandleFailure("char must not be a number");
+                HandleException("char must not be a number");
             }
 
             return this;
@@ -243,7 +243,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsPunctuation() {
             if (!char.IsPunctuation(Value)) {
-                HandleFailure("char must be punctuation");
+                HandleException("char must be punctuation");
             }
 
             return this;
@@ -255,7 +255,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotPunctuation() {
             if (char.IsPunctuation(Value)) {
-                HandleFailure("char must not be punctuation");
+                HandleException("char must not be punctuation");
             }
 
             return this;
@@ -267,7 +267,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsSeparator() {
             if (!char.IsSeparator(Value)) {
-                HandleFailure("char must be a separator");
+                HandleException("char must be a separator");
             }
 
             return this;
@@ -279,7 +279,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotSeparator() {
             if (char.IsSeparator(Value)) {
-                HandleFailure("char must not be a separator");
+                HandleException("char must not be a separator");
             }
 
             return this;
@@ -291,7 +291,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsSurrogate() {
             if (!char.IsSurrogate(Value)) {
-                HandleFailure("char must be a surrogate");
+                HandleException("char must be a surrogate");
             }
 
             return this;
@@ -303,7 +303,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotSurrogate() {
             if (char.IsSurrogate(Value)) {
-                HandleFailure("char must not be a surrogate");
+                HandleException("char must not be a surrogate");
             }
 
             return this;
@@ -315,7 +315,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsSymbol() {
             if (!char.IsSymbol(Value)) {
-                HandleFailure("char must be a symbol");
+                HandleException("char must be a symbol");
             }
 
             return this;
@@ -327,7 +327,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotSymbol() {
             if (char.IsSymbol(Value)) {
-                HandleFailure("char must not be a symbol");
+                HandleException("char must not be a symbol");
             }
 
             return this;
@@ -339,7 +339,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsUpper() {
             if (!char.IsUpper(Value)) {
-                HandleFailure("char must be uppercase");
+                HandleException("char must be uppercase");
             }
 
             return this;
@@ -351,7 +351,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotUpper() {
             if (char.IsUpper(Value)) {
-                HandleFailure("char must not be uppercase");
+                HandleException("char must not be uppercase");
             }
 
             return this;
@@ -363,7 +363,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsWhiteSpace() {
             if (!char.IsWhiteSpace(Value)) {
-                HandleFailure("char must be white space");
+                HandleException("char must be white space");
             }
 
             return this;
@@ -375,7 +375,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotWhiteSpace() {
             if (char.IsWhiteSpace(Value)) {
-                HandleFailure("char must not be white space");
+                HandleException("char must not be white space");
             }
 
             return this;
@@ -387,7 +387,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsMaxValue() {
             if (char.MaxValue != Value) {
-                HandleFailure("char must equal char.MaxValue");
+                HandleException("char must equal char.MaxValue");
             }
 
             return this;
@@ -399,7 +399,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotMaxValue() {
             if (char.MaxValue == Value) {
-                HandleFailure("char must not equal char.MaxValue");
+                HandleException("char must not equal char.MaxValue");
             }
 
             return this;
@@ -411,7 +411,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsMinValue() {
             if (char.MinValue != Value) {
-                HandleFailure("char must equal char.MinValue");
+                HandleException("char must equal char.MinValue");
             }
 
             return this;
@@ -423,7 +423,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsNotMinValue() {
             if (char.MinValue == Value) {
-                HandleFailure("char must not equal char.MinValue");
+                HandleException("char must not equal char.MinValue");
             }
 
             return this;
@@ -436,7 +436,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsGreaterThan(char threshold) {
             if (Value <= threshold) {
-                HandleFailure("char value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("char value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -449,7 +449,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsGreaterThanOrEqualTo(char threshold) {
             if (Value < threshold) {
-                HandleFailure("char value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("char value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -462,7 +462,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsLessThan(char threshold) {
             if (Value >= threshold) {
-                HandleFailure("char value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("char value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -475,7 +475,7 @@ namespace Establishment {
         /// <returns>The current <see cref="CharEstablisher"/></returns>
         public CharEstablisher IsLessThanOrEqualTo(char threshold) {
             if (Value > threshold) {
-                HandleFailure("char value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("char value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;

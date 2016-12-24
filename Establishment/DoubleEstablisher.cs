@@ -18,7 +18,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsGreaterThan(double threshold) {
             if (Value <= threshold) {
-                HandleFailure("double value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("double value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -31,7 +31,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsGreaterThanOrEqualTo(double threshold) {
             if (Value < threshold) {
-                HandleFailure("double value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("double value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsLessThan(double threshold) {
             if (Value >= threshold) {
-                HandleFailure("double value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("double value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -57,7 +57,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsLessThanOrEqualTo(double threshold) {
             if (Value > threshold) {
-                HandleFailure("double value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("double value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -81,7 +81,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsMinValue() {
             if (Value != double.MinValue) {
-                HandleFailure("value must equal double.MinValue");
+                HandleException("value must equal double.MinValue");
             }
 
             return this;
@@ -105,7 +105,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsNotMinValue() {
             if (Value == double.MinValue) {
-                HandleFailure("value must not equal double.MinValue");
+                HandleException("value must not equal double.MinValue");
             }
 
             return this;
@@ -117,7 +117,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsMaxValue() {
             if (Value != double.MaxValue) {
-                HandleFailure("value must equal double.MaxValue");
+                HandleException("value must equal double.MaxValue");
             }
 
             return this;
@@ -129,7 +129,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsNotMaxValue() {
             if (Value == double.MaxValue) {
-                HandleFailure("value must not equal double.MaxValue");
+                HandleException("value must not equal double.MaxValue");
             }
 
             return this;
@@ -141,7 +141,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsPositive() {
             if (Value < 0D) {
-                HandleFailure("value must be greater than zero");
+                HandleException("value must be greater than zero");
             }
 
             return this;
@@ -153,7 +153,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DoubleEstablisher"/></returns>
         public DoubleEstablisher IsNegative() {
             if (Value > 0D) {
-                HandleFailure("value must be less than zero");
+                HandleException("value must be less than zero");
             }
 
             return this;

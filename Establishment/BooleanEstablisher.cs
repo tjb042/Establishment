@@ -16,7 +16,7 @@ namespace Establishment {
         /// <returns>The current <see cref="BooleanEstablisher"/></returns>
         public BooleanEstablisher IsTrue() {
             if (!Value) {
-                HandleFailure("bool value must be true");
+                HandleException("bool value must be true");
             }
 
             return this;
@@ -28,7 +28,7 @@ namespace Establishment {
         /// <returns>The current <see cref="BooleanEstablisher"/></returns>
         public BooleanEstablisher IsFalse() {
             if (Value) {
-                HandleFailure("bool value must be false");
+                HandleException("bool value must be false");
             }
 
             return this;

@@ -21,7 +21,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsGreaterThan(ushort threshold) {
             if (Value <= threshold) {
-                HandleFailure("ushort value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("ushort value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -34,7 +34,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsGreaterThanOrEqualTo(ushort threshold) {
             if (Value < threshold) {
-                HandleFailure("ushort value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("ushort value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -47,7 +47,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsLessThan(ushort threshold) {
             if (Value >= threshold) {
-                HandleFailure("ushort value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("ushort value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -60,7 +60,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsLessThanOrEqualTo(ushort threshold) {
             if (Value > threshold) {
-                HandleFailure("ushort value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("ushort value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -72,7 +72,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -84,7 +84,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -96,7 +96,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsMinValue() {
             if (Value != ushort.MinValue) {
-                HandleFailure("value must equal ushort.MinValue");
+                HandleException("value must equal ushort.MinValue");
             }
 
             return this;
@@ -108,7 +108,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsNotMinValue() {
             if (Value == ushort.MinValue) {
-                HandleFailure("value must not equal ushort.MinValue");
+                HandleException("value must not equal ushort.MinValue");
             }
 
             return this;
@@ -120,7 +120,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsMaxValue() {
             if (Value != ushort.MaxValue) {
-                HandleFailure("value must equal ushort.MaxValue");
+                HandleException("value must equal ushort.MaxValue");
             }
 
             return this;
@@ -132,7 +132,7 @@ namespace Establishment {
         /// <returns>The current <see cref="UShortEstablisher"/></returns>
         public UShortEstablisher IsNotMaxValue() {
             if (Value == ushort.MaxValue) {
-                HandleFailure("value must not equal ushort.MaxValue");
+                HandleException("value must not equal ushort.MaxValue");
             }
 
             return this;

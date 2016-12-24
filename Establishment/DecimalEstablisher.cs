@@ -18,7 +18,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsGreaterThan(decimal threshold) {
             if (Value <= threshold) {
-                HandleFailure("decimal value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("decimal value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -31,7 +31,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsGreaterThanOrEqualTo(decimal threshold) {
             if (Value < threshold) {
-                HandleFailure("decimal value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("decimal value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsLessThan(decimal threshold) {
             if (Value >= threshold) {
-                HandleFailure("decimal value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("decimal value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -57,7 +57,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsLessThanOrEqualTo(decimal threshold) {
             if (Value > threshold) {
-                HandleFailure("decimal value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("decimal value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -81,7 +81,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsMinValue() {
             if (Value != decimal.MinValue) {
-                HandleFailure("value must equal decimal.MinValue");
+                HandleException("value must equal decimal.MinValue");
             }
 
             return this;
@@ -105,7 +105,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsNotMinValue() {
             if (Value == decimal.MinValue) {
-                HandleFailure("value must not equal decimal.MinValue");
+                HandleException("value must not equal decimal.MinValue");
             }
 
             return this;
@@ -117,7 +117,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsMaxValue() {
             if (Value != decimal.MaxValue) {
-                HandleFailure("value must equal decimal.MaxValue");
+                HandleException("value must equal decimal.MaxValue");
             }
 
             return this;
@@ -129,7 +129,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsNotMaxValue() {
             if (Value == decimal.MaxValue) {
-                HandleFailure("value must not equal decimal.MaxValue");
+                HandleException("value must not equal decimal.MaxValue");
             }
 
             return this;
@@ -141,7 +141,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsPositive() {
             if (Value < 0m) {
-                HandleFailure("value must be greater than zero");
+                HandleException("value must be greater than zero");
             }
 
             return this;
@@ -153,7 +153,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
         public DecimalEstablisher IsNegative() {
             if (Value > 0m) {
-                HandleFailure("value must be less than zero");
+                HandleException("value must be less than zero");
             }
 
             return this;

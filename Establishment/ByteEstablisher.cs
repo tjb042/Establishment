@@ -18,7 +18,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsGreaterThan(byte threshold) {
             if (Value <= threshold) {
-                HandleFailure("byte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("byte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -31,7 +31,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsGreaterThanOrEqualTo(byte threshold) {
             if (Value < threshold) {
-                HandleFailure("byte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("byte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsLessThan(byte threshold) {
             if (Value >= threshold) {
-                HandleFailure("byte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("byte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -57,7 +57,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsLessThanOrEqualTo(byte threshold) {
             if (Value > threshold) {
-                HandleFailure("byte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("byte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -81,7 +81,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsMinValue() {
             if (Value != byte.MinValue) {
-                HandleFailure("value must equal byte.MinValue");
+                HandleException("value must equal byte.MinValue");
             }
 
             return this;
@@ -105,7 +105,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsNotMinValue() {
             if (Value == byte.MinValue) {
-                HandleFailure("value must not equal byte.MinValue");
+                HandleException("value must not equal byte.MinValue");
             }
 
             return this;
@@ -117,7 +117,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsMaxValue() {
             if (Value != byte.MaxValue) {
-                HandleFailure("value must equal byte.MaxValue");
+                HandleException("value must equal byte.MaxValue");
             }
 
             return this;
@@ -129,7 +129,7 @@ namespace Establishment {
         /// <returns>The current <see cref="ByteEstablisher"/></returns>
         public ByteEstablisher IsNotMaxValue() {
             if (Value == byte.MaxValue) {
-                HandleFailure("value must not equal byte.MaxValue");
+                HandleException("value must not equal byte.MaxValue");
             }
 
             return this;

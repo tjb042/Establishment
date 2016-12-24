@@ -16,7 +16,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsZero() {
             if (Value.Ticks != TimeSpan.Zero.Ticks) {
-                HandleFailure("TimeSpan must equal zero");
+                HandleException("TimeSpan must equal zero");
             }
 
             return this;
@@ -28,7 +28,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsNotZero() {
             if (Value.Ticks == TimeSpan.Zero.Ticks) {
-                HandleFailure("TimeSpan must not equal zero");
+                HandleException("TimeSpan must not equal zero");
             }
 
             return this;
@@ -40,7 +40,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsMaxSpan() {
             if (Value.Ticks != TimeSpan.MaxValue.Ticks) {
-                HandleFailure("TimeSpan must equal TimeSpan.MaxValue");
+                HandleException("TimeSpan must equal TimeSpan.MaxValue");
             }
 
             return this;
@@ -52,7 +52,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsNotMaxSpan() {
             if (Value.Ticks == TimeSpan.MaxValue.Ticks) {
-                HandleFailure("TimeSpan must not equal TimeSpan.MaxValue");
+                HandleException("TimeSpan must not equal TimeSpan.MaxValue");
             }
 
             return this;
@@ -64,7 +64,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsMinSpan() {
             if (Value.Ticks != TimeSpan.MinValue.Ticks) {
-                HandleFailure("TimeSpan must equal TimeSpan.MinValue");
+                HandleException("TimeSpan must equal TimeSpan.MinValue");
             }
 
             return this;
@@ -76,7 +76,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsNotMinSpan() {
             if (Value.Ticks == TimeSpan.MinValue.Ticks) {
-                HandleFailure("TimeSpan must not equal TimeSpan.MinValue");
+                HandleException("TimeSpan must not equal TimeSpan.MinValue");
             }
 
             return this;
@@ -89,7 +89,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsGreaterThan(TimeSpan threshold) {
             if (Value <= threshold) {
-                HandleFailure("TimeSpan value must be greater than " + threshold.ToString());
+                HandleException("TimeSpan value must be greater than " + threshold.ToString());
             }
 
             return this;
@@ -102,7 +102,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsGreaterThanOrEqualTo(TimeSpan threshold) {
             if (Value < threshold) {
-                HandleFailure("TimeSpan value must be greater than or equal to " + threshold.ToString());
+                HandleException("TimeSpan value must be greater than or equal to " + threshold.ToString());
             }
 
             return this;
@@ -115,7 +115,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsLessThan(TimeSpan threshold) {
             if (Value >= threshold) {
-                HandleFailure("TimeSpan value must be less than " + threshold.ToString());
+                HandleException("TimeSpan value must be less than " + threshold.ToString());
             }
 
             return this;
@@ -128,7 +128,7 @@ namespace Establishment {
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
         public TimeSpanEstablisher IsLessThanOrEqualTo(TimeSpan threshold) {
             if (Value > threshold) {
-                HandleFailure("TimeSpan value must be less than or equal to " + threshold.ToString());
+                HandleException("TimeSpan value must be less than or equal to " + threshold.ToString());
             }
 
             return this;

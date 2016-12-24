@@ -18,7 +18,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsMinDate() {
             if (Value != DateTime.MinValue) {
-                HandleFailure("DateTime value must be equal to DateTime.MinValue");
+                HandleException("DateTime value must be equal to DateTime.MinValue");
             }
 
             return this;
@@ -30,7 +30,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotMinDate() {
             if (Value == DateTime.MinValue) {
-                HandleFailure("DateTime value must not be equal to DateTime.MinValue");
+                HandleException("DateTime value must not be equal to DateTime.MinValue");
             }
 
             return this;
@@ -42,7 +42,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsMaxDate() {
             if (Value != DateTime.MaxValue) {
-                HandleFailure("DateTime value must be equal to DateTime.MaxValue");
+                HandleException("DateTime value must be equal to DateTime.MaxValue");
             }
 
             return this;
@@ -54,7 +54,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotMaxDate() {
             if (Value == DateTime.MaxValue) {
-                HandleFailure("DateTime value must not be equal to DateTime.MaxValue");
+                HandleException("DateTime value must not be equal to DateTime.MaxValue");
             }
 
             return this;
@@ -66,7 +66,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsUnixEpoch() {
             if (Value != UnixEpoch) {
-                HandleFailure("DateTime value must be equal to UnixEpoch");
+                HandleException("DateTime value must be equal to UnixEpoch");
             }
 
             return this;
@@ -78,7 +78,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsNotUnixEpoch() {
             if (Value == UnixEpoch) {
-                HandleFailure("DateTime value must not be equal to UnixEpoch");
+                HandleException("DateTime value must not be equal to UnixEpoch");
             }
 
             return this;
@@ -90,7 +90,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsBeforeUnixEpoch() {
             if (Value >= UnixEpoch) {
-                HandleFailure("DateTime value must occur before UnixEpoch");
+                HandleException("DateTime value must occur before UnixEpoch");
             }
 
             return this;
@@ -102,7 +102,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsAfterUnixEpoch() {
             if (Value < UnixEpoch) {
-                HandleFailure("DateTime value must occur after UnixEpoch");
+                HandleException("DateTime value must occur after UnixEpoch");
             }
 
             return this;
@@ -115,7 +115,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsGreaterThan(DateTime threshold) {
             if (Value <= threshold) {
-                HandleFailure("DateTime value must be greater than " + threshold.ToString());
+                HandleException("DateTime value must be greater than " + threshold.ToString());
             }
 
             return this;
@@ -128,7 +128,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsGreaterThanOrEqualTo(DateTime threshold) {
             if (Value < threshold) {
-                HandleFailure("DateTime value must be greater than or equal to " + threshold.ToString());
+                HandleException("DateTime value must be greater than or equal to " + threshold.ToString());
             }
 
             return this;
@@ -141,7 +141,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsLessThan(DateTime threshold) {
             if (Value >= threshold) {
-                HandleFailure("DateTime value must be less than " + threshold.ToString());
+                HandleException("DateTime value must be less than " + threshold.ToString());
             }
 
             return this;
@@ -154,7 +154,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsLessThanOrEqualTo(DateTime threshold) {
             if (Value > threshold) {
-                HandleFailure("DateTime value must be less than or equal to " + threshold.ToString());
+                HandleException("DateTime value must be less than or equal to " + threshold.ToString());
             }
 
             return this;
@@ -166,7 +166,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsInTheFuture() {
             if (DateTime.Now >= Value) {
-                HandleFailure("DateTime value must be a date and time in the future");
+                HandleException("DateTime value must be a date and time in the future");
             }
 
             return this;
@@ -178,7 +178,7 @@ namespace Establishment {
         /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
         public DateTimeEstablisher IsInThePast() {
             if (DateTime.Now <= Value) {
-                HandleFailure("DateTime value must be a date and time in the past");
+                HandleException("DateTime value must be a date and time in the past");
             }
 
             return this;
@@ -192,7 +192,7 @@ namespace Establishment {
             switch (Value.DayOfWeek) {
                 case DayOfWeek.Sunday:
                 case DayOfWeek.Saturday:
-                    HandleFailure("DateTime value must fall on a weekday");
+                    HandleException("DateTime value must fall on a weekday");
                     break;
             }
 
@@ -210,7 +210,7 @@ namespace Establishment {
                 case DayOfWeek.Wednesday:
                 case DayOfWeek.Thursday:
                 case DayOfWeek.Friday:
-                    HandleFailure("DateTime value must not fall on a weekday"); 
+                    HandleException("DateTime value must not fall on a weekday"); 
                     break;
             }
 

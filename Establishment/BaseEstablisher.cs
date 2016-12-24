@@ -94,7 +94,7 @@ namespace Establishment {
         /// Base error handler that throws or catches exceptions based on <see cref="ThrowExceptionOnFailure"/>
         /// </summary>
         /// <param name="message">The message used in the generated exception</param>
-        protected virtual void HandleFailure(string message) {
+        protected virtual void HandleException(string message) {
             Exception ex;
             if (string.IsNullOrEmpty(Options.ParameterName)) {
                 ex = new ArgumentException(message);
@@ -121,7 +121,7 @@ namespace Establishment {
 
         protected TEstablisher IsDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
             if (!DefaultComparer.Equals(Value, DefaultTypeValue)) {
-                HandleFailure(GenericType.Name + " must equal its default value");
+                HandleException(GenericType.Name + " must equal its default value");
             }
 
             return this as TEstablisher;
@@ -129,7 +129,7 @@ namespace Establishment {
 
         protected TEstablisher IsNotDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
             if (DefaultComparer.Equals(Value, DefaultTypeValue)) {
-                HandleFailure(GenericType.Name + " must not equal its default value");
+                HandleException(GenericType.Name + " must not equal its default value");
             }
 
             return this as TEstablisher;
@@ -137,7 +137,7 @@ namespace Establishment {
 
         protected TEstablisher IsEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
             if (!DefaultComparer.Equals(Value, constraint)) {
-                HandleFailure(GenericType.Name + " is not equal to a required constraint");
+                HandleException(GenericType.Name + " is not equal to a required constraint");
             }
 
             return this as TEstablisher;
@@ -145,7 +145,7 @@ namespace Establishment {
 
         protected TEstablisher IsNotEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
             if (DefaultComparer.Equals(Value, constraint)) {
-                HandleFailure(GenericType.Name + " must not equal a blacklist constraint");
+                HandleException(GenericType.Name + " must not equal a blacklist constraint");
             }
 
             return this as TEstablisher;

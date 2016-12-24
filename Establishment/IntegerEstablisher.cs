@@ -18,7 +18,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsGreaterThan(int threshold) {
             if (Value <= threshold) {
-                HandleFailure("int value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("int value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -31,7 +31,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsGreaterThanOrEqualTo(int threshold) {
             if (Value < threshold) {
-                HandleFailure("int value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("int value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -44,7 +44,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsLessThan(int threshold) {
             if (Value >= threshold) {
-                HandleFailure("int value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("int value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -57,7 +57,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsLessThanOrEqualTo(int threshold) {
             if (Value > threshold) {
-                HandleFailure("int value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+                HandleException("int value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
             return this;
@@ -69,7 +69,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsZero() {
             if (Value != 0) {
-                HandleFailure("value must be zero");
+                HandleException("value must be zero");
             }
 
             return this;
@@ -81,7 +81,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsNotZero() {
             if (Value == 0) {
-                HandleFailure("value must not be zero");
+                HandleException("value must not be zero");
             }
 
             return this;
@@ -93,7 +93,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsMinValue() {
             if (Value != int.MinValue) {
-                HandleFailure("value must equal int.MinValue");
+                HandleException("value must equal int.MinValue");
             }
 
             return this;
@@ -105,7 +105,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsNotMinValue() {
             if (Value == int.MinValue) {
-                HandleFailure("value must not equal int.MinValue");
+                HandleException("value must not equal int.MinValue");
             }
 
             return this;
@@ -117,7 +117,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsMaxValue() {
             if (Value != int.MaxValue) {
-                HandleFailure("value must equal int.MaxValue");
+                HandleException("value must equal int.MaxValue");
             }
 
             return this;
@@ -129,7 +129,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsNotMaxValue() {
             if (Value == int.MaxValue) {
-                HandleFailure("value must not equal int.MaxValue");
+                HandleException("value must not equal int.MaxValue");
             }
 
             return this;
@@ -141,7 +141,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsPositive() {
             if (Value < 0) {
-                HandleFailure("value must be greater than zero");
+                HandleException("value must be greater than zero");
             }
 
             return this;
@@ -153,7 +153,7 @@ namespace Establishment {
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
         public IntegerEstablisher IsNegative() {
             if (Value > 0) {
-                HandleFailure("value must be less than zero");
+                HandleException("value must be less than zero");
             }
 
             return this;
