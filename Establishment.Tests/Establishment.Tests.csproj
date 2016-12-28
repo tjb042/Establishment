@@ -63,7 +63,7 @@
     <Compile Include="LongEstablisherTests.cs" />
     <Compile Include="Negative Tests\EstablishOptionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NegativeBooleanEstablisherTests.cs" />
+    <Compile Include="Negative Tests\NegativeBooleanEstablisherTests.cs" />
     <Compile Include="SByteEstablisherTests.cs" />
     <Compile Include="ShortEstablisherTests.cs" />
     <Compile Include="StringEstablisherTests.cs" />

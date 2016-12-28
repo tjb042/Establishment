@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Establishment.Exceptions;
 
-namespace Establishment.Tests {
+namespace Establishment.Tests.Negative_Tests {
 
     [TestClass]
     public class NegativeBooleanEstablisherTests {
