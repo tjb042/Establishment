@@ -98,6 +98,16 @@ namespace Establishment {
             };
         }
 
+        public static FileSystemInfoEstablisher<TInfo> For<TInfo>(TInfo input) where TInfo : FileSystemInfo {
+            return new FileSystemInfoEstablisher<TInfo>(input);
+        }
+
+        public static FileSystemInfoEstablisher<TInfo> For<TInfo>(TInfo input, EstablisherOptions options) where TInfo : FileSystemInfo {
+            return new FileSystemInfoEstablisher<TInfo>(input) {
+                Options = options,
+            };
+        }
+
         public static FloatEstablisher For(float input) {
             return new FloatEstablisher(input);
         }

@@ -45,6 +45,7 @@
     <Compile Include="ClassEstablisher.cs" />
     <Compile Include="EnumEstablisher.cs" />
     <Compile Include="Exceptions\EstablishmentException.cs" />
+    <Compile Include="FileSystemInfoEstablisher.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="BaseEstablisher.cs" />
     <Compile Include="IEnumerableEstablisher.cs" />
