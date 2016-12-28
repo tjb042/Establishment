@@ -69,6 +69,14 @@ namespace Establishment {
             return base.IsNotEqualTo<EnumEstablisher<TEnum>>(constraint);
         }
 
+        public EnumEstablisher<TEnum> Satisfies(Action<TEnum> action) {
+            return base.Satisfies<EnumEstablisher<TEnum>>(action);
+        }
+
+        public EnumEstablisher<TEnum> Satisfies(Func<TEnum, bool> predicate) {
+            return base.Satisfies<EnumEstablisher<TEnum>>(predicate);
+        }
+
     }
 
 }

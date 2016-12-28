@@ -41,5 +41,14 @@ namespace Establishment {
         public UIntPtrEstablisher IsNotEqualTo(UIntPtr constraint) {
             return base.IsNotEqualTo<UIntPtrEstablisher>(constraint);
         }
+
+        public UIntPtrEstablisher Satisfies(Action<UIntPtr> action) {
+            return base.Satisfies<UIntPtrEstablisher>(action);
+        }
+
+        public UIntPtrEstablisher Satisfies(Func<UIntPtr, bool> predicate) {
+            return base.Satisfies<UIntPtrEstablisher>(predicate);
+        }
+
     }
 }
