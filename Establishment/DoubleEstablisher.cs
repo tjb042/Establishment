@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class DoubleEstablisher : BaseEstablisher<double>, IStructEstablisher<DoubleEstablisher, double> {
+    public class DoubleEstablisher : StructEstablisher<DoubleEstablisher, double> {
 
         public DoubleEstablisher(double value) : base(value) { }
 
@@ -159,48 +159,6 @@ namespace Establishment {
             return this;
         }
         
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(double)</c>
-        /// </summary>
-        /// <returns>The current <see cref="DoubleEstablisher"/></returns>
-        public DoubleEstablisher IsDefault() {
-            return base.IsDefault<DoubleEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(double)</c>
-        /// </summary>
-        /// <returns>The current <see cref="DoubleEstablisher"/></returns>
-        public DoubleEstablisher IsNotDefault() {
-            return base.IsNotDefault<DoubleEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="DoubleEstablisher"/></returns>
-        public DoubleEstablisher IsEqualTo(double constraint) {
-            return base.IsEqualTo<DoubleEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="DoubleEstablisher"/></returns>
-        public DoubleEstablisher IsNotEqualTo(double constraint) {
-            return base.IsNotEqualTo<DoubleEstablisher>(constraint);
-        }
-
-        public DoubleEstablisher Satisfies(Action<double> action) {
-            return base.Satisfies<DoubleEstablisher>(action);
-        }
-
-        public DoubleEstablisher Satisfies(Func<double, bool> predicate) {
-            return base.Satisfies<DoubleEstablisher>(predicate);
-        }
-
     }
 
 }

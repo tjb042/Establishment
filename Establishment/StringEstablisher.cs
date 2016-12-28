@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class StringEstablisher : BaseEstablisher<string>, IClassEstablisher<StringEstablisher, string> {
+    public class StringEstablisher : ClassEstablisher<StringEstablisher, string> {
 
-        internal StringEstablisher(string value) : base(value) { }
+        public StringEstablisher(string value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is null or empty
@@ -99,7 +99,7 @@ namespace Establishment {
         }
 
         public StringEstablisher MatchesPattern(Regex regex) {
-            Establish.ForObject(regex).IsNotDefault();
+            Establish.ForObject(regex).IsNotNull();
 
             if (!regex.IsMatch(Value)) {
                 HandleException("No regex matches were found in the current string");
@@ -109,7 +109,7 @@ namespace Establishment {
         }
 
         public StringEstablisher MatchesPattern(Regex regex, int startAt) {
-            Establish.ForObject(regex).IsNotDefault();
+            Establish.ForObject(regex).IsNotNull();
 
             if (!regex.IsMatch(Value, startAt)) {
                 HandleException("No regex matches were found in the current string");
@@ -119,7 +119,7 @@ namespace Establishment {
         }
 
         public StringEstablisher DoesNotMatchPattern(Regex regex) {
-            Establish.ForObject(regex).IsNotDefault();
+            Establish.ForObject(regex).IsNotNull();
 
             if (regex.IsMatch(Value)) {
                 HandleException("A regex match was found in the current string where none should exist");
@@ -129,55 +129,13 @@ namespace Establishment {
         }
 
         public StringEstablisher DoesNotMatchPattern(Regex regex, int startAt) {
-            Establish.ForObject(regex).IsNotDefault();
+            Establish.ForObject(regex).IsNotNull();
 
             if (regex.IsMatch(Value, startAt)) {
                 HandleException("A regex match was found in the current string where none should exist");
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals null
-        /// </summary>
-        /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsNull() {
-            return base.IsDefault<StringEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal null
-        /// </summary>
-        /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsNotNull() {
-            return base.IsNotDefault<StringEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsEqualTo(string constraint) {
-            return base.IsEqualTo<StringEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsNotEqualTo(string constraint) {
-            return base.IsNotEqualTo<StringEstablisher>(constraint);
-        }
-
-        public StringEstablisher Satisfies(Action<string> action) {
-            return base.Satisfies<StringEstablisher>(action);
-        }
-
-        public StringEstablisher Satisfies(Func<string, bool> predicate) {
-            return base.Satisfies<StringEstablisher>(predicate);
         }
 
     }

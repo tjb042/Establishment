@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class UIntegerEstablisher : BaseEstablisher<uint>, IStructEstablisher<UIntegerEstablisher, uint> {
+    public class UIntegerEstablisher : StructEstablisher<UIntegerEstablisher, uint> {
 
-        internal UIntegerEstablisher(uint value) : base(value) { }
+        public UIntegerEstablisher(uint value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -134,48 +134,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(uint)</c>
-        /// </summary>
-        /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
-        public UIntegerEstablisher IsDefault() {
-            return base.IsDefault<UIntegerEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(uint)</c>
-        /// </summary>
-        /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
-        public UIntegerEstablisher IsNotDefault() {
-            return base.IsNotDefault<UIntegerEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
-        public UIntegerEstablisher IsEqualTo(uint constraint) {
-            return base.IsEqualTo<UIntegerEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="UIntegerEstablisher"/></returns>
-        public UIntegerEstablisher IsNotEqualTo(uint constraint) {
-            return base.IsNotEqualTo<UIntegerEstablisher>(constraint);
-        }
-
-        public UIntegerEstablisher Satisfies(Action<uint> action) {
-            return base.Satisfies<UIntegerEstablisher>(action);
-        }
-
-        public UIntegerEstablisher Satisfies(Func<uint, bool> predicate) {
-            return base.Satisfies<UIntegerEstablisher>(predicate);
         }
 
     }

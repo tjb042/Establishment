@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class TypeEstablisher : BaseEstablisher<Type>, IClassEstablisher<TypeEstablisher, Type> {
+    public class TypeEstablisher : ClassEstablisher<TypeEstablisher, Type> {
 
-        internal TypeEstablisher(Type value) : base(value) { }
+        public TypeEstablisher(Type value) : base(value) { }
 
         public TypeEstablisher IsClass() {
             if (!Value.IsClass) {
@@ -408,30 +408,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        public TypeEstablisher IsNull() {
-            return base.IsDefault<TypeEstablisher>();
-        }
-
-        public TypeEstablisher IsNotNull() {
-            return base.IsNotDefault<TypeEstablisher>();
-        }
-
-        public TypeEstablisher IsEqualTo(Type constraint) {
-            return base.IsEqualTo<TypeEstablisher>(constraint);
-        }
-
-        public TypeEstablisher IsNotEqualTo(Type constraint) {
-            return base.IsNotEqualTo<TypeEstablisher>(constraint);
-        }
-
-        public TypeEstablisher Satisfies(Action<Type> action) {
-            return base.Satisfies<TypeEstablisher>(action);
-        }
-
-        public TypeEstablisher Satisfies(Func<Type, bool> predicate) {
-            return base.Satisfies<TypeEstablisher>(predicate);
         }
 
     }

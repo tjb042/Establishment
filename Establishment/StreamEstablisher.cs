@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class StreamEstablisher<TStream> : BaseEstablisher<TStream>, IClassEstablisher<StreamEstablisher<TStream>, TStream> where TStream : Stream {
+    public class StreamEstablisher<TStream> : ClassEstablisher<StreamEstablisher<TStream>, TStream> where TStream : Stream {
 
-        internal StreamEstablisher(TStream value) : base(value) {
+        public StreamEstablisher(TStream value) : base(value) {
 
         }
 
@@ -75,30 +75,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        public StreamEstablisher<TStream> IsNull() {
-            return base.IsDefault<StreamEstablisher<TStream>>();
-        }
-
-        public StreamEstablisher<TStream> IsNotNull() {
-            return base.IsNotDefault<StreamEstablisher<TStream>>();
-        }
-
-        public StreamEstablisher<TStream> IsEqualTo(TStream constraint) {
-            return base.IsEqualTo<StreamEstablisher<TStream>>(constraint);
-        }
-
-        public StreamEstablisher<TStream> IsNotEqualTo(TStream constraint) {
-            return base.IsNotEqualTo<StreamEstablisher<TStream>>(constraint);
-        }
-
-        public StreamEstablisher<TStream> Satisfies(Action<TStream> action) {
-            return base.Satisfies<StreamEstablisher<TStream>>(action);
-        }
-
-        public StreamEstablisher<TStream> Satisfies(Func<TStream, bool> predicate) {
-            return base.Satisfies<StreamEstablisher<TStream>>(predicate);
         }
 
     }

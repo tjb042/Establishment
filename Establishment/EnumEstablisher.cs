@@ -7,9 +7,9 @@ using System.Reflection;
 
 namespace Establishment {
 
-    public class EnumEstablisher<TEnum> : BaseEstablisher<TEnum>, IStructEstablisher<EnumEstablisher<TEnum>, TEnum> where TEnum : struct, IComparable, IFormattable, IConvertible {
+    public class EnumEstablisher<TEnum> : StructEstablisher<EnumEstablisher<TEnum>, TEnum> where TEnum : struct, IComparable, IFormattable {
 
-        internal EnumEstablisher(TEnum value) : base(value) {
+        public EnumEstablisher(TEnum value) : base(value) {
             if (!GenericType.IsEnum) {
                 throw new InvalidOperationException("Cannot construct this EnumEstablisher because TEnum is not an enum");
             }
@@ -51,30 +51,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        public EnumEstablisher<TEnum> IsDefault() {
-            return base.IsDefault<EnumEstablisher<TEnum>>();
-        }
-
-        public EnumEstablisher<TEnum> IsNotDefault() {
-            return base.IsNotDefault<EnumEstablisher<TEnum>>();
-        }
-
-        public EnumEstablisher<TEnum> IsEqualTo(TEnum constraint) {
-            return base.IsEqualTo<EnumEstablisher<TEnum>>(constraint);
-        }
-
-        public EnumEstablisher<TEnum> IsNotEqualTo(TEnum constraint) {
-            return base.IsNotEqualTo<EnumEstablisher<TEnum>>(constraint);
-        }
-
-        public EnumEstablisher<TEnum> Satisfies(Action<TEnum> action) {
-            return base.Satisfies<EnumEstablisher<TEnum>>(action);
-        }
-
-        public EnumEstablisher<TEnum> Satisfies(Func<TEnum, bool> predicate) {
-            return base.Satisfies<EnumEstablisher<TEnum>>(predicate);
         }
 
     }

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class ShortEstablisher : BaseEstablisher<short>, IStructEstablisher<ShortEstablisher, short> {
+    public class ShortEstablisher : StructEstablisher<ShortEstablisher, short> {
 
-        internal ShortEstablisher(short value) : base(value) { }
+        public ShortEstablisher(short value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -157,48 +157,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(short)</c>
-        /// </summary>
-        /// <returns></returns>
-        public ShortEstablisher IsDefault() {
-            return base.IsDefault<ShortEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(short)</c>
-        /// </summary>
-        /// <returns></returns>
-        public ShortEstablisher IsNotDefault() {
-            return base.IsNotDefault<ShortEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns></returns>
-        public ShortEstablisher IsEqualTo(short constraint) {
-            return base.IsEqualTo<ShortEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns></returns>
-        public ShortEstablisher IsNotEqualTo(short constraint) {
-            return base.IsNotEqualTo<ShortEstablisher>(constraint);
-        }
-
-        public ShortEstablisher Satisfies(Action<short> action) {
-            return base.Satisfies<ShortEstablisher>(action);
-        }
-
-        public ShortEstablisher Satisfies(Func<short, bool> predicate) {
-            return base.Satisfies<ShortEstablisher>(predicate);
         }
 
     }

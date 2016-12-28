@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class DateTimeEstablisher : BaseEstablisher<DateTime>, IStructEstablisher<DateTimeEstablisher, DateTime> {
+    public class DateTimeEstablisher : StructEstablisher<DateTimeEstablisher, DateTime> {
 
         private static DateTime UnixEpoch = new DateTime(1970, 1, 1);
 
-        internal DateTimeEstablisher(DateTime value) : base(value) { }
+        public DateTimeEstablisher(DateTime value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>DateTime.MinValue</c>
@@ -215,48 +215,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(DateTime)</c>
-        /// </summary>
-        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
-        public DateTimeEstablisher IsDefault() {
-            return base.IsDefault<DateTimeEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(DateTime)</c>
-        /// </summary>
-        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
-        public DateTimeEstablisher IsNotDefault() {
-            return base.IsNotDefault<DateTimeEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
-        public DateTimeEstablisher IsEqualTo(DateTime constraint) {
-            return base.IsEqualTo<DateTimeEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="DateTimeEstablisher"/></returns>
-        public DateTimeEstablisher IsNotEqualTo(DateTime constraint) {
-            return base.IsNotEqualTo<DateTimeEstablisher>(constraint);
-        }
-
-        public DateTimeEstablisher Satisfies(Action<DateTime> action) {
-            return base.Satisfies<DateTimeEstablisher>(action);
-        }
-
-        public DateTimeEstablisher Satisfies(Func<DateTime, bool> predicate) {
-            return base.Satisfies<DateTimeEstablisher>(predicate);
         }
 
     }

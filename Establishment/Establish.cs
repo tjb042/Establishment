@@ -18,7 +18,7 @@ namespace Establishment {
         }
 
         public static BooleanEstablisher For(bool input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new BooleanEstablisher(input) {
                 Options = options
@@ -30,7 +30,7 @@ namespace Establishment {
         }
 
         public static ByteEstablisher For(byte input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new ByteEstablisher(input) {
                 Options = options,
@@ -42,7 +42,7 @@ namespace Establishment {
         }
 
         public static CharEstablisher For(char input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new CharEstablisher(input) {
                 Options = options,
@@ -54,7 +54,7 @@ namespace Establishment {
         }
 
         public static DateTimeEstablisher For(DateTime input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new DateTimeEstablisher(input) {
                 Options = options,
@@ -66,7 +66,7 @@ namespace Establishment {
         }
 
         public static DecimalEstablisher For(decimal input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new DecimalEstablisher(input) {
                 Options = options,
@@ -78,19 +78,19 @@ namespace Establishment {
         }
 
         public static DoubleEstablisher For(double input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new DoubleEstablisher(input) {
                 Options = options,
             };
         }
 
-        public static EnumEstablisher<TEnum> ForEnum<TEnum>(TEnum input) where TEnum : struct, IComparable, IFormattable, IConvertible {
+        public static EnumEstablisher<TEnum> ForEnum<TEnum>(TEnum input) where TEnum : struct, IComparable, IFormattable {
             return new EnumEstablisher<TEnum>(input);
         }
 
-        public static EnumEstablisher<TEnum> ForEnum<TEnum>(TEnum input, EstablisherOptions options) where TEnum : struct, IComparable, IFormattable, IConvertible {
-            Establish.ForObject(options).IsNotDefault();
+        public static EnumEstablisher<TEnum> ForEnum<TEnum>(TEnum input, EstablisherOptions options) where TEnum : struct, IComparable, IFormattable {
+            Establish.ForObject(options).IsNotNull();
             
             return new EnumEstablisher<TEnum>(input) {
                 Options = options
@@ -102,7 +102,7 @@ namespace Establishment {
         }
 
         public static FloatEstablisher For(float input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new FloatEstablisher(input) {
                 Options = options,
@@ -114,7 +114,7 @@ namespace Establishment {
         }
 
         public static GuidEstablisher For(Guid input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new GuidEstablisher(input) {
                 Options = options,
@@ -126,7 +126,7 @@ namespace Establishment {
         }
 
         public static IntegerEstablisher For(int input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new IntegerEstablisher(input) {
                 Options = options,
@@ -138,7 +138,7 @@ namespace Establishment {
         }
 
         public static IntPtrEstablisher For(IntPtr input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
             
             return new IntPtrEstablisher(input) {
                 Options = options,
@@ -150,7 +150,7 @@ namespace Establishment {
         }
 
         public static LongEstablisher For(long input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new LongEstablisher(input) {
                 Options = options,
@@ -164,7 +164,7 @@ namespace Establishment {
 
         [CLSCompliant(false)]
         public static SByteEstablisher For(sbyte input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new SByteEstablisher(input) {
                 Options = options,
@@ -176,7 +176,7 @@ namespace Establishment {
         }
 
         public static ShortEstablisher For(short input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new ShortEstablisher(input) {
                 Options = options,
@@ -188,7 +188,7 @@ namespace Establishment {
         }
 
         public static StringEstablisher For(string input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new StringEstablisher(input) {
                 Options = options,
@@ -200,7 +200,7 @@ namespace Establishment {
         }
 
         public static TimeSpanEstablisher For(TimeSpan input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new TimeSpanEstablisher(input) {
                 Options = options,
@@ -212,7 +212,7 @@ namespace Establishment {
         }
 
         public static TypeEstablisher For(Type input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new TypeEstablisher(input) {
                 Options = options
@@ -226,19 +226,21 @@ namespace Establishment {
 
         [CLSCompliant(false)]
         public static UIntegerEstablisher For(uint input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new UIntegerEstablisher(input) {
                 Options = options,
             };
         }
 
+        [CLSCompliant(false)]
         public static UIntPtrEstablisher For(UIntPtr input) {
             return new UIntPtrEstablisher(input);
         }
 
+        [CLSCompliant(false)]
         public static UIntPtrEstablisher For(UIntPtr input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new UIntPtrEstablisher(input) {
                 Options = options,
@@ -252,7 +254,7 @@ namespace Establishment {
 
         [CLSCompliant(false)]
         public static ULongEstablisher For(ulong input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new ULongEstablisher(input) {
                 Options = options,
@@ -266,7 +268,7 @@ namespace Establishment {
 
         [CLSCompliant(false)]
         public static UShortEstablisher For(ushort input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new UShortEstablisher(input) {
                 Options = options,
@@ -278,7 +280,7 @@ namespace Establishment {
         }
 
         public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new IEnumerableEstablisher<TSource>(input) {
                 Options = options,
@@ -290,7 +292,7 @@ namespace Establishment {
         }
 
         public static ObjectEstablisher ForObject<TType>(TType input, EstablisherOptions options) where TType : class {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
             return new ObjectEstablisher(input) {
                 Options = options,
@@ -298,13 +300,13 @@ namespace Establishment {
         }
 
         public static BaseEstablisher<TType> ForStruct<TType>(TType input) where TType : struct {
-            return new BaseEstablisher<TType>(input);
+            return new ValueTypeEstablisher<TType>(input);
         }
 
         public static BaseEstablisher<TType> ForStruct<TType>(TType input, EstablisherOptions options) where TType : struct {
-            Establish.ForObject(options).IsNotDefault();
+            Establish.ForObject(options).IsNotNull();
 
-            return new BaseEstablisher<TType>(input) {
+            return new ValueTypeEstablisher<TType>(input) {
                 Options = options,
             };
         }

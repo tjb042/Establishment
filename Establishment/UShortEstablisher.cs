@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class UShortEstablisher : BaseEstablisher<ushort>, IStructEstablisher<UShortEstablisher, ushort> {
+    public class UShortEstablisher : StructEstablisher<UShortEstablisher, ushort> {
 
-        internal UShortEstablisher(ushort value) : base(value) {
+        public UShortEstablisher(ushort value) : base(value) {
             
         }
 
@@ -136,48 +136,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(ushort)</c>
-        /// </summary>
-        /// <returns>The current <see cref="UShortEstablisher"/></returns>
-        public UShortEstablisher IsDefault() {
-            return base.IsDefault<UShortEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(ushort)</c>
-        /// </summary>
-        /// <returns>The current <see cref="UShortEstablisher"/></returns>
-        public UShortEstablisher IsNotDefault() {
-            return base.IsNotDefault<UShortEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="UShortEstablisher"/></returns>
-        public UShortEstablisher IsEqualTo(ushort constraint) {
-            return base.IsEqualTo<UShortEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="UShortEstablisher"/></returns>
-        public UShortEstablisher IsNotEqualTo(ushort constraint) {
-            return base.IsNotEqualTo<UShortEstablisher>(constraint);
-        }
-
-        public UShortEstablisher Satisfies(Action<ushort> action) {
-            return base.Satisfies<UShortEstablisher>(action);
-        }
-
-        public UShortEstablisher Satisfies(Func<ushort, bool> predicate) {
-            return base.Satisfies<UShortEstablisher>(predicate);
         }
 
     }

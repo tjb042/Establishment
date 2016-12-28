@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class LongEstablisher : BaseEstablisher<long>, IStructEstablisher<LongEstablisher, long> {
+    public class LongEstablisher : StructEstablisher<LongEstablisher, long> {
 
-        internal LongEstablisher(long value) : base(value) { }
+        public LongEstablisher(long value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -157,48 +157,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(long)</c>
-        /// </summary>
-        /// <returns>The current <see cref="LongEstablisher"/></returns>
-        public LongEstablisher IsDefault() {
-            return base.IsDefault<LongEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(long)</c>
-        /// </summary>
-        /// <returns>The current <see cref="LongEstablisher"/></returns>
-        public LongEstablisher IsNotDefault() {
-            return base.IsNotDefault<LongEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="LongEstablisher"/></returns>
-        public LongEstablisher IsEqualTo(long constraint) {
-            return base.IsEqualTo<LongEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="LongEstablisher"/></returns>
-        public LongEstablisher IsNotEqualTo(long constraint) {
-            return base.IsNotEqualTo<LongEstablisher>(constraint);
-        }
-
-        public LongEstablisher Satisfies(Action<long> action) {
-            return base.Satisfies<LongEstablisher>(action);
-        }
-
-        public LongEstablisher Satisfies(Func<long, bool> predicate) {
-            return base.Satisfies<LongEstablisher>(predicate);
         }
 
     }

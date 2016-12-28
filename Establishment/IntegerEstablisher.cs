@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class IntegerEstablisher : BaseEstablisher<int>, IStructEstablisher<IntegerEstablisher, int> {
+    public class IntegerEstablisher : StructEstablisher<IntegerEstablisher, int> {
 
-        internal IntegerEstablisher(int value) : base(value) { }
+        public IntegerEstablisher(int value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -157,48 +157,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(int)</c>
-        /// </summary>
-        /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public IntegerEstablisher IsDefault() {
-            return base.IsDefault<IntegerEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(int)</c>
-        /// </summary>
-        /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public IntegerEstablisher IsNotDefault() {
-            return base.IsNotDefault<IntegerEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public IntegerEstablisher IsEqualTo(int constraint) {
-            return base.IsEqualTo<IntegerEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public IntegerEstablisher IsNotEqualTo(int constraint) {
-            return base.IsNotEqualTo<IntegerEstablisher>(constraint);
-        }
-
-        public IntegerEstablisher Satisfies(Action<int> action) {
-            return base.Satisfies<IntegerEstablisher>(action);
-        }
-
-        public IntegerEstablisher Satisfies(Func<int, bool> predicate) {
-            return base.Satisfies<IntegerEstablisher>(predicate);
         }
 
     }

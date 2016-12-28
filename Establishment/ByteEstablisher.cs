@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class ByteEstablisher : BaseEstablisher<byte>, IStructEstablisher<ByteEstablisher, byte> {
+    public class ByteEstablisher : StructEstablisher<ByteEstablisher, byte> {
 
-        internal ByteEstablisher(byte value) : base(value) { }
+        public ByteEstablisher(byte value) : base(value) { 
+        }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -133,48 +134,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(byte)</c>
-        /// </summary>
-        /// <returns>The current <see cref="ByteEstablisher"/></returns>
-        public ByteEstablisher IsDefault() {
-            return base.IsDefault<ByteEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(byte)</c>
-        /// </summary>
-        /// <returns>The current <see cref="ByteEstablisher"/></returns>
-        public ByteEstablisher IsNotDefault() {
-            return base.IsNotDefault<ByteEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint">The value to compare against</param>
-        /// <returns>The current <see cref="ByteEstablisher"/></returns>
-        public ByteEstablisher IsEqualTo(byte constraint) {
-            return base.IsEqualTo<ByteEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint">The value to compare against</param>
-        /// <returns>The current <see cref="ByteEstablisher"/></returns>
-        public ByteEstablisher IsNotEqualTo(byte constraint) {
-            return base.IsNotEqualTo<ByteEstablisher>(constraint);
-        }
-
-        public ByteEstablisher Satisfies(Action<byte> action) {
-            return base.Satisfies<ByteEstablisher>(action);
-        }
-
-        public ByteEstablisher Satisfies(Func<byte, bool> predicate) {
-            return base.Satisfies<ByteEstablisher>(predicate);
         }
 
     }

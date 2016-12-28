@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class IntPtrEstablisher : BaseEstablisher<IntPtr>, IStructEstablisher<IntPtrEstablisher, IntPtr> {
+    public class IntPtrEstablisher : StructEstablisher<IntPtrEstablisher, IntPtr> {
 
-        internal IntPtrEstablisher(IntPtr value) : base(value) { }
+        public IntPtrEstablisher(IntPtr value) : base(value) { }
 
         public IntPtrEstablisher IsZero() {
             if (Value != IntPtr.Zero) {
@@ -24,30 +24,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        public IntPtrEstablisher IsDefault() {
-            return base.IsDefault<IntPtrEstablisher>();
-        }
-
-        public IntPtrEstablisher IsNotDefault() {
-            return base.IsNotDefault<IntPtrEstablisher>();
-        }
-
-        public IntPtrEstablisher IsEqualTo(IntPtr constraint) {
-            return base.IsEqualTo<IntPtrEstablisher>(constraint);
-        }
-
-        public IntPtrEstablisher IsNotEqualTo(IntPtr constraint) {
-            return base.IsNotEqualTo<IntPtrEstablisher>(constraint);
-        }
-
-        public IntPtrEstablisher Satisfies(Action<IntPtr> action) {
-            return base.Satisfies<IntPtrEstablisher>(action);
-        }
-
-        public IntPtrEstablisher Satisfies(Func<IntPtr, bool> predicate) {
-            return base.Satisfies<IntPtrEstablisher>(predicate);
         }
 
     }

@@ -42,14 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharEstablisher.cs" />
+    <Compile Include="ClassEstablisher.cs" />
     <Compile Include="EnumEstablisher.cs" />
     <Compile Include="Exceptions\EstablishmentException.cs" />
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="IClassEstablisher.cs" />
     <Compile Include="BaseEstablisher.cs" />
     <Compile Include="IEnumerableEstablisher.cs" />
     <Compile Include="IntPtrEstablisher.cs" />
-    <Compile Include="IStructEstablisher.cs" />
     <Compile Include="BooleanEstablisher.cs" />
     <Compile Include="ByteEstablisher.cs" />
     <Compile Include="DateTimeEstablisher.cs" />
@@ -67,12 +66,14 @@
     <Compile Include="ShortEstablisher.cs" />
     <Compile Include="StreamEstablisher.cs" />
     <Compile Include="StringEstablisher.cs" />
+    <Compile Include="StructEstablisher.cs" />
     <Compile Include="TimeSpanEstablisher.cs" />
     <Compile Include="TypeEstablisher.cs" />
     <Compile Include="UIntEstablisher.cs" />
     <Compile Include="UIntPtrEstablisher.cs" />
     <Compile Include="ULongEstablisher.cs" />
     <Compile Include="UShortEstablisher.cs" />
+    <Compile Include="ValueTypeEstablisher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EstablishmentKey.snk" />

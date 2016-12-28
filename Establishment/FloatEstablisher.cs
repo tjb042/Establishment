@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class FloatEstablisher : BaseEstablisher<float>, IStructEstablisher<FloatEstablisher, float> {
+    public class FloatEstablisher : StructEstablisher<FloatEstablisher, float> {
 
-        internal FloatEstablisher(float value) : base(value) { }
+        public FloatEstablisher(float value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -154,48 +154,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(float)</c>
-        /// </summary>
-        /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsDefault() {
-            return base.IsDefault<FloatEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(float)</c>
-        /// </summary>
-        /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsNotDefault() {
-            return base.IsNotDefault<FloatEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsEqualTo(float constraint) {
-            return base.IsEqualTo<FloatEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsNotEqualTo(float constraint) {
-            return base.IsNotEqualTo<FloatEstablisher>(constraint);
-        }
-
-        public FloatEstablisher Satisfies(Action<float> action) {
-            return base.Satisfies<FloatEstablisher>(action);
-        }
-
-        public FloatEstablisher Satisfies(Func<float, bool> predicate) {
-            return base.Satisfies<FloatEstablisher>(predicate);
         }
 
     }

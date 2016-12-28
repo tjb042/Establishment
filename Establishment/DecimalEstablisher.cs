@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class DecimalEstablisher : BaseEstablisher<decimal>, IStructEstablisher<DecimalEstablisher, decimal> {
+    public class DecimalEstablisher : StructEstablisher<DecimalEstablisher, decimal> {
 
-        internal DecimalEstablisher(decimal value) : base(value) { }
+        public DecimalEstablisher(decimal value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -157,48 +157,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(decimal)</c>
-        /// </summary>
-        /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public DecimalEstablisher IsDefault() {
-            return base.IsDefault<DecimalEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(decimal)</c>
-        /// </summary>
-        /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public DecimalEstablisher IsNotDefault() {
-            return base.IsNotDefault<DecimalEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public DecimalEstablisher IsEqualTo(decimal constraint) {
-            return base.IsEqualTo<DecimalEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public DecimalEstablisher IsNotEqualTo(decimal constraint) {
-            return base.IsNotEqualTo<DecimalEstablisher>(constraint);
-        }
-
-        public DecimalEstablisher Satisfies(Action<decimal> action) {
-            return base.Satisfies<DecimalEstablisher>(action);
-        }
-
-        public DecimalEstablisher Satisfies(Func<decimal, bool> predicate) {
-            return base.Satisfies<DecimalEstablisher>(predicate);
         }
 
     }

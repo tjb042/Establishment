@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class TimeSpanEstablisher : BaseEstablisher<TimeSpan>, IStructEstablisher<TimeSpanEstablisher, TimeSpan> {
+    public class TimeSpanEstablisher : StructEstablisher<TimeSpanEstablisher, TimeSpan> {
 
-        internal TimeSpanEstablisher(TimeSpan value) : base(value) { }
+        public TimeSpanEstablisher(TimeSpan value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>TimeSpan.Zero</c>
@@ -132,48 +132,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(TimeSpan)</c>
-        /// </summary>
-        /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsDefault() {
-            return base.IsDefault<TimeSpanEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(TimeSpan)</c>
-        /// </summary>
-        /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsNotDefault() {
-            return base.IsNotDefault<TimeSpanEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsEqualTo(TimeSpan constraint) {
-            return base.IsEqualTo<TimeSpanEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsNotEqualTo(TimeSpan constraint) {
-            return base.IsNotEqualTo<TimeSpanEstablisher>(constraint);
-        }
-
-        public TimeSpanEstablisher Satisfies(Action<TimeSpan> action) {
-            return base.Satisfies<TimeSpanEstablisher>(action);
-        }
-
-        public TimeSpanEstablisher Satisfies(Func<TimeSpan, bool> predicate) {
-            return base.Satisfies<TimeSpanEstablisher>(predicate);
         }
 
     }

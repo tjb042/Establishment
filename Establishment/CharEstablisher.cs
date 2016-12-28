@@ -7,43 +7,9 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class CharEstablisher : BaseEstablisher<char>, IStructEstablisher<CharEstablisher, char> {
+    public class CharEstablisher : StructEstablisher<CharEstablisher, char> {
 
-        internal CharEstablisher(char value) : base(value) { }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(char)</c>
-        /// </summary>
-        /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public CharEstablisher IsDefault() {
-            return base.IsDefault<CharEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(char)</c>
-        /// </summary>
-        /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public CharEstablisher IsNotDefault() {
-            return base.IsNotDefault<CharEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public CharEstablisher IsEqualTo(char constraint) {
-            return base.IsEqualTo<CharEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public CharEstablisher IsNotEqualTo(char constraint) {
-            return base.IsNotEqualTo<CharEstablisher>(constraint);
-        }
+        public CharEstablisher(char value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is a control character
@@ -477,16 +443,8 @@ namespace Establishment {
             if (Value > threshold) {
                 HandleException("char value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
-
+            
             return this;
-        }
-
-        public CharEstablisher Satisfies(Action<char> action) {
-            return base.Satisfies<CharEstablisher>(action);
-        }
-
-        public CharEstablisher Satisfies(Func<char, bool> predicate) {
-            return base.Satisfies<CharEstablisher>(predicate);
         }
 
     }

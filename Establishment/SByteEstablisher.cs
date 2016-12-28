@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class SByteEstablisher : BaseEstablisher<sbyte>, IStructEstablisher<SByteEstablisher, sbyte> {
+    public class SByteEstablisher : StructEstablisher<SByteEstablisher, sbyte> {
 
-        internal SByteEstablisher(sbyte value) : base(value) { }
+        public SByteEstablisher(sbyte value) : base(value) { }
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
@@ -158,48 +158,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(sbyte)</c>
-        /// </summary>
-        /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public SByteEstablisher IsDefault() {
-            return base.IsDefault<SByteEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(sbyte)</c>
-        /// </summary>
-        /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public SByteEstablisher IsNotDefault() {
-            return base.IsNotDefault<SByteEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public SByteEstablisher IsEqualTo(sbyte constraint) {
-            return base.IsEqualTo<SByteEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value is not equal to <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public SByteEstablisher IsNotEqualTo(sbyte constraint) {
-            return base.IsNotEqualTo<SByteEstablisher>(constraint);
-        }
-
-        public SByteEstablisher Satisfies(Action<sbyte> action) {
-            return base.Satisfies<SByteEstablisher>(action);
-        }
-
-        public SByteEstablisher Satisfies(Func<sbyte, bool> predicate) {
-            return base.Satisfies<SByteEstablisher>(predicate);
         }
 
     }

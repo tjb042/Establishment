@@ -12,7 +12,7 @@ namespace Establishment {
     /// Base establishment provider for all types
     /// </summary>
     /// <typeparam name="TType">Any generic struct or class type</typeparam>
-    public class BaseEstablisher<TType> {
+    public abstract class BaseEstablisher<TType> {
 
         private EstablisherOptions _establisherOptions = null;
 
@@ -20,7 +20,7 @@ namespace Establishment {
         /// Initializes a new instance of <see cref="BaseEstablisher"/>
         /// </summary>
         /// <param name="value">An instance of <paramref name="TType"/> used for tests</param>
-        internal BaseEstablisher(TType value) {
+        public BaseEstablisher(TType value) {
             Value = value;
             GenericType = typeof(TType);
             DefaultTypeValue = default(TType);
@@ -119,84 +119,6 @@ namespace Establishment {
             if (Options.ThrowExceptionOnFailure.GetValueOrDefault(Establish.ThrowExceptionOnFailure)) {
                 throw ex;
             }
-        }
-
-        protected TEstablisher IsDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
-            if (!DefaultComparer.Equals(Value, DefaultTypeValue)) {
-                HandleException(GenericType.Name + " must equal its default value");
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher IsNotDefault<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
-            if (DefaultComparer.Equals(Value, DefaultTypeValue)) {
-                HandleException(GenericType.Name + " must not equal its default value");
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher IsDBNull<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
-            if (!Convert.IsDBNull(Value)) {
-                HandleException(GenericType.Name + " must equal DBNull.Value");
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher IsNotDBNull<TEstablisher>() where TEstablisher : BaseEstablisher<TType> {
-            if (Convert.IsDBNull(Value)) {
-                HandleException(GenericType.Name + " must not equal DBNull.Value");
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher IsEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
-            if (!DefaultComparer.Equals(Value, constraint)) {
-                HandleException(GenericType.Name + " is not equal to a required constraint");
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher IsNotEqualTo<TEstablisher>(TType constraint) where TEstablisher : BaseEstablisher<TType> {
-            if (DefaultComparer.Equals(Value, constraint)) {
-                HandleException(GenericType.Name + " must not equal a blacklist constraint");
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher Satisfies<TEstablisher>(Action<TType> action) where TEstablisher : BaseEstablisher<TType> {
-            Establish.ForObject(action).IsNotDefault();
-
-            try {
-                action(Value);
-            }
-            catch (Exception ex) {
-                HandleException("bool value does not satisfy user action", ex);
-            }
-
-            return this as TEstablisher;
-        }
-
-        protected TEstablisher Satisfies<TEstablisher>(Func<TType, bool> predicate) where TEstablisher : BaseEstablisher<TType> {
-            Establish.ForObject(predicate).IsNotDefault();
-
-            try {
-                if (!predicate(Value)) {
-                    // failure
-                    HandleException("bool value does not satisfy user action");
-                }
-            }
-            catch (Exception ex) {
-                // failure
-                HandleException("bool value does not satisfy user action", ex);
-            }
-
-            return this as TEstablisher;
         }
 
     }

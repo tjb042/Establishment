@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class ULongEstablisher : BaseEstablisher<ulong>, IStructEstablisher<ULongEstablisher, ulong> {
+    public class ULongEstablisher : StructEstablisher<ULongEstablisher, ulong> {
 
-        internal ULongEstablisher(ulong value) : base(value) {
+        public ULongEstablisher(ulong value) : base(value) {
             
         }
 
@@ -136,48 +136,6 @@ namespace Establishment {
             }
 
             return this;
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>default(ulong)</c>
-        /// </summary>
-        /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public ULongEstablisher IsDefault() {
-            return base.IsDefault<ULongEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <c>default(ulong)</c>
-        /// </summary>
-        /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public ULongEstablisher IsNotDefault() {
-            return base.IsNotDefault<ULongEstablisher>();
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value equals <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public ULongEstablisher IsEqualTo(ulong constraint) {
-            return base.IsEqualTo<ULongEstablisher>(constraint);
-        }
-
-        /// <summary>
-        /// Establishes that the supplied value does not equal <paramref name="constraint"/>
-        /// </summary>
-        /// <param name="constraint"></param>
-        /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public ULongEstablisher IsNotEqualTo(ulong constraint) {
-            return base.IsNotEqualTo<ULongEstablisher>(constraint);
-        }
-
-        public ULongEstablisher Satisfies(Action<ulong> action) {
-            return base.Satisfies<ULongEstablisher>(action);
-        }
-
-        public ULongEstablisher Satisfies(Func<ulong, bool> predicate) {
-            return base.Satisfies<ULongEstablisher>(predicate);
         }
 
     }
