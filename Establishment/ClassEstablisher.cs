@@ -12,6 +12,7 @@ namespace Establishment {
 
         }
 
+        public TEstablisher IsNull()  {
             if (!DefaultComparer.Equals(Value, DefaultTypeValue)) {
                 HandleException(GenericType.Name + " must equal its default value");
             }
@@ -19,6 +20,7 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher IsNotNull()  {
             if (DefaultComparer.Equals(Value, DefaultTypeValue)) {
                 HandleException(GenericType.Name + " must not equal its default value");
             }
@@ -26,6 +28,7 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher IsDBNull() {
             if (!Convert.IsDBNull(Value)) {
                 HandleException(GenericType.Name + " must equal DBNull.Value");
             }
@@ -33,6 +36,7 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher IsNotDBNull() {
             if (Convert.IsDBNull(Value)) {
                 HandleException(GenericType.Name + " must not equal DBNull.Value");
             }
@@ -40,6 +44,7 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher IsEqualTo(TType constraint)  {
             if (!DefaultComparer.Equals(Value, constraint)) {
                 HandleException(GenericType.Name + " is not equal to a required constraint");
             }
@@ -47,6 +52,7 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher IsNotEqualTo(TType constraint)  {
             if (DefaultComparer.Equals(Value, constraint)) {
                 HandleException(GenericType.Name + " must not equal a blacklist constraint");
             }
@@ -54,6 +60,8 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher Satisfies(Action<TType> action)  {
+            Establish.ForObject(action).IsNotNull();
 
             try {
                 action(Value);
@@ -65,6 +73,8 @@ namespace Establishment {
             return this as TEstablisher;
         }
 
+        public TEstablisher Satisfies(Func<TType, bool> predicate)  {
+            Establish.ForObject(predicate).IsNotNull();
 
             try {
                 if (!predicate(Value)) {
