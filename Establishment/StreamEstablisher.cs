@@ -9,6 +9,10 @@ namespace Establishment {
 
     public class StreamEstablisher<TStream> : BaseEstablisher<TStream>, IClassEstablisher<StreamEstablisher<TStream>, TStream> where TStream : Stream {
 
+        internal StreamEstablisher(TStream value) : base(value) {
+
+        }
+
         public StreamEstablisher<TStream> CanRead() {
             if (!Value.CanRead) {
                 HandleException("Stream must be able to be read");
