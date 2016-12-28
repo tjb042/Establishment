@@ -22,6 +22,10 @@ namespace Establishment {
 
         TEstablisher IsNotEqualTo(TType constraint);
 
+        TEstablisher Satisfies(Action<TType> action);
+
+        TEstablisher Satisfies(Func<TType, bool> predicate);
+
     }
 
 }

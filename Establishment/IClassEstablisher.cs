@@ -41,6 +41,10 @@ namespace Establishment {
         /// <returns><c>true</c> if <paramref name="value"/> does not equal <paramref name="constraint"/>; otherwise, <c>false</c></returns>
         TEstablisher IsNotEqualTo(TType constraint);
 
+        TEstablisher Satisfies(Action<TType> action);
+
+        TEstablisher Satisfies(Func<TType, bool> predicate);
+
     }
 
 }

@@ -426,6 +426,14 @@ namespace Establishment {
             return base.IsNotEqualTo<TypeEstablisher>(constraint);
         }
 
+        public TypeEstablisher Satisfies(Action<Type> action) {
+            return base.Satisfies<TypeEstablisher>(action);
+        }
+
+        public TypeEstablisher Satisfies(Func<Type, bool> predicate) {
+            return base.Satisfies<TypeEstablisher>(predicate);
+        }
+
     }
 
 }
