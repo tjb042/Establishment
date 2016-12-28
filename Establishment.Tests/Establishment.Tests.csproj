@@ -71,6 +71,7 @@
     <Compile Include="UIntegerEstablisherTests.cs" />
     <Compile Include="ULongEstablisherTests.cs" />
     <Compile Include="IEnumerableEstablisherTests.cs" />
+    <Compile Include="EnumEstablisherTests.cs" />
     <Compile Include="UShortEstablisherTests.cs" />
   </ItemGroup>
   <ItemGroup>

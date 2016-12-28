@@ -85,6 +85,18 @@ namespace Establishment {
             };
         }
 
+        public static EnumEstablisher<TEnum> ForEnum<TEnum>(TEnum input) where TEnum : struct, IComparable, IFormattable, IConvertible {
+            return new EnumEstablisher<TEnum>(input);
+        }
+
+        public static EnumEstablisher<TEnum> ForEnum<TEnum>(TEnum input, EstablisherOptions options) where TEnum : struct, IComparable, IFormattable, IConvertible {
+            Establish.ForObject(options).IsNotDefault();
+            
+            return new EnumEstablisher<TEnum>(input) {
+                Options = options
+            };
+        }
+
         public static FloatEstablisher For(float input) {
             return new FloatEstablisher(input);
         }
