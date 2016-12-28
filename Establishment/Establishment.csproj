@@ -48,6 +48,7 @@
     <Compile Include="IClassEstablisher.cs" />
     <Compile Include="BaseEstablisher.cs" />
     <Compile Include="IEnumerableEstablisher.cs" />
+    <Compile Include="IntPtrEstablisher.cs" />
     <Compile Include="IStructEstablisher.cs" />
     <Compile Include="BooleanEstablisher.cs" />
     <Compile Include="ByteEstablisher.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="TimeSpanEstablisher.cs" />
     <Compile Include="TypeEstablisher.cs" />
     <Compile Include="UIntEstablisher.cs" />
+    <Compile Include="UIntPtrEstablisher.cs" />
     <Compile Include="ULongEstablisher.cs" />
     <Compile Include="UShortEstablisher.cs" />
   </ItemGroup>

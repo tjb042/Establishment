@@ -133,6 +133,18 @@ namespace Establishment {
             };
         }
 
+        public static IntPtrEstablisher For(IntPtr input) {
+            return new IntPtrEstablisher(input);
+        }
+
+        public static IntPtrEstablisher For(IntPtr input, EstablisherOptions options) {
+            Establish.ForObject(options).IsNotDefault();
+            
+            return new IntPtrEstablisher(input) {
+                Options = options,
+            };
+        }
+
         public static LongEstablisher For(long input) {
             return new LongEstablisher(input);
         }
@@ -217,6 +229,18 @@ namespace Establishment {
             Establish.ForObject(options).IsNotDefault();
 
             return new UIntegerEstablisher(input) {
+                Options = options,
+            };
+        }
+
+        public static UIntPtrEstablisher For(UIntPtr input) {
+            return new UIntPtrEstablisher(input);
+        }
+
+        public static UIntPtrEstablisher For(UIntPtr input, EstablisherOptions options) {
+            Establish.ForObject(options).IsNotDefault();
+
+            return new UIntPtrEstablisher(input) {
                 Options = options,
             };
         }

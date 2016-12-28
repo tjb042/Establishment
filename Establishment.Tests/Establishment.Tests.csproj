@@ -69,9 +69,11 @@
     <Compile Include="StringEstablisherTests.cs" />
     <Compile Include="TimeSpanEstablisherTests.cs" />
     <Compile Include="UIntegerEstablisherTests.cs" />
+    <Compile Include="UIntPtrEstablisherTests.cs" />
     <Compile Include="ULongEstablisherTests.cs" />
     <Compile Include="IEnumerableEstablisherTests.cs" />
     <Compile Include="EnumEstablisherTests.cs" />
+    <Compile Include="IntPtrEstablisherTests.cs" />
     <Compile Include="UShortEstablisherTests.cs" />
   </ItemGroup>
   <ItemGroup>
