@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Establishment {
@@ -92,6 +93,46 @@ namespace Establishment {
         public StringEstablisher HasMaximumLength(int maximumLength) {
             if (Value.Length > maximumLength) {
                 HandleException(string.Concat("string value is too long"));
+            }
+
+            return this;
+        }
+
+        public StringEstablisher MatchesPattern(Regex regex) {
+            Establish.ForObject(regex).IsNotDefault();
+
+            if (!regex.IsMatch(Value)) {
+                HandleException("No regex matches were found in the current string");
+            }
+
+            return this;
+        }
+
+        public StringEstablisher MatchesPattern(Regex regex, int startAt) {
+            Establish.ForObject(regex).IsNotDefault();
+
+            if (!regex.IsMatch(Value, startAt)) {
+                HandleException("No regex matches were found in the current string");
+            }
+
+            return this;
+        }
+
+        public StringEstablisher DoesNotMatchPattern(Regex regex) {
+            Establish.ForObject(regex).IsNotDefault();
+
+            if (regex.IsMatch(Value)) {
+                HandleException("A regex match was found in the current string where none should exist");
+            }
+
+            return this;
+        }
+
+        public StringEstablisher DoesNotMatchPattern(Regex regex, int startAt) {
+            Establish.ForObject(regex).IsNotDefault();
+
+            if (regex.IsMatch(Value, startAt)) {
+                HandleException("A regex match was found in the current string where none should exist");
             }
 
             return this;
