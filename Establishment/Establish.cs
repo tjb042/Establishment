@@ -1,6 +1,7 @@
 ﻿using Establishment.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,6 +122,18 @@ namespace Establishment {
             };
         }
 
+        public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input) {
+            return new IEnumerableEstablisher<TSource>(input);
+        }
+
+        public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input, EstablisherOptions options) {
+            Establish.ForObject(options).IsNotNull();
+
+            return new IEnumerableEstablisher<TSource>(input) {
+                Options = options,
+            };
+        }
+
         public static IntegerEstablisher For(int input) {
             return new IntegerEstablisher(input);
         }
@@ -179,6 +192,18 @@ namespace Establishment {
             Establish.ForObject(options).IsNotNull();
 
             return new ShortEstablisher(input) {
+                Options = options,
+            };
+        }
+
+        public static StreamEstablisher<TStream> For<TStream>(TStream input) where TStream : Stream {
+            return new StreamEstablisher<TStream>(input);
+        }
+
+        public static StreamEstablisher<TStream> For<TStream>(TStream input, EstablisherOptions options) where TStream : Stream {
+            Establish.ForObject(options).IsNotNull();
+
+            return new StreamEstablisher<TStream>(input) {
                 Options = options,
             };
         }
@@ -271,18 +296,6 @@ namespace Establishment {
             Establish.ForObject(options).IsNotNull();
 
             return new UShortEstablisher(input) {
-                Options = options,
-            };
-        }
-
-        public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input) {
-            return new IEnumerableEstablisher<TSource>(input);
-        }
-
-        public static IEnumerableEstablisher<TSource> For<TSource>(IEnumerable<TSource> input, EstablisherOptions options) {
-            Establish.ForObject(options).IsNotNull();
-
-            return new IEnumerableEstablisher<TSource>(input) {
                 Options = options,
             };
         }
