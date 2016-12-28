@@ -300,6 +300,16 @@ namespace Establishment {
             };
         }
 
+        public static TypeEstablisher ForGenericType<TType>() {
+            return new TypeEstablisher(typeof(TType));
+        }
+
+        public static TypeEstablisher ForGenericType<TType>(EstablisherOptions options) {
+            return new TypeEstablisher(typeof(TType)) {
+                Options = options
+            };
+        }
+
         public static ObjectEstablisher ForObject<TType>(TType input) where TType : class {
             return new ObjectEstablisher(input);
         }
