@@ -299,11 +299,11 @@ namespace Establishment {
             };
         }
 
-        public static BaseEstablisher<TType> ForStruct<TType>(TType input) where TType : struct {
+        public static ValueTypeEstablisher<TType> ForStruct<TType>(TType input) where TType : struct {
             return new ValueTypeEstablisher<TType>(input);
         }
 
-        public static BaseEstablisher<TType> ForStruct<TType>(TType input, EstablisherOptions options) where TType : struct {
+        public static ValueTypeEstablisher<TType> ForStruct<TType>(TType input, EstablisherOptions options) where TType : struct {
             Establish.ForObject(options).IsNotNull();
 
             return new ValueTypeEstablisher<TType>(input) {
