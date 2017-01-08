@@ -7,42 +7,38 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class FileSystemInfoEstablisher<TInfo> : ClassEstablisher<FileSystemInfoEstablisher<TInfo>, TInfo> where TInfo : FileSystemInfo {
+    public static class FileSystemInfoEstablisher {
 
-        public FileSystemInfoEstablisher(TInfo value) : base(value) {
-
-        }
-
-        public FileSystemInfoEstablisher<TInfo> Exists() {
-            if (!Value.Exists) {
-                HandleException(GenericType.Name + " does not exist");
+        public static ClassEstablisher<TInfo> Exists<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+            if (!establisher.Value.Exists) {
+                establisher.RaiseException(establisher.GenericType.Name + " does not exist");
             }
 
-            return this;
+            return establisher;
         }
 
-        public FileSystemInfoEstablisher<TInfo> DoesNotExist() {
-            if (Value.Exists) {
-                HandleException(GenericType.Name + " must not exist");
+        public static ClassEstablisher<TInfo> DoesNotExist<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+            if (establisher.Value.Exists) {
+                establisher.RaiseException(establisher.GenericType.Name + " must not exist");
             }
 
-            return this;
+            return establisher;
         }
 
-        public FileSystemInfoEstablisher<TInfo> HasExtension() {
-            if (string.IsNullOrEmpty(Value.Extension)) {
-                HandleException(GenericType.Name + " must have an extension");
+        public static ClassEstablisher<TInfo> HasExtension<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+            if (string.IsNullOrEmpty(establisher.Value.Extension)) {
+                establisher.RaiseException(establisher.GenericType.Name + " must have an extension");
             }
 
-            return this;
+            return establisher;
         }
 
-        public FileSystemInfoEstablisher<TInfo> HasNoExtension() {
-            if (!string.IsNullOrEmpty(Value.Extension)) {
-                HandleException(GenericType.Name + " must not have an extension");
+        public static ClassEstablisher<TInfo> HasNoExtension<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+            if (!string.IsNullOrEmpty(establisher.Value.Extension)) {
+                establisher.RaiseException(establisher.GenericType.Name + " must not have an extension");
             }
 
-            return this;
+            return establisher;
         }
 
     }

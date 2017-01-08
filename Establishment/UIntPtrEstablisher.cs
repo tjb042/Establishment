@@ -7,24 +7,22 @@ using System.Threading.Tasks;
 namespace Establishment {
 
     [CLSCompliant(false)]
-    public class UIntPtrEstablisher : StructEstablisher<UIntPtrEstablisher, UIntPtr> {
+    public static class UIntPtrEstablisher {
 
-        public UIntPtrEstablisher(UIntPtr value) : base(value) { }
-
-        public UIntPtrEstablisher IsZero() {
-            if (Value != UIntPtr.Zero) {
-                HandleException("UIntPtr must be equal to zero");
+        public static StructEstablisher<UIntPtr> IsZero(this StructEstablisher<UIntPtr> establisher) {
+            if (establisher.Value != UIntPtr.Zero) {
+                establisher.RaiseException("UIntPtr must be equal to zero");
             }
 
-            return this;
+            return establisher;
         }
 
-        public UIntPtrEstablisher IsNotZero() {
-            if (Value == UIntPtr.Zero) {
-                HandleException("UIntPtr must not be equal to zero");
+        public static StructEstablisher<UIntPtr> IsNotZero(this StructEstablisher<UIntPtr> establisher) {
+            if (establisher.Value == UIntPtr.Zero) {
+                establisher.RaiseException("UIntPtr must not be equal to zero");
             }
 
-            return this;
+            return establisher;
         }
 
     }

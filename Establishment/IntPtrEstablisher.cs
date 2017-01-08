@@ -6,24 +6,22 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class IntPtrEstablisher : StructEstablisher<IntPtrEstablisher, IntPtr> {
+    public static class IntPtrEstablisher {
 
-        public IntPtrEstablisher(IntPtr value) : base(value) { }
-
-        public IntPtrEstablisher IsZero() {
-            if (Value != IntPtr.Zero) {
-                HandleException("IntPtr must be equal to zero");
+        public static StructEstablisher<IntPtr> IsZero(this StructEstablisher<IntPtr> establisher) {
+            if (establisher.Value != IntPtr.Zero) {
+                establisher.RaiseException("IntPtr must be equal to zero");
             }
 
-            return this;
+            return establisher;
         }
 
-        public IntPtrEstablisher IsNotZero() {
-            if (Value == IntPtr.Zero) {
-                HandleException("IntPtr must not be equal to zero");
+        public static StructEstablisher<IntPtr> IsNotZero(this StructEstablisher<IntPtr> establisher) {
+            if (establisher.Value == IntPtr.Zero) {
+                establisher.RaiseException("IntPtr must not be equal to zero");
             }
 
-            return this;
+            return establisher;
         }
 
     }

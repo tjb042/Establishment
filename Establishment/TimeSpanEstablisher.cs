@@ -6,80 +6,78 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class TimeSpanEstablisher : StructEstablisher<TimeSpanEstablisher, TimeSpan> {
-
-        public TimeSpanEstablisher(TimeSpan value) : base(value) { }
+    public static class TimeSpanEstablisher {
 
         /// <summary>
         /// Establishes that the supplied value equals <c>TimeSpan.Zero</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsZero() {
-            if (Value.Ticks != TimeSpan.Zero.Ticks) {
-                HandleException("TimeSpan must equal zero");
+        public static StructEstablisher<TimeSpan> IsZero(this StructEstablisher<TimeSpan> establisher) {
+            if (establisher.Value.Ticks != TimeSpan.Zero.Ticks) {
+                establisher.RaiseException("TimeSpan must equal zero");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value does not equal <c>TimeSpan.Zero</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsNotZero() {
-            if (Value.Ticks == TimeSpan.Zero.Ticks) {
-                HandleException("TimeSpan must not equal zero");
+        public static StructEstablisher<TimeSpan> IsNotZero(this StructEstablisher<TimeSpan> establisher) {
+            if (establisher.Value.Ticks == TimeSpan.Zero.Ticks) {
+                establisher.RaiseException("TimeSpan must not equal zero");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>TimeSpan.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsMaxSpan() {
-            if (Value.Ticks != TimeSpan.MaxValue.Ticks) {
-                HandleException("TimeSpan must equal TimeSpan.MaxValue");
+        public static StructEstablisher<TimeSpan> IsMaxSpan(this StructEstablisher<TimeSpan> establisher) {
+            if (establisher.Value.Ticks != TimeSpan.MaxValue.Ticks) {
+                establisher.RaiseException("TimeSpan must equal TimeSpan.MaxValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value does not equal <c>TimeSpan.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsNotMaxSpan() {
-            if (Value.Ticks == TimeSpan.MaxValue.Ticks) {
-                HandleException("TimeSpan must not equal TimeSpan.MaxValue");
+        public static StructEstablisher<TimeSpan> IsNotMaxSpan(this StructEstablisher<TimeSpan> establisher) {
+            if (establisher.Value.Ticks == TimeSpan.MaxValue.Ticks) {
+                establisher.RaiseException("TimeSpan must not equal TimeSpan.MaxValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>TimeSpan.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsMinSpan() {
-            if (Value.Ticks != TimeSpan.MinValue.Ticks) {
-                HandleException("TimeSpan must equal TimeSpan.MinValue");
+        public static StructEstablisher<TimeSpan> IsMinSpan(this StructEstablisher<TimeSpan> establisher) {
+            if (establisher.Value.Ticks != TimeSpan.MinValue.Ticks) {
+                establisher.RaiseException("TimeSpan must equal TimeSpan.MinValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value does not equal <c>TimeSpan.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsNotMinSpan() {
-            if (Value.Ticks == TimeSpan.MinValue.Ticks) {
-                HandleException("TimeSpan must not equal TimeSpan.MinValue");
+        public static StructEstablisher<TimeSpan> IsNotMinSpan(this StructEstablisher<TimeSpan> establisher) {
+            if (establisher.Value.Ticks == TimeSpan.MinValue.Ticks) {
+                establisher.RaiseException("TimeSpan must not equal TimeSpan.MinValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -87,12 +85,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsGreaterThan(TimeSpan threshold) {
-            if (Value <= threshold) {
-                HandleException("TimeSpan value must be greater than " + threshold.ToString());
+        public static StructEstablisher<TimeSpan> IsGreaterThan(this StructEstablisher<TimeSpan> establisher, TimeSpan threshold) {
+            if (establisher.Value <= threshold) {
+                establisher.RaiseException("TimeSpan value must be greater than " + threshold.ToString());
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -100,12 +98,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsGreaterThanOrEqualTo(TimeSpan threshold) {
-            if (Value < threshold) {
-                HandleException("TimeSpan value must be greater than or equal to " + threshold.ToString());
+        public static StructEstablisher<TimeSpan> IsGreaterThanOrEqualTo(this StructEstablisher<TimeSpan> establisher, TimeSpan threshold) {
+            if (establisher.Value < threshold) {
+                establisher.RaiseException("TimeSpan value must be greater than or equal to " + threshold.ToString());
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -113,12 +111,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsLessThan(TimeSpan threshold) {
-            if (Value >= threshold) {
-                HandleException("TimeSpan value must be less than " + threshold.ToString());
+        public static StructEstablisher<TimeSpan> IsLessThan(this StructEstablisher<TimeSpan> establisher, TimeSpan threshold) {
+            if (establisher.Value >= threshold) {
+                establisher.RaiseException("TimeSpan value must be less than " + threshold.ToString());
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -126,12 +124,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="TimeSpanEstablisher"/></returns>
-        public TimeSpanEstablisher IsLessThanOrEqualTo(TimeSpan threshold) {
-            if (Value > threshold) {
-                HandleException("TimeSpan value must be less than or equal to " + threshold.ToString());
+        public static StructEstablisher<TimeSpan> IsLessThanOrEqualTo(this StructEstablisher<TimeSpan> establisher, TimeSpan threshold) {
+            if (establisher.Value > threshold) {
+                establisher.RaiseException("TimeSpan value must be less than or equal to " + threshold.ToString());
             }
 
-            return this;
+            return establisher;
         }
 
     }

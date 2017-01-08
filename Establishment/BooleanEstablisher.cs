@@ -6,32 +6,30 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class BooleanEstablisher : StructEstablisher<BooleanEstablisher, bool> {
-
-        public BooleanEstablisher(bool value) : base(value) { }
+    public static class BooleanEstablisher {
 
         /// <summary>
         /// Establishes that the supplied value equals <c>true</c>
         /// </summary>
         /// <returns>The current <see cref="BooleanEstablisher"/></returns>
-        public BooleanEstablisher IsTrue() {
-            if (!Value) {
-                HandleException("bool value must be true");
+        public static StructEstablisher<bool> IsTrue(this StructEstablisher<bool> establisher) {
+            if (!establisher.Value) {
+                establisher.RaiseException("bool value must be true");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>false</c>
         /// </summary>
         /// <returns>The current <see cref="BooleanEstablisher"/></returns>
-        public BooleanEstablisher IsFalse() {
-            if (Value) {
-                HandleException("bool value must be false");
+        public static StructEstablisher<bool> IsFalse(this StructEstablisher<bool> establisher) {
+            if (establisher.Value) {
+                establisher.RaiseException("bool value must be false");
             }
 
-            return this;
+            return establisher;
         }
 
     }

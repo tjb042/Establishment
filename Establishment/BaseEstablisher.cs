@@ -47,7 +47,7 @@ namespace Establishment {
         /// <summary>
         /// The runtime type of <paramref name="TType"/>
         /// </summary>
-        protected Type GenericType {
+        public Type GenericType {
             get;
             private set;
         }
@@ -95,8 +95,8 @@ namespace Establishment {
         /// Base error handler that throws or catches exceptions based on <see cref="ThrowExceptionOnFailure"/>
         /// </summary>
         /// <param name="message">The message used in the generated exception</param>
-        protected virtual void HandleException(string message) {
-            HandleException(message, null);
+        public virtual void RaiseException(string message) {
+            RaiseException(message, null);
         }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="message">The message used in the generated exception</param>
         /// <param name="innerException">The inner exception capture during validation</param>
-        protected virtual void HandleException(string message, Exception innerException) {
+        public virtual void RaiseException(string message, Exception innerException) {
             Exception ex;
             if (string.IsNullOrEmpty(Options.ParameterName)) {
                 ex = new EstablishmentException(message, innerException);

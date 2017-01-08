@@ -9,56 +9,56 @@ namespace Establishment.Tests {
         
         [TestMethod]
         public void String_IsNullOrEmpty() {
-            var establisher = Establish.For(null as string);
+            var establisher = Establish.ForObject(null as string);
 
             establisher.IsNullOrEmpty();
         }
 
         [TestMethod]
         public void String_IsNotNullOrEmpty() {
-            var establisher = Establish.For("hello dolly");
+            var establisher = Establish.ForObject("hello dolly");
 
             establisher.IsNotNullOrEmpty();
         }
 
         [TestMethod]
         public void String_IsEmpty() {
-            var establisher = Establish.For("");
+            var establisher = Establish.ForObject("");
 
             establisher.IsEmpty();
         }
 
         [TestMethod]
         public void String_IsNotEmpty() {
-            var establisher = Establish.For("System");
+            var establisher = Establish.ForObject("System");
 
             establisher.IsNotEmpty();
         }
 
         [TestMethod]
         public void String_HasExactLength() {
-            var establisher = Establish.For("four");
+            var establisher = Establish.ForObject("four");
 
             establisher.HasExactLength(4);
         }
 
         [TestMethod]
         public void String_HasMinimumLength() {
-            var establisher = Establish.For("ten");
+            var establisher = Establish.ForObject("ten");
 
             establisher.HasMinimumLength(3);
         }
 
         [TestMethod]
         public void String_HasMaximumLength() {
-            var establisher = Establish.For("en-US");
+            var establisher = Establish.ForObject("en-US");
 
             establisher.HasMaximumLength(5);
         }
 
         [TestMethod]
         public void String_MatchesPattern() {
-            var establisher = Establish.For("01235");
+            var establisher = Establish.ForObject("01235");
             var zipCodeRegex = new Regex(@"^\d{5}$");
 
             establisher.MatchesPattern(zipCodeRegex);
@@ -66,7 +66,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void String_DoesNotMatchPattern() {
-            var establisher = Establish.For("12345");
+            var establisher = Establish.ForObject("12345");
             var whitespaceRegex = new Regex(@"^\w$");
 
             establisher.DoesNotMatchPattern(whitespaceRegex);

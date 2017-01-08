@@ -7,74 +7,70 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class StreamEstablisher<TStream> : ClassEstablisher<StreamEstablisher<TStream>, TStream> where TStream : Stream {
+    public static class StreamEstablisher {
 
-        public StreamEstablisher(TStream value) : base(value) {
-
-        }
-
-        public StreamEstablisher<TStream> CanRead() {
-            if (!Value.CanRead) {
-                HandleException("Stream must be able to be read");
+        public static ClassEstablisher<TStream> CanRead<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (!establisher.Value.CanRead) {
+                establisher.RaiseException("Stream must be able to be read");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanNotRead() {
-            if (Value.CanRead) {
-                HandleException("Stream must not be able to be read");
+        public static ClassEstablisher<TStream> CanNotRead<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (establisher.Value.CanRead) {
+                establisher.RaiseException("Stream must not be able to be read");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanSeek() {
-            if (!Value.CanSeek) {
-                HandleException("Stream must be able to seek");
+        public static ClassEstablisher<TStream> CanSeek<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (!establisher.Value.CanSeek) {
+                establisher.RaiseException("Stream must be able to seek");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanNotSeek() {
-            if (Value.CanSeek) {
-                HandleException("Stream must not be able to seek");
+        public static ClassEstablisher<TStream> CanNotSeek<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (establisher.Value.CanSeek) {
+                establisher.RaiseException("Stream must not be able to seek");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanTimeout() {
-            if (!Value.CanTimeout) {
-                HandleException("Stream must be able to timeout");
+        public static ClassEstablisher<TStream> CanTimeout<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (!establisher.Value.CanTimeout) {
+                establisher.RaiseException("Stream must be able to timeout");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanNotTimeout() {
-            if (Value.CanTimeout) {
-                HandleException("Stream must not be able to timeout");
+        public static ClassEstablisher<TStream> CanNotTimeout<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (establisher.Value.CanTimeout) {
+                establisher.RaiseException("Stream must not be able to timeout");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanWrite() {
-            if (!Value.CanWrite) {
-                HandleException("Stream must be able to write");
+        public static ClassEstablisher<TStream> CanWrite<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (!establisher.Value.CanWrite) {
+                establisher.RaiseException("Stream must be able to write");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StreamEstablisher<TStream> CanNotWrite() {
-            if (Value.CanWrite) {
-                HandleException("Stream must not be able to write");
+        public static ClassEstablisher<TStream> CanNotWrite<TStream>(this ClassEstablisher<TStream> establisher) where TStream : Stream {
+            if (establisher.Value.CanWrite) {
+                establisher.RaiseException("Stream must not be able to write");
             }
 
-            return this;
+            return establisher;
         }
 
     }

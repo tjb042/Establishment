@@ -41,14 +41,16 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrayTEstablisher.cs" />
     <Compile Include="CharEstablisher.cs" />
     <Compile Include="ClassEstablisher.cs" />
+    <Compile Include="DictionaryEstablisher.cs" />
     <Compile Include="EnumEstablisher.cs" />
     <Compile Include="Exceptions\EstablishmentException.cs" />
     <Compile Include="FileSystemInfoEstablisher.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="BaseEstablisher.cs" />
-    <Compile Include="IEnumerableEstablisher.cs" />
+    <Compile Include="IEnumerableTEstablisher.cs" />
     <Compile Include="IntPtrEstablisher.cs" />
     <Compile Include="BooleanEstablisher.cs" />
     <Compile Include="ByteEstablisher.cs" />
@@ -57,11 +59,10 @@
     <Compile Include="DoubleEstablisher.cs" />
     <Compile Include="Establish.cs" />
     <Compile Include="FloatEstablisher.cs" />
-    <Compile Include="GuidEstablisher.cs" />
     <Compile Include="IntegerEstablisher.cs" />
+    <Compile Include="ListTEstablisher.cs" />
     <Compile Include="LongEstablisher.cs" />
     <Compile Include="Models\EstablisherOptions.cs" />
-    <Compile Include="ObjectEstablisher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SByteEstablisher.cs" />
     <Compile Include="ShortEstablisher.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="UIntPtrEstablisher.cs" />
     <Compile Include="ULongEstablisher.cs" />
     <Compile Include="UShortEstablisher.cs" />
-    <Compile Include="ValueTypeEstablisher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EstablishmentKey.snk" />

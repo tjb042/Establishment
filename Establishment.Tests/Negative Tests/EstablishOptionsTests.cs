@@ -1,4 +1,5 @@
 ﻿using Establishment.Exceptions;
+using Establishment.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace Establishment.Tests.Negative_Tests {
         [TestMethod]
         [ExpectedException(typeof(EstablishmentException))]
         public void Establish_NullOptions() {
-            var establisher = Establish.For(true, null);
+            var establisher = Establish.ForStruct(true, null as EstablisherOptions);
         }
 
     }

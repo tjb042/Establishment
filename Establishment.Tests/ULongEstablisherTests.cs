@@ -8,21 +8,21 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void ULong_IsDefault() {
-            ULongEstablisher establisher = Establish.For(default(ulong));
+            var establisher = Establish.ForStruct(default(ulong));
 
             establisher.IsDefault();
         }
 
         [TestMethod]
         public void ULong_IsEqualTo() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsEqualTo(10);
         }
 
         [TestMethod]
         public void ULong_IsGreaterThan() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsGreaterThan(0);
             establisher.IsGreaterThan(9);
@@ -30,7 +30,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void ULong_IsGreaterThanOrEqualTo() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsGreaterThanOrEqualTo(9);
             establisher.IsGreaterThanOrEqualTo(10);
@@ -38,7 +38,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void ULong_IsLessThan() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsLessThan(15);
             establisher.IsLessThan(11);
@@ -46,7 +46,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void ULong_IsLessThanOrEqualTo() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsLessThanOrEqualTo(15);
             establisher.IsLessThanOrEqualTo(10);
@@ -54,14 +54,14 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void ULong_IsMaxValue() {
-            ULongEstablisher establisher = Establish.For(ulong.MaxValue);
+            var establisher = Establish.ForStruct(ulong.MaxValue);
 
             establisher.IsMaxValue();
         }
 
         [TestMethod]
         public void ULong_IsMinValue() {
-            ULongEstablisher establisher = Establish.For(ulong.MinValue);
+            var establisher = Establish.ForStruct(ulong.MinValue);
 
             establisher.IsMinValue();
         }
@@ -70,42 +70,42 @@ namespace Establishment.Tests {
         public void ULong_IsNotDefault() {
             var value = default(ulong);
             value++;
-            ULongEstablisher establisher = Establish.For(value);
+            var establisher = Establish.ForStruct(value);
 
             establisher.IsNotDefault();
         }
 
         [TestMethod]
         public void ULong_IsNotEqualTo() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsNotEqualTo(50);
         }
 
         [TestMethod]
         public void ULong_IsNotMaxValue() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsNotMaxValue();
         }
 
         [TestMethod]
         public void ULong_IsNotMinValue() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsNotMinValue();
         }
 
         [TestMethod]
         public void ULong_IsNotZero() {
-            ULongEstablisher establisher = Establish.For((ulong)10);
+            var establisher = Establish.ForStruct((ulong)10);
 
             establisher.IsNotZero();
         }
 
         [TestMethod]
         public void ULong_IsZero() {
-            ULongEstablisher establisher = Establish.For((ulong)0);
+            var establisher = Establish.ForStruct((ulong)0);
 
             establisher.IsZero();
         }

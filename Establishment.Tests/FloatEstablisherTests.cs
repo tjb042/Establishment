@@ -8,21 +8,21 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Float_IsDefault() {
-            FloatEstablisher establisher = Establish.For(default(float));
+            var establisher = Establish.ForStruct(default(float));
 
             establisher.IsDefault();
         }
 
         [TestMethod]
         public void Float_IsEqualTo() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsEqualTo(10);
         }
 
         [TestMethod]
         public void Float_IsGreaterThan() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsGreaterThan(0);
             establisher.IsGreaterThan(9);
@@ -30,7 +30,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Float_IsGreaterThanOrEqualTo() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsGreaterThanOrEqualTo(9);
             establisher.IsGreaterThanOrEqualTo(10);
@@ -38,7 +38,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Float_IsLessThan() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsLessThan(15);
             establisher.IsLessThan(11);
@@ -46,7 +46,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Float_IsLessThanOrEqualTo() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsLessThanOrEqualTo(15);
             establisher.IsLessThanOrEqualTo(10);
@@ -54,14 +54,14 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Float_IsMaxValue() {
-            FloatEstablisher establisher = Establish.For(float.MaxValue);
+            var establisher = Establish.ForStruct(float.MaxValue);
 
             establisher.IsMaxValue();
         }
 
         [TestMethod]
         public void Float_IsMinValue() {
-            FloatEstablisher establisher = Establish.For(float.MinValue);
+            var establisher = Establish.ForStruct(float.MinValue);
 
             establisher.IsMinValue();
         }
@@ -70,42 +70,42 @@ namespace Establishment.Tests {
         public void Float_IsNotDefault() {
             var value = default(float);
             value++;
-            FloatEstablisher establisher = Establish.For(value);
+            var establisher = Establish.ForStruct(value);
 
             establisher.IsNotDefault();
         }
 
         [TestMethod]
         public void Float_IsNotEqualTo() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsNotEqualTo(50);
         }
 
         [TestMethod]
         public void Float_IsNotMaxValue() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsNotMaxValue();
         }
 
         [TestMethod]
         public void Float_IsNotMinValue() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsNotMinValue();
         }
 
         [TestMethod]
         public void Float_IsNotZero() {
-            FloatEstablisher establisher = Establish.For((float)10);
+            var establisher = Establish.ForStruct((float)10);
 
             establisher.IsNotZero();
         }
 
         [TestMethod]
         public void Float_IsZero() {
-            FloatEstablisher establisher = Establish.For((float)0);
+            var establisher = Establish.ForStruct((float)0);
 
             establisher.IsZero();
         }

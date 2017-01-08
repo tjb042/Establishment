@@ -7,21 +7,19 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class FloatEstablisher : StructEstablisher<FloatEstablisher, float> {
-
-        public FloatEstablisher(float value) : base(value) { }
+    public static class FloatEstablisher {
 
         /// <summary>
         /// Establishes that the supplied value is greater than <paramref name="threshold"/>
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsGreaterThan(float threshold) {
-            if (Value <= threshold) {
-                HandleException("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
+        public static StructEstablisher<float> IsGreaterThan(this StructEstablisher<float> establisher, float threshold) {
+            if (establisher.Value <= threshold) {
+                establisher.RaiseException("float value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -29,12 +27,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsGreaterThanOrEqualTo(float threshold) {
-            if (Value < threshold) {
-                HandleException("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+        public static StructEstablisher<float> IsGreaterThanOrEqualTo(this StructEstablisher<float> establisher, float threshold) {
+            if (establisher.Value < threshold) {
+                establisher.RaiseException("float value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -42,12 +40,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsLessThan(float threshold) {
-            if (Value >= threshold) {
-                HandleException("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
+        public static StructEstablisher<float> IsLessThan(this StructEstablisher<float> establisher, float threshold) {
+            if (establisher.Value >= threshold) {
+                establisher.RaiseException("float value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -55,105 +53,105 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsLessThanOrEqualTo(float threshold) {
-            if (Value > threshold) {
-                HandleException("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
+        public static StructEstablisher<float> IsLessThanOrEqualTo(this StructEstablisher<float> establisher, float threshold) {
+            if (establisher.Value > threshold) {
+                establisher.RaiseException("float value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value equals zero
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsZero() {
-            if (Value != 0) {
-                HandleException("value must be zero");
+        public static StructEstablisher<float> IsZero(this StructEstablisher<float> establisher) {
+            if (establisher.Value != 0) {
+                establisher.RaiseException("value must be zero");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value does not equal zero
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsNotZero() {
-            if (Value == 0) {
-                HandleException("value must not be zero");
+        public static StructEstablisher<float> IsNotZero(this StructEstablisher<float> establisher) {
+            if (establisher.Value == 0) {
+                establisher.RaiseException("value must not be zero");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>float.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsMinValue() {
-            if (Value != float.MinValue) {
-                HandleException("value must equal float.MinValue");
+        public static StructEstablisher<float> IsMinValue(this StructEstablisher<float> establisher) {
+            if (establisher.Value != float.MinValue) {
+                establisher.RaiseException("value must equal float.MinValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value does not equal <c>float.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsNotMinValue() {
-            if (Value == float.MinValue) {
-                HandleException("value must not equal float.MinValue");
+        public static StructEstablisher<float> IsNotMinValue(this StructEstablisher<float> establisher) {
+            if (establisher.Value == float.MinValue) {
+                establisher.RaiseException("value must not equal float.MinValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value equals <c>float.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsMaxValue() {
-            if (Value != float.MaxValue) {
-                HandleException("value must equal float.MaxValue");
+        public static StructEstablisher<float> IsMaxValue(this StructEstablisher<float> establisher) {
+            if (establisher.Value != float.MaxValue) {
+                establisher.RaiseException("value must equal float.MaxValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value does not equal <c>float.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsNotMaxValue() {
-            if (Value == float.MaxValue) {
-                HandleException("value must not equal float.MaxValue");
+        public static StructEstablisher<float> IsNotMaxValue(this StructEstablisher<float> establisher) {
+            if (establisher.Value == float.MaxValue) {
+                establisher.RaiseException("value must not equal float.MaxValue");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value is greater than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="FloatEstablisher"/></returns>
-        public FloatEstablisher IsPositive() {
-            if (Value < 0f) {
-                HandleException("value must be greater than zero");
+        public static StructEstablisher<float> IsPositive(this StructEstablisher<float> establisher) {
+            if (establisher.Value < 0f) {
+                establisher.RaiseException("value must be greater than zero");
             }
 
-            return this;
+            return establisher;
         }
 
         //Establishes that the supplied value is less than or equal to zero
-        public FloatEstablisher IsNegative() {
-            if (Value > 0f) {
-                HandleException("value must be less than zero");
+        public static StructEstablisher<float> IsNegative(this StructEstablisher<float> establisher) {
+            if (establisher.Value > 0f) {
+                establisher.RaiseException("value must be less than zero");
             }
 
-            return this;
+            return establisher;
         }
 
     }

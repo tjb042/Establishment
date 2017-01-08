@@ -11,7 +11,7 @@ namespace Establishment.Tests.Issues {
         [TestMethod]
         public void IncludeParameterName() {
             var parameterName = "isEnabled";
-            var establish = Establish.For(true, new EstablisherOptions() { ParameterName = parameterName });
+            var establish = Establish.ForStruct(true, new EstablisherOptions() { ParameterName = parameterName });
 
             try {
                 establish.IsFalse();
@@ -24,7 +24,7 @@ namespace Establishment.Tests.Issues {
 
         [TestMethod]
         public void DoNotIncludeParameterName() {
-            var establish = Establish.For(true);
+            var establish = Establish.ForStruct(true);
 
             try {
                 establish.IsFalse();

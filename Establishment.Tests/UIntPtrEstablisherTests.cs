@@ -12,14 +12,14 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void UIntPtr_IsZero() {
-            var establisher = Establish.For(UIntPtr.Zero);
+            var establisher = Establish.ForStruct(UIntPtr.Zero);
 
             establisher.IsZero();
         }
 
         [TestMethod]
         public void UIntPtr_IsNotZero() {
-            var establisher = Establish.For(UIntPtr.Add(UIntPtr.Zero, 10));
+            var establisher = Establish.ForStruct(UIntPtr.Add(UIntPtr.Zero, 10));
 
             establisher.IsNotZero();
         }

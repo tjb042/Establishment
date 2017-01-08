@@ -7,50 +7,38 @@ using System.Reflection;
 
 namespace Establishment {
 
-    public class EnumEstablisher<TEnum> : StructEstablisher<EnumEstablisher<TEnum>, TEnum> where TEnum : struct, IComparable, IFormattable {
-
-        public EnumEstablisher(TEnum value) : base(value) {
-            if (!GenericType.IsEnum) {
-                throw new InvalidOperationException("Cannot construct this EnumEstablisher because TEnum is not an enum");
+    public static class EnumEstablisher // StructEstablisher<TEnum> where TEnum : struct, IComparable, IFormattable 
+    {
+        public static StructEstablisher<TEnum> HasFlag<TEnum>(this StructEstablisher<TEnum> establisher, TEnum flag) where TEnum : struct, IComparable, IFormattable  {
+            if (!(establisher.Value as Enum).HasFlag(flag as Enum)) {
+                establisher.RaiseException("enum must contain flag value " + flag.ToString());
             }
+
+            return establisher;
         }
 
-        protected Enum ValueEnum {
-            get {
-                return Value as Enum;
+        public static StructEstablisher<TEnum> DoesNotHaveFlag<TEnum>(this StructEstablisher<TEnum> establisher, TEnum flag) where TEnum : struct, IComparable, IFormattable {
+            if ((establisher.Value as Enum).HasFlag(flag as Enum)) {
+                establisher.RaiseException("enum must not contain flag value " + flag.ToString());
             }
+
+            return establisher;
         }
 
-        public EnumEstablisher<TEnum> HasFlag(TEnum flag) {
-            if (!ValueEnum.HasFlag(flag as Enum)) {
-                HandleException("enum must contain flag value " + flag.ToString());
+        public static StructEstablisher<TEnum> IsDefined<TEnum>(this StructEstablisher<TEnum> establisher) where TEnum : struct, IComparable, IFormattable {
+            if (!Enum.IsDefined(establisher.GenericType, establisher.Value)) {
+                establisher.RaiseException("enum value is not defined in current enum");
             }
 
-            return this;
+            return establisher;
         }
 
-        public EnumEstablisher<TEnum> DoesNotHaveFlag(TEnum flag) {
-            if (ValueEnum.HasFlag(flag as Enum)) {
-                HandleException("enum must not contain flag value " + flag.ToString());
+        public static StructEstablisher<TEnum> IsNotDefined<TEnum>(this StructEstablisher<TEnum> establisher) where TEnum : struct, IComparable, IFormattable {
+            if (Enum.IsDefined(establisher.GenericType, establisher.Value)) {
+                establisher.RaiseException("enum value is defined in the current enum and should not be");
             }
 
-            return this;
-        }
-
-        public EnumEstablisher<TEnum> IsDefined() {
-            if (!Enum.IsDefined(GenericType, Value)) {
-                HandleException("enum value is not defined in current enum");
-            }
-
-            return this;
-        }
-
-        public EnumEstablisher<TEnum> IsNotDefined() {
-            if (Enum.IsDefined(GenericType, Value)) {
-                HandleException("enum value is defined in the current enum and should not be");
-            }
-
-            return this;
+            return establisher;
         }
 
     }

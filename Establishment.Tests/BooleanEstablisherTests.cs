@@ -8,15 +8,15 @@ namespace Establishment.Tests {
     
         [TestMethod]
         public void Bool_IsDefault() {
-            var establisher = Establish.For(default(bool));
+            var establisher = Establish.ForStruct(default(bool));
 
             establisher.IsDefault();
         }
 
         [TestMethod]
         public void Bool_IsEqual() {
-            var trueEstablisher = Establish.For(true);
-            var falseEstablisher = Establish.For(false);
+            var trueEstablisher = Establish.ForStruct(true);
+            var falseEstablisher = Establish.ForStruct(false);
 
             trueEstablisher.IsEqualTo(true);
             falseEstablisher.IsEqualTo(false);
@@ -24,22 +24,22 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Bool_IsFalse() {
-            var establisher = Establish.For(false);
+            var establisher = Establish.ForStruct(false);
 
             establisher.IsFalse();
         }
 
         [TestMethod]
         public void Bool_IsNotDefault() {
-            var establisher = Establish.For(!default(bool));
+            var establisher = Establish.ForStruct(!default(bool));
 
             establisher.IsNotDefault();
         }
 
         [TestMethod]
         public void Bool_IsNotEqual() {
-            var trueEstablisher = Establish.For(true);
-            var falseEstablisher = Establish.For(false);
+            var trueEstablisher = Establish.ForStruct(true);
+            var falseEstablisher = Establish.ForStruct(false);
 
             trueEstablisher.IsNotEqualTo(false);
             falseEstablisher.IsNotEqualTo(true);
@@ -47,7 +47,7 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Bool_IsTrue() {
-            var establisher = Establish.For(true);
+            var establisher = Establish.ForStruct(true);
 
             establisher.IsTrue();
         }

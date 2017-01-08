@@ -7,56 +7,54 @@ using System.Threading.Tasks;
 
 namespace Establishment {
 
-    public class StringEstablisher : ClassEstablisher<StringEstablisher, string> {
-
-        public StringEstablisher(string value) : base(value) { }
+    public static class StringEstablisher {
 
         /// <summary>
         /// Establishes that the supplied value is null or empty
         /// </summary>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsNullOrEmpty() {
-            if (!string.IsNullOrEmpty(Value)) {
-                HandleException("string value must be null or empty");
+        public static ClassEstablisher<string> IsNullOrEmpty(this ClassEstablisher<string> establisher) {
+            if (!string.IsNullOrEmpty(establisher.Value)) {
+                establisher.RaiseException("string value must be null or empty");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value is not null or empty
         /// </summary>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsNotNullOrEmpty() {
-            if (string.IsNullOrEmpty(Value)) {
-                HandleException("string value must not be null or empty");
+        public static ClassEstablisher<string> IsNotNullOrEmpty(this ClassEstablisher<string> establisher) {
+            if (string.IsNullOrEmpty(establisher.Value)) {
+                establisher.RaiseException("string value must not be null or empty");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value is an empty string
         /// </summary>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsEmpty() {
-            if (Value.Length != 0) {
-                HandleException("string value must be empty");
+        public static ClassEstablisher<string> IsEmpty(this ClassEstablisher<string> establisher) {
+            if (establisher.Value.Length != 0) {
+                establisher.RaiseException("string value must be empty");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
         /// Establishes that the supplied value is not an empty string
         /// </summary>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher IsNotEmpty() {
-            if (Value.Length == 0) {
-                HandleException("string value must not be empty");
+        public static ClassEstablisher<string> IsNotEmpty(this ClassEstablisher<string> establisher) {
+            if (establisher.Value.Length == 0) {
+                establisher.RaiseException("string value must not be empty");
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -64,12 +62,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="length"></param>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher HasExactLength(int length) {
-            if (Value.Length != length) {
-                HandleException(string.Concat("string value is not exactly ", length, " characters"));
+        public static ClassEstablisher<string> HasExactLength(this ClassEstablisher<string> establisher, int length) {
+            if (establisher.Value.Length != length) {
+                establisher.RaiseException(string.Concat("string value is not exactly ", length, " characters"));
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -77,12 +75,12 @@ namespace Establishment {
         /// </summary>
         /// <param name="minimumLength"></param>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher HasMinimumLength(int minimumLength) {
-            if (Value.Length < minimumLength) {
-                HandleException(string.Concat("string value is not at least ", minimumLength, " characters"));
+        public static ClassEstablisher<string> HasMinimumLength(this ClassEstablisher<string> establisher, int minimumLength) {
+            if (establisher.Value.Length < minimumLength) {
+                establisher.RaiseException(string.Concat("string value is not at least ", minimumLength, " characters"));
             }
 
-            return this;
+            return establisher;
         }
 
         /// <summary>
@@ -90,52 +88,52 @@ namespace Establishment {
         /// </summary>
         /// <param name="maximumLength"></param>
         /// <returns>The current <see cref="StringEstablisher"/></returns>
-        public StringEstablisher HasMaximumLength(int maximumLength) {
-            if (Value.Length > maximumLength) {
-                HandleException(string.Concat("string value is too long"));
+        public static ClassEstablisher<string> HasMaximumLength(this ClassEstablisher<string> establisher, int maximumLength) {
+            if (establisher.Value.Length > maximumLength) {
+                establisher.RaiseException(string.Concat("string value is too long"));
             }
 
-            return this;
+            return establisher;
         }
 
-        public StringEstablisher MatchesPattern(Regex regex) {
+        public static ClassEstablisher<string> MatchesPattern(this ClassEstablisher<string> establisher, Regex regex) {
             Establish.ForObject(regex).IsNotNull();
 
-            if (!regex.IsMatch(Value)) {
-                HandleException("No regex matches were found in the current string");
+            if (!regex.IsMatch(establisher.Value)) {
+                establisher.RaiseException("No regex matches were found in the current string");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StringEstablisher MatchesPattern(Regex regex, int startAt) {
+        public static ClassEstablisher<string> MatchesPattern(this ClassEstablisher<string> establisher, Regex regex, int startAt) {
             Establish.ForObject(regex).IsNotNull();
 
-            if (!regex.IsMatch(Value, startAt)) {
-                HandleException("No regex matches were found in the current string");
+            if (!regex.IsMatch(establisher.Value, startAt)) {
+                establisher.RaiseException("No regex matches were found in the current string");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StringEstablisher DoesNotMatchPattern(Regex regex) {
+        public static ClassEstablisher<string> DoesNotMatchPattern(this ClassEstablisher<string> establisher, Regex regex) {
             Establish.ForObject(regex).IsNotNull();
 
-            if (regex.IsMatch(Value)) {
-                HandleException("A regex match was found in the current string where none should exist");
+            if (regex.IsMatch(establisher.Value)) {
+                establisher.RaiseException("A regex match was found in the current string where none should exist");
             }
 
-            return this;
+            return establisher;
         }
 
-        public StringEstablisher DoesNotMatchPattern(Regex regex, int startAt) {
+        public static ClassEstablisher<string> DoesNotMatchPattern(this ClassEstablisher<string> establisher, Regex regex, int startAt) {
             Establish.ForObject(regex).IsNotNull();
 
-            if (regex.IsMatch(Value, startAt)) {
-                HandleException("A regex match was found in the current string where none should exist");
+            if (regex.IsMatch(establisher.Value, startAt)) {
+                establisher.RaiseException("A regex match was found in the current string where none should exist");
             }
 
-            return this;
+            return establisher;
         }
 
     }
