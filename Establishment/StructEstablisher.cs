@@ -90,6 +90,12 @@ namespace Establishment {
             return this;
         }
 
+        public StructEstablisher<TType> ThrowExceptionOnFailure(bool throwException) {
+            Options.ThrowExceptionOnFailure = throwException;
+
+            return this;
+        }
+
     }
 
 }
