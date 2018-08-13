@@ -14,17 +14,17 @@ namespace Establishment.Examples {
         }
 
         public void DoSomething(string parameter, int index) {
-            Establish.ForObject(parameter).IsNotNullOrEmpty();
-            Establish.ForStruct(index).IsPositive();
+            Establish.For(parameter).IsNotNullOrEmpty();
+            Establish.For(index).IsPositive();
         }
 
         public void ChainingExample(string phoneNumber) {
             Regex _phoneRegex = new Regex("");
-            Establish.ForObject(phoneNumber).IsNotNullOrEmpty().HasMaximumLength(14).MatchesPattern(_phoneRegex);
+            Establish.For(phoneNumber).IsNotNullOrEmpty().HasMaximumLength(14).MatchesPattern(_phoneRegex);
         }
 
         public void Reflection(Type type) {
-            Establish.ForObject(type)
+            Establish.For(type)
                 .IsPublic()
                 .IsNotAbstract()
                 .Satisfies(x => x.GetInterface("IExample") != null);

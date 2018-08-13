@@ -15,7 +15,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsGreaterThan(this StructEstablisher<ulong> establisher, ulong threshold) {
+        public static BaseEstablisher<ulong> IsGreaterThan(this BaseEstablisher<ulong> establisher, ulong threshold) {
             if (establisher.Value <= threshold) {
                 establisher.RaiseException("ulong value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -28,7 +28,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsGreaterThanOrEqualTo(this StructEstablisher<ulong> establisher, ulong threshold) {
+        public static BaseEstablisher<ulong> IsGreaterThanOrEqualTo(this BaseEstablisher<ulong> establisher, ulong threshold) {
             if (establisher.Value < threshold) {
                 establisher.RaiseException("ulong value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -41,7 +41,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsLessThan(this StructEstablisher<ulong> establisher, ulong threshold) {
+        public static BaseEstablisher<ulong> IsLessThan(this BaseEstablisher<ulong> establisher, ulong threshold) {
             if (establisher.Value >= threshold) {
                 establisher.RaiseException("ulong value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -54,7 +54,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsLessThanOrEqualTo(this StructEstablisher<ulong> establisher, ulong threshold) {
+        public static BaseEstablisher<ulong> IsLessThanOrEqualTo(this BaseEstablisher<ulong> establisher, ulong threshold) {
             if (establisher.Value > threshold) {
                 establisher.RaiseException("ulong value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -66,7 +66,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals zero
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsZero(this StructEstablisher<ulong> establisher) {
+        public static BaseEstablisher<ulong> IsZero(this BaseEstablisher<ulong> establisher) {
             if (establisher.Value != 0) {
                 establisher.RaiseException("value must be zero");
             }
@@ -78,7 +78,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal zero
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsNotZero(this StructEstablisher<ulong> establisher) {
+        public static BaseEstablisher<ulong> IsNotZero(this BaseEstablisher<ulong> establisher) {
             if (establisher.Value == 0) {
                 establisher.RaiseException("value must not be zero");
             }
@@ -90,7 +90,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>ulong.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsMinValue(this StructEstablisher<ulong> establisher) {
+        public static BaseEstablisher<ulong> IsMinValue(this BaseEstablisher<ulong> establisher) {
             if (establisher.Value != ulong.MinValue) {
                 establisher.RaiseException("value must equal ulong.MinValue");
             }
@@ -102,7 +102,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>ulong.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsNotMinValue(this StructEstablisher<ulong> establisher) {
+        public static BaseEstablisher<ulong> IsNotMinValue(this BaseEstablisher<ulong> establisher) {
             if (establisher.Value == ulong.MinValue) {
                 establisher.RaiseException("value must not equal ulong.MinValue");
             }
@@ -114,7 +114,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>ulong.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsMaxValue(this StructEstablisher<ulong> establisher) {
+        public static BaseEstablisher<ulong> IsMaxValue(this BaseEstablisher<ulong> establisher) {
             if (establisher.Value != ulong.MaxValue) {
                 establisher.RaiseException("value must equal ulong.MaxValue");
             }
@@ -126,7 +126,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>ulong.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="ULongEstablisher"/></returns>
-        public static StructEstablisher<ulong> IsNotMaxValue(this StructEstablisher<ulong> establisher) {
+        public static BaseEstablisher<ulong> IsNotMaxValue(this BaseEstablisher<ulong> establisher) {
             if (establisher.Value == ulong.MaxValue) {
                 establisher.RaiseException("value must not equal ulong.MaxValue");
             }

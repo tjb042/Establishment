@@ -14,7 +14,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsGreaterThan(this StructEstablisher<int> establisher, int threshold) {
+        public static BaseEstablisher<int> IsGreaterThan(this BaseEstablisher<int> establisher, int threshold) {
             if (establisher.Value <= threshold) {
                 establisher.RaiseException("int value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -27,7 +27,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsGreaterThanOrEqualTo(this StructEstablisher<int> establisher, int threshold) {
+        public static BaseEstablisher<int> IsGreaterThanOrEqualTo(this BaseEstablisher<int> establisher, int threshold) {
             if (establisher.Value < threshold) {
                 establisher.RaiseException("int value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -40,7 +40,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsLessThan(this StructEstablisher<int> establisher, int threshold) {
+        public static BaseEstablisher<int> IsLessThan(this BaseEstablisher<int> establisher, int threshold) {
             if (establisher.Value >= threshold) {
                 establisher.RaiseException("int value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -53,7 +53,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsLessThanOrEqualTo(this StructEstablisher<int> establisher, int threshold) {
+        public static BaseEstablisher<int> IsLessThanOrEqualTo(this BaseEstablisher<int> establisher, int threshold) {
             if (establisher.Value > threshold) {
                 establisher.RaiseException("int value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -65,7 +65,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals zero
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsZero(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsZero(this BaseEstablisher<int> establisher) {
             if (establisher.Value != 0) {
                 establisher.RaiseException("value must be zero");
             }
@@ -77,7 +77,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal zero
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsNotZero(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsNotZero(this BaseEstablisher<int> establisher) {
             if (establisher.Value == 0) {
                 establisher.RaiseException("value must not be zero");
             }
@@ -89,7 +89,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>int.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsMinValue(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsMinValue(this BaseEstablisher<int> establisher) {
             if (establisher.Value != int.MinValue) {
                 establisher.RaiseException("value must equal int.MinValue");
             }
@@ -101,7 +101,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>int.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsNotMinValue(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsNotMinValue(this BaseEstablisher<int> establisher) {
             if (establisher.Value == int.MinValue) {
                 establisher.RaiseException("value must not equal int.MinValue");
             }
@@ -113,7 +113,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>int.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsMaxValue(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsMaxValue(this BaseEstablisher<int> establisher) {
             if (establisher.Value != int.MaxValue) {
                 establisher.RaiseException("value must equal int.MaxValue");
             }
@@ -125,7 +125,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>int.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsNotMaxValue(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsNotMaxValue(this BaseEstablisher<int> establisher) {
             if (establisher.Value == int.MaxValue) {
                 establisher.RaiseException("value must not equal int.MaxValue");
             }
@@ -137,7 +137,7 @@ namespace Establishment {
         /// Establishes that the supplied value is greater than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsPositive(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsPositive(this BaseEstablisher<int> establisher) {
             if (establisher.Value < 0) {
                 establisher.RaiseException("value must be greater than zero");
             }
@@ -149,7 +149,7 @@ namespace Establishment {
         /// Establishes that the supplied value is less than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="IntegerEstablisher"/></returns>
-        public static StructEstablisher<int> IsNegative(this StructEstablisher<int> establisher) {
+        public static BaseEstablisher<int> IsNegative(this BaseEstablisher<int> establisher) {
             if (establisher.Value > 0) {
                 establisher.RaiseException("value must be less than zero");
             }

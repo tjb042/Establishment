@@ -14,7 +14,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsGreaterThan(this StructEstablisher<decimal> establisher, decimal threshold) {
+        public static BaseEstablisher<decimal> IsGreaterThan(this BaseEstablisher<decimal> establisher, decimal threshold) {
             if (establisher.Value <= threshold) {
                 establisher.RaiseException("decimal value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -27,7 +27,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsGreaterThanOrEqualTo(this StructEstablisher<decimal> establisher, decimal threshold) {
+        public static BaseEstablisher<decimal> IsGreaterThanOrEqualTo(this BaseEstablisher<decimal> establisher, decimal threshold) {
             if (establisher.Value < threshold) {
                 establisher.RaiseException("decimal value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -40,7 +40,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsLessThan(this StructEstablisher<decimal> establisher, decimal threshold) {
+        public static BaseEstablisher<decimal> IsLessThan(this BaseEstablisher<decimal> establisher, decimal threshold) {
             if (establisher.Value >= threshold) {
                 establisher.RaiseException("decimal value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -53,7 +53,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsLessThanOrEqualTo(this StructEstablisher<decimal> establisher, decimal threshold) {
+        public static BaseEstablisher<decimal> IsLessThanOrEqualTo(this BaseEstablisher<decimal> establisher, decimal threshold) {
             if (establisher.Value > threshold) {
                 establisher.RaiseException("decimal value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -65,7 +65,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals zero
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsZero(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsZero(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value != 0) {
                 establisher.RaiseException("value must be zero");
             }
@@ -77,7 +77,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal zero
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsNotZero(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsNotZero(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value == 0) {
                 establisher.RaiseException("value must not be zero");
             }
@@ -89,7 +89,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>decimal.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsMinValue(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsMinValue(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value != decimal.MinValue) {
                 establisher.RaiseException("value must equal decimal.MinValue");
             }
@@ -101,7 +101,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>decimal.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsNotMinValue(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsNotMinValue(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value == decimal.MinValue) {
                 establisher.RaiseException("value must not equal decimal.MinValue");
             }
@@ -113,7 +113,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>decimal.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsMaxValue(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsMaxValue(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value != decimal.MaxValue) {
                 establisher.RaiseException("value must equal decimal.MaxValue");
             }
@@ -125,7 +125,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>decimal.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsNotMaxValue(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsNotMaxValue(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value == decimal.MaxValue) {
                 establisher.RaiseException("value must not equal decimal.MaxValue");
             }
@@ -137,7 +137,7 @@ namespace Establishment {
         /// Establishes that the supplied value is greater than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsPositive(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsPositive(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value < 0m) {
                 establisher.RaiseException("value must be greater than zero");
             }
@@ -149,7 +149,7 @@ namespace Establishment {
         /// Establishes that the supplied value is less than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="DecimalEstablisher"/></returns>
-        public static StructEstablisher<decimal> IsNegative(this StructEstablisher<decimal> establisher) {
+        public static BaseEstablisher<decimal> IsNegative(this BaseEstablisher<decimal> establisher) {
             if (establisher.Value > 0m) {
                 establisher.RaiseException("value must be less than zero");
             }

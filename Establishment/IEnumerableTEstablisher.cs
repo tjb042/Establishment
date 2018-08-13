@@ -8,7 +8,7 @@ namespace Establishment {
 
     public static class IEnumerableTEstablisher {
 
-        public static ClassEstablisher<IEnumerable<TSource>> HasElements<TSource>(this ClassEstablisher<IEnumerable<TSource>> establisher) {
+        public static BaseEstablisher<IEnumerable<TSource>> HasElements<TSource>(this BaseEstablisher<IEnumerable<TSource>> establisher) {
             if (!establisher.Value.Any()) {
                 establisher.RaiseException("IEnumerable must contain at least one element");
             }
@@ -16,7 +16,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<IEnumerable<TSource>> HasNoElements<TSource>(this ClassEstablisher<IEnumerable<TSource>> establisher) {
+        public static BaseEstablisher<IEnumerable<TSource>> HasNoElements<TSource>(this BaseEstablisher<IEnumerable<TSource>> establisher) {
             if (establisher.Value.Any()) {
                 establisher.RaiseException("IEnumerable must not contain any elements");
             }
@@ -24,7 +24,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<IEnumerable<TSource>> HasMinimumLength<TSource>(this ClassEstablisher<IEnumerable<TSource>> establisher, int minimumElements) {
+        public static BaseEstablisher<IEnumerable<TSource>> HasMinimumLength<TSource>(this BaseEstablisher<IEnumerable<TSource>> establisher, int minimumElements) {
             if (establisher.Value.Count() < minimumElements) {
                 establisher.RaiseException(string.Concat("IEnumerable must have at least ", minimumElements, " elements"));
             }
@@ -32,7 +32,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<IEnumerable<TSource>> HasMaximumLength<TSource>(this ClassEstablisher<IEnumerable<TSource>> establisher, int maximumElements) {
+        public static BaseEstablisher<IEnumerable<TSource>> HasMaximumLength<TSource>(this BaseEstablisher<IEnumerable<TSource>> establisher, int maximumElements) {
             if (establisher.Value.Count() > maximumElements) {
                 establisher.RaiseException(string.Concat("IEnumerable must not have more than ", maximumElements, " elements"));
             }
@@ -40,7 +40,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<IEnumerable<TSource>> HasExactLength<TSource>(this ClassEstablisher<IEnumerable<TSource>> establisher, int totalElements) {
+        public static BaseEstablisher<IEnumerable<TSource>> HasExactLength<TSource>(this BaseEstablisher<IEnumerable<TSource>> establisher, int totalElements) {
             if (establisher.Value.Count() != totalElements) {
                 establisher.RaiseException(string.Concat("IEnumerable must contain exactly ", totalElements, " elements"));
             }

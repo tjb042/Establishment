@@ -7,9 +7,9 @@ using System.Reflection;
 
 namespace Establishment {
 
-    public static class EnumEstablisher // StructEstablisher<TEnum> where TEnum : struct, IComparable, IFormattable 
+    public static class EnumEstablisher // BaseEstablisher<TEnum> where TEnum : struct, IComparable, IFormattable 
     {
-        public static StructEstablisher<TEnum> HasFlag<TEnum>(this StructEstablisher<TEnum> establisher, TEnum flag) where TEnum : struct, IComparable, IFormattable  {
+        public static BaseEstablisher<TEnum> HasFlag<TEnum>(this BaseEstablisher<TEnum> establisher, TEnum flag) where TEnum : struct, IComparable, IFormattable  {
             if (!(establisher.Value as Enum).HasFlag(flag as Enum)) {
                 establisher.RaiseException("enum must contain flag value " + flag.ToString());
             }
@@ -17,7 +17,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static StructEstablisher<TEnum> DoesNotHaveFlag<TEnum>(this StructEstablisher<TEnum> establisher, TEnum flag) where TEnum : struct, IComparable, IFormattable {
+        public static BaseEstablisher<TEnum> DoesNotHaveFlag<TEnum>(this BaseEstablisher<TEnum> establisher, TEnum flag) where TEnum : struct, IComparable, IFormattable {
             if ((establisher.Value as Enum).HasFlag(flag as Enum)) {
                 establisher.RaiseException("enum must not contain flag value " + flag.ToString());
             }
@@ -25,7 +25,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static StructEstablisher<TEnum> IsDefined<TEnum>(this StructEstablisher<TEnum> establisher) where TEnum : struct, IComparable, IFormattable {
+        public static BaseEstablisher<TEnum> IsDefined<TEnum>(this BaseEstablisher<TEnum> establisher) where TEnum : struct, IComparable, IFormattable {
             if (!Enum.IsDefined(establisher.GenericType, establisher.Value)) {
                 establisher.RaiseException("enum value is not defined in current enum");
             }
@@ -33,7 +33,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static StructEstablisher<TEnum> IsNotDefined<TEnum>(this StructEstablisher<TEnum> establisher) where TEnum : struct, IComparable, IFormattable {
+        public static BaseEstablisher<TEnum> IsNotDefined<TEnum>(this BaseEstablisher<TEnum> establisher) where TEnum : struct, IComparable, IFormattable {
             if (Enum.IsDefined(establisher.GenericType, establisher.Value)) {
                 establisher.RaiseException("enum value is defined in the current enum and should not be");
             }

@@ -13,7 +13,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsControl() {
             char c = (char)6; // ACK
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsControl();
         }
@@ -21,7 +21,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotControl() {
             char c = 'A';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotControl();
         }
@@ -29,7 +29,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsDigit() {
             char c = '8';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsDigit();
         }
@@ -37,7 +37,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotDigit() {
             char c = 'A';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotDigit();
         }
@@ -45,7 +45,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsHighSurrogate() {
             char c = '\uD800';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsHighSurrogate();
         }
@@ -53,7 +53,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotHighSurrogate() {
             char c = 'A';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotHighSurrogate();
         }
@@ -61,7 +61,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsLetter() {
             char c = 'A';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsLetter();
         }
@@ -69,7 +69,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotLetter() {
             char c = '-';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotLetter();
         }
@@ -77,7 +77,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsLetterOrDigit() {
             char c = '0';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsLetterOrDigit();
         }
@@ -85,7 +85,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotLetterOrDigit() {
             char c = '(';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotLetterOrDigit();
         }
@@ -93,7 +93,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsLower() {
             char c = 'c';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsLower();
         }
@@ -101,7 +101,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotLower() {
             char c = 'A';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotLower();
         }
@@ -109,7 +109,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsLowSurrogate() {
             char c = '\uDC00';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsLowSurrogate();
         }
@@ -117,7 +117,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotLowSurrogate() {
             char c = 'G';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotLowSurrogate();
         }
@@ -125,7 +125,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNumber() {
             char c = '4';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNumber();
         }
@@ -133,7 +133,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotNumber() {
             char c = '#';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotNumber();
         }
@@ -141,7 +141,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsPunctuation() {
             char c = '!';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsPunctuation();
         }
@@ -149,7 +149,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotPunctuation() {
             char c = 'H';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotPunctuation();
         }
@@ -157,7 +157,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsSeparator() {
             char c = ' ';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsSeparator();
         }
@@ -165,7 +165,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotSeparator() {
             char c = 'z';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotSeparator();
         }
@@ -173,7 +173,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsSurrogate() {
             char c = '\uDC00';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsLowSurrogate();
         }
@@ -181,7 +181,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotSurrogate() {
             char c = 'j';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotSurrogate();
         }
@@ -189,7 +189,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsSymbol() {
             char c = '^';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsSymbol();
         }
@@ -197,7 +197,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotSymbol() {
             char c = 'z';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotSymbol();
         }
@@ -205,7 +205,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsUpper() {
             char c = 'Z';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsUpper();
         }
@@ -213,7 +213,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotUpper() {
             char c = 'u';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotUpper();
         }
@@ -221,7 +221,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsWhiteSpace() {
             char c = ' ';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsWhiteSpace();
         }
@@ -229,7 +229,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotWhiteSpace() {
             char c = '8';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotWhiteSpace();
         }
@@ -237,7 +237,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsMaxValue() {
             char c = char.MaxValue;
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsMaxValue();
         }
@@ -245,7 +245,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotMaxValue() {
             char c = '0';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotMaxValue();
         }
@@ -253,7 +253,7 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsMinValue() {
             char c = char.MinValue;
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsMinValue();
         }
@@ -261,21 +261,21 @@ namespace Establishment.Tests {
         [TestMethod]
         public void Char_IsNotMinValue() {
             char c = '8';
-            var establisher = Establish.ForStruct(c);
+            var establisher = Establish.For(c);
 
             establisher.IsNotMinValue();
         }
 
         [TestMethod]
         public void Char_IsGreaterThan() {
-            var establisher = Establish.ForStruct('b');
+            var establisher = Establish.For('b');
 
             establisher.IsGreaterThan('a');
         }
 
         [TestMethod]
         public void Char_IsGreaterThanOrEqualTo() {
-            var establisher = Establish.ForStruct('d');
+            var establisher = Establish.For('d');
 
             establisher.IsGreaterThanOrEqualTo('b');
             establisher.IsGreaterThanOrEqualTo('d');
@@ -283,14 +283,14 @@ namespace Establishment.Tests {
 
         [TestMethod]
         public void Char_IsLessThan() {
-            var establisher = Establish.ForStruct('d');
+            var establisher = Establish.For('d');
 
             establisher.IsLessThan('e');
         }
 
         [TestMethod]
         public void Char_IsLessThanOrEqualTo() {
-            var establisher = Establish.ForStruct('g');
+            var establisher = Establish.For('g');
 
             establisher.IsLessThanOrEqualTo('g');
             establisher.IsLessThanOrEqualTo('j');

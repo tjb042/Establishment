@@ -15,7 +15,7 @@ namespace Establishment.Tests.Negative_Tests {
         [TestMethod]
         [ExpectedException(typeof(EstablishmentException))]
         public void Establish_NullOptions() {
-            var establisher = Establish.ForStruct(true, null as EstablisherOptions);
+            var establisher = Establish.For(true, null as EstablisherOptions);
         }
 
     }

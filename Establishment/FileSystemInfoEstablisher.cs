@@ -9,7 +9,7 @@ namespace Establishment {
 
     public static class FileSystemInfoEstablisher {
 
-        public static ClassEstablisher<TInfo> Exists<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+        public static BaseEstablisher<TInfo> Exists<TInfo>(this BaseEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
             if (!establisher.Value.Exists) {
                 establisher.RaiseException(establisher.GenericType.Name + " does not exist");
             }
@@ -17,7 +17,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<TInfo> DoesNotExist<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+        public static BaseEstablisher<TInfo> DoesNotExist<TInfo>(this BaseEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
             if (establisher.Value.Exists) {
                 establisher.RaiseException(establisher.GenericType.Name + " must not exist");
             }
@@ -25,7 +25,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<TInfo> HasExtension<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+        public static BaseEstablisher<TInfo> HasExtension<TInfo>(this BaseEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
             if (string.IsNullOrEmpty(establisher.Value.Extension)) {
                 establisher.RaiseException(establisher.GenericType.Name + " must have an extension");
             }
@@ -33,7 +33,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<TInfo> HasNoExtension<TInfo>(this ClassEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
+        public static BaseEstablisher<TInfo> HasNoExtension<TInfo>(this BaseEstablisher<TInfo> establisher) where TInfo : FileSystemInfo {
             if (!string.IsNullOrEmpty(establisher.Value.Extension)) {
                 establisher.RaiseException(establisher.GenericType.Name + " must not have an extension");
             }

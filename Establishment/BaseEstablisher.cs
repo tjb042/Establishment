@@ -12,7 +12,7 @@ namespace Establishment {
     /// Base establishment provider for all types
     /// </summary>
     /// <typeparam name="TType">Any generic struct or class type</typeparam>
-    public abstract class BaseEstablisher<TType> {
+    public class BaseEstablisher<TType> {
 
         private EstablisherOptions _establisherOptions = null;
 
@@ -39,7 +39,7 @@ namespace Establishment {
         /// <summary>
         /// The default value for TType (via default(Type))
         /// </summary>
-        protected TType DefaultTypeValue {
+        internal TType DefaultTypeValue {
             get;
             private set;
         }
@@ -70,7 +70,7 @@ namespace Establishment {
         /// <summary>
         /// The default .NET comparer for <paramref name="TType"/>
         /// </summary>
-        protected IEqualityComparer<TType> DefaultComparer {
+        internal IEqualityComparer<TType> DefaultComparer {
             get;
             private set;
         }
@@ -119,6 +119,90 @@ namespace Establishment {
             if (Options.ThrowExceptionOnFailure.GetValueOrDefault(Establish.ThrowExceptionOnFailure)) {
                 throw ex;
             }
+        }
+
+        public BaseEstablisher<TType> IsDBNull()
+        {
+            if (!Convert.IsDBNull(Value))
+            {
+                RaiseException(GenericType.Name + " must equal DBNull.Value");
+            }
+
+            return this;
+        }
+
+        public BaseEstablisher<TType> IsNotDBNull()
+        {
+            if (Convert.IsDBNull(Value))
+            {
+                RaiseException(GenericType.Name + " must not equal DBNull.Value");
+            }
+
+            return this;
+        }
+
+        public BaseEstablisher<TType> IsEqualTo(TType constraint)
+        {
+            if (!DefaultComparer.Equals(Value, constraint))
+            {
+                RaiseException(GenericType.Name + " is not equal to a required constraint");
+            }
+
+            return this;
+        }
+
+        public BaseEstablisher<TType> IsNotEqualTo(TType constraint)
+        {
+            if (DefaultComparer.Equals(Value, constraint))
+            {
+                RaiseException(GenericType.Name + " must not equal a blacklist constraint");
+            }
+
+            return this;
+        }
+
+        public BaseEstablisher<TType> Satisfies(Action<TType> action)
+        {
+            Establish.For(action).IsNotNull();
+
+            try
+            {
+                action(Value);
+            }
+            catch (Exception ex)
+            {
+                RaiseException("bool value does not satisfy user action", ex);
+            }
+
+            return this;
+        }
+
+        public BaseEstablisher<TType> Satisfies(Func<TType, bool> predicate)
+        {
+            Establish.For(predicate).IsNotNull();
+
+            try
+            {
+                if (!predicate(Value))
+                {
+                    // failure
+                    RaiseException("bool value does not satisfy user action");
+                }
+            }
+            catch (Exception ex)
+            {
+                // failure
+                RaiseException("bool value does not satisfy user action", ex);
+            }
+
+            return this;
+        }
+
+        public BaseEstablisher<TType> ThrowExceptionOnFailure(bool throwException)
+        {
+            Options.ThrowExceptionOnFailure = throwException;
+
+            return this;
         }
 
     }

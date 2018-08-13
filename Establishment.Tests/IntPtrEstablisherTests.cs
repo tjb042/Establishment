@@ -8,14 +8,14 @@ namespace Establishment.Tests {
     
         [TestMethod]
         public void IntPtr_IsZero() {
-            var establisher = Establish.ForStruct(IntPtr.Zero);
+            var establisher = Establish.For(IntPtr.Zero);
 
             establisher.IsZero();
         }
 
         [TestMethod]
         public void IntPtr_IsNotZero() {
-            var establisher = Establish.ForStruct(IntPtr.Add(IntPtr.Zero, 10));
+            var establisher = Establish.For(IntPtr.Add(IntPtr.Zero, 10));
 
             establisher.IsNotZero();
         }

@@ -15,7 +15,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsGreaterThan(this StructEstablisher<sbyte> establisher, sbyte threshold) {
+        public static BaseEstablisher<sbyte> IsGreaterThan(this BaseEstablisher<sbyte> establisher, sbyte threshold) {
             if (establisher.Value <= threshold) {
                 establisher.RaiseException("sbyte value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -28,7 +28,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsGreaterThanOrEqualTo(this StructEstablisher<sbyte> establisher, sbyte threshold) {
+        public static BaseEstablisher<sbyte> IsGreaterThanOrEqualTo(this BaseEstablisher<sbyte> establisher, sbyte threshold) {
             if (establisher.Value < threshold) {
                 establisher.RaiseException("sbyte value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -41,7 +41,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsLessThan(this StructEstablisher<sbyte> establisher, sbyte threshold) {
+        public static BaseEstablisher<sbyte> IsLessThan(this BaseEstablisher<sbyte> establisher, sbyte threshold) {
             if (establisher.Value >= threshold) {
                 establisher.RaiseException("sbyte value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -54,7 +54,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold"></param>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsLessThanOrEqualTo(this StructEstablisher<sbyte> establisher, sbyte threshold) {
+        public static BaseEstablisher<sbyte> IsLessThanOrEqualTo(this BaseEstablisher<sbyte> establisher, sbyte threshold) {
             if (establisher.Value > threshold) {
                 establisher.RaiseException("sbyte value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -66,7 +66,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals zero
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsZero(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsZero(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value != 0) {
                 establisher.RaiseException("value must be zero");
             }
@@ -78,7 +78,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal zero
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsNotZero(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsNotZero(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value == 0) {
                 establisher.RaiseException("value must not be zero");
             }
@@ -90,7 +90,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>sbyte.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsMinValue(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsMinValue(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value != sbyte.MinValue) {
                 establisher.RaiseException("value must equal sbyte.MinValue");
             }
@@ -102,7 +102,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>sbyte.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsNotMinValue(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsNotMinValue(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value == sbyte.MinValue) {
                 establisher.RaiseException("value must not equal sbyte.MinValue");
             }
@@ -114,7 +114,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>sbyte.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsMaxValue(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsMaxValue(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value != sbyte.MaxValue) {
                 establisher.RaiseException("value must equal sbyte.MaxValue");
             }
@@ -126,7 +126,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>sbyte.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsNotMaxValue(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsNotMaxValue(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value == sbyte.MaxValue) {
                 establisher.RaiseException("value must not equal sbyte.MaxValue");
             }
@@ -138,7 +138,7 @@ namespace Establishment {
         /// Establishes that the supplied value is greater than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsPositive(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsPositive(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value < 0) {
                 establisher.RaiseException("value must be greater than zero");
             }
@@ -150,7 +150,7 @@ namespace Establishment {
         /// Establishes that the supplied value is less than or equal to zero
         /// </summary>
         /// <returns>The current <see cref="SByteEstablisher"/></returns>
-        public static StructEstablisher<sbyte> IsNegative(this StructEstablisher<sbyte> establisher) {
+        public static BaseEstablisher<sbyte> IsNegative(this BaseEstablisher<sbyte> establisher) {
             if (establisher.Value > 0) {
                 establisher.RaiseException("value must be less than zero");
             }

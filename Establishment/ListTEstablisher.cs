@@ -8,7 +8,7 @@ namespace Establishment {
 
     public static class ListTEstablisher {
 
-        public static ClassEstablisher<List<TSource>> HasElements<TSource>(this ClassEstablisher<List<TSource>> establisher) {
+        public static BaseEstablisher<List<TSource>> HasElements<TSource>(this BaseEstablisher<List<TSource>> establisher) {
             if (!establisher.Value.Any()) {
                 establisher.RaiseException("List must contain at least one element");
             }
@@ -16,7 +16,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<List<TSource>> HasNoElements<TSource>(this ClassEstablisher<List<TSource>> establisher) {
+        public static BaseEstablisher<List<TSource>> HasNoElements<TSource>(this BaseEstablisher<List<TSource>> establisher) {
             if (establisher.Value.Any()) {
                 establisher.RaiseException("List must not contain any elements");
             }
@@ -24,7 +24,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<List<TSource>> HasMinimumLength<TSource>(this ClassEstablisher<List<TSource>> establisher, int minimumElements) {
+        public static BaseEstablisher<List<TSource>> HasMinimumLength<TSource>(this BaseEstablisher<List<TSource>> establisher, int minimumElements) {
             if (establisher.Value.Count() < minimumElements) {
                 establisher.RaiseException(string.Concat("List must have at least ", minimumElements, " elements"));
             }
@@ -32,7 +32,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<List<TSource>> HasMaximumLength<TSource>(this ClassEstablisher<List<TSource>> establisher, int maximumElements) {
+        public static BaseEstablisher<List<TSource>> HasMaximumLength<TSource>(this BaseEstablisher<List<TSource>> establisher, int maximumElements) {
             if (establisher.Value.Count() > maximumElements) {
                 establisher.RaiseException(string.Concat("List must not have more than ", maximumElements, " elements"));
             }
@@ -40,7 +40,7 @@ namespace Establishment {
             return establisher;
         }
 
-        public static ClassEstablisher<List<TSource>> HasExactLength<TSource>(this ClassEstablisher<List<TSource>> establisher, int totalElements) {
+        public static BaseEstablisher<List<TSource>> HasExactLength<TSource>(this BaseEstablisher<List<TSource>> establisher, int totalElements) {
             if (establisher.Value.Count() != totalElements) {
                 establisher.RaiseException(string.Concat("List must contain exactly ", totalElements, " elements"));
             }

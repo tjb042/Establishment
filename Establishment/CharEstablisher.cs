@@ -13,7 +13,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a control character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsControl(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsControl(this BaseEstablisher<char> establisher){
             if (!char.IsControl(establisher.Value)) {
                 establisher.RaiseException("char must be a control character");
             }
@@ -25,7 +25,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a control character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotControl(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotControl(this BaseEstablisher<char> establisher){
             if (char.IsControl(establisher.Value)) {
                 establisher.RaiseException("char must not be a control character");
             }
@@ -37,7 +37,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a digit
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsDigit(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsDigit(this BaseEstablisher<char> establisher){
             if (!char.IsDigit(establisher.Value)) {
                 establisher.RaiseException("char must be a digit");
             }
@@ -49,7 +49,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a digit
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotDigit(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotDigit(this BaseEstablisher<char> establisher){
             if (char.IsDigit(establisher.Value)) {
                 establisher.RaiseException("char must not be a digit");
             }
@@ -61,7 +61,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a high surrogate unicode character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsHighSurrogate(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsHighSurrogate(this BaseEstablisher<char> establisher){
             if (!char.IsHighSurrogate(establisher.Value)) {
                 establisher.RaiseException("char must be a high surrogage");
             }
@@ -73,7 +73,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a high surrogate unicode character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotHighSurrogate(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotHighSurrogate(this BaseEstablisher<char> establisher){
             if (char.IsHighSurrogate(establisher.Value)) {
                 establisher.RaiseException("char must not be a high surrogate");
             }
@@ -85,7 +85,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a letter
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsLetter(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsLetter(this BaseEstablisher<char> establisher){
             if (!char.IsLetter(establisher.Value)) {
                 establisher.RaiseException("char must be a letter");
             }
@@ -97,7 +97,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a letter
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotLetter(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotLetter(this BaseEstablisher<char> establisher){
             if (char.IsLetter(establisher.Value)) {
                 establisher.RaiseException("char must not be a letter");
             }
@@ -109,7 +109,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a letter or digit
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsLetterOrDigit(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsLetterOrDigit(this BaseEstablisher<char> establisher){
             if (!char.IsLetterOrDigit(establisher.Value)) {
                 establisher.RaiseException("char must be a letter or digit");
             }
@@ -121,7 +121,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a letter or digit
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotLetterOrDigit(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotLetterOrDigit(this BaseEstablisher<char> establisher){
             if (char.IsLetterOrDigit(establisher.Value)) {
                 establisher.RaiseException("char must not be a letter or digit");
             }
@@ -133,7 +133,7 @@ namespace Establishment {
         /// Establishes that the supplied value is lowercase
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsLower(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsLower(this BaseEstablisher<char> establisher){
             if (!char.IsLower(establisher.Value)) {
                 establisher.RaiseException("char must be lowercase");
             }
@@ -145,7 +145,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not lowercase
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotLower(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotLower(this BaseEstablisher<char> establisher){
             if (char.IsLower(establisher.Value)) {
                 establisher.RaiseException("char must not be lowercase");
             }
@@ -157,7 +157,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a low surrogate unicode character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsLowSurrogate(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsLowSurrogate(this BaseEstablisher<char> establisher){
             if (!char.IsLowSurrogate(establisher.Value)) {
                 establisher.RaiseException("char must be low surrogate");
             }
@@ -169,7 +169,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a low surrogate unicode character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotLowSurrogate(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotLowSurrogate(this BaseEstablisher<char> establisher){
             if (char.IsLowSurrogate(establisher.Value)) {
                 establisher.RaiseException("char must not be low surrogate");
             }
@@ -181,7 +181,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a number
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNumber(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNumber(this BaseEstablisher<char> establisher){
             if (!char.IsNumber(establisher.Value)) {
                 establisher.RaiseException("char must be a number");
             }
@@ -193,7 +193,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a number
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotNumber(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotNumber(this BaseEstablisher<char> establisher){
             if (char.IsNumber(establisher.Value)) {
                 establisher.RaiseException("char must not be a number");
             }
@@ -205,7 +205,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a punctuation mark
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsPunctuation(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsPunctuation(this BaseEstablisher<char> establisher){
             if (!char.IsPunctuation(establisher.Value)) {
                 establisher.RaiseException("char must be punctuation");
             }
@@ -217,7 +217,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a punctuation mark
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotPunctuation(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotPunctuation(this BaseEstablisher<char> establisher){
             if (char.IsPunctuation(establisher.Value)) {
                 establisher.RaiseException("char must not be punctuation");
             }
@@ -229,7 +229,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a unicode separator character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsSeparator(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsSeparator(this BaseEstablisher<char> establisher){
             if (!char.IsSeparator(establisher.Value)) {
                 establisher.RaiseException("char must be a separator");
             }
@@ -241,7 +241,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a unicode separator character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotSeparator(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotSeparator(this BaseEstablisher<char> establisher){
             if (char.IsSeparator(establisher.Value)) {
                 establisher.RaiseException("char must not be a separator");
             }
@@ -253,7 +253,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a unicode surrogate character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsSurrogate(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsSurrogate(this BaseEstablisher<char> establisher){
             if (!char.IsSurrogate(establisher.Value)) {
                 establisher.RaiseException("char must be a surrogate");
             }
@@ -265,7 +265,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a unicode surrogate character
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotSurrogate(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotSurrogate(this BaseEstablisher<char> establisher){
             if (char.IsSurrogate(establisher.Value)) {
                 establisher.RaiseException("char must not be a surrogate");
             }
@@ -277,7 +277,7 @@ namespace Establishment {
         /// Establishes that the supplied value is a symbol
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsSymbol(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsSymbol(this BaseEstablisher<char> establisher){
             if (!char.IsSymbol(establisher.Value)) {
                 establisher.RaiseException("char must be a symbol");
             }
@@ -289,7 +289,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not a symbol
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotSymbol(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotSymbol(this BaseEstablisher<char> establisher){
             if (char.IsSymbol(establisher.Value)) {
                 establisher.RaiseException("char must not be a symbol");
             }
@@ -301,7 +301,7 @@ namespace Establishment {
         /// Establishes that the supplied value is uppercase
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsUpper(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsUpper(this BaseEstablisher<char> establisher){
             if (!char.IsUpper(establisher.Value)) {
                 establisher.RaiseException("char must be uppercase");
             }
@@ -313,7 +313,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not uppercase
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotUpper(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotUpper(this BaseEstablisher<char> establisher){
             if (char.IsUpper(establisher.Value)) {
                 establisher.RaiseException("char must not be uppercase");
             }
@@ -325,7 +325,7 @@ namespace Establishment {
         /// Establishes that the supplied value is white space
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsWhiteSpace(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsWhiteSpace(this BaseEstablisher<char> establisher){
             if (!char.IsWhiteSpace(establisher.Value)) {
                 establisher.RaiseException("char must be white space");
             }
@@ -337,7 +337,7 @@ namespace Establishment {
         /// Establishes that the supplied value is not white space
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotWhiteSpace(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotWhiteSpace(this BaseEstablisher<char> establisher){
             if (char.IsWhiteSpace(establisher.Value)) {
                 establisher.RaiseException("char must not be white space");
             }
@@ -349,7 +349,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>char.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsMaxValue(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsMaxValue(this BaseEstablisher<char> establisher){
             if (char.MaxValue != establisher.Value) {
                 establisher.RaiseException("char must equal char.MaxValue");
             }
@@ -361,7 +361,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>char.MaxValue</c>
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotMaxValue(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotMaxValue(this BaseEstablisher<char> establisher){
             if (char.MaxValue == establisher.Value) {
                 establisher.RaiseException("char must not equal char.MaxValue");
             }
@@ -373,7 +373,7 @@ namespace Establishment {
         /// Establishes that the supplied value equals <c>char.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsMinValue(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsMinValue(this BaseEstablisher<char> establisher){
             if (char.MinValue != establisher.Value) {
                 establisher.RaiseException("char must equal char.MinValue");
             }
@@ -385,7 +385,7 @@ namespace Establishment {
         /// Establishes that the supplied value does not equal <c>char.MinValue</c>
         /// </summary>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsNotMinValue(this StructEstablisher<char> establisher){
+        public static BaseEstablisher<char> IsNotMinValue(this BaseEstablisher<char> establisher){
             if (char.MinValue == establisher.Value) {
                 establisher.RaiseException("char must not equal char.MinValue");
             }
@@ -398,7 +398,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold">The value to compare against</param>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsGreaterThan(this StructEstablisher<char> establisher, char threshold) {
+        public static BaseEstablisher<char> IsGreaterThan(this BaseEstablisher<char> establisher, char threshold) {
             if (establisher.Value <= threshold) {
                 establisher.RaiseException("char value must be greater than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -411,7 +411,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold">The value to compare against</param>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsGreaterThanOrEqualTo(this StructEstablisher<char> establisher, char threshold) {
+        public static BaseEstablisher<char> IsGreaterThanOrEqualTo(this BaseEstablisher<char> establisher, char threshold) {
             if (establisher.Value < threshold) {
                 establisher.RaiseException("char value must be greater than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -424,7 +424,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold">The value to compare against</param>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsLessThan(this StructEstablisher<char> establisher, char threshold) {
+        public static BaseEstablisher<char> IsLessThan(this BaseEstablisher<char> establisher, char threshold) {
             if (establisher.Value >= threshold) {
                 establisher.RaiseException("char value must be less than " + threshold.ToString(CultureInfo.CurrentCulture));
             }
@@ -437,7 +437,7 @@ namespace Establishment {
         /// </summary>
         /// <param name="threshold">The value to compare against</param>
         /// <returns>The current <see cref="CharEstablisher"/></returns>
-        public static StructEstablisher<char> IsLessThanOrEqualTo(this StructEstablisher<char> establisher, char threshold) {
+        public static BaseEstablisher<char> IsLessThanOrEqualTo(this BaseEstablisher<char> establisher, char threshold) {
             if (establisher.Value > threshold) {
                 establisher.RaiseException("char value must be less than or equal to " + threshold.ToString(CultureInfo.CurrentCulture));
             }

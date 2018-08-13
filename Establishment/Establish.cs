@@ -14,46 +14,24 @@ namespace Establishment {
             ThrowExceptionOnFailure = true;
         }
 
-        public static StructEstablisher<TType> ForStruct<TType>(TType value) where TType : struct {
-            return new StructEstablisher<TType>(value);
+        public static BaseEstablisher<TType> For<TType>(TType value) {
+            return new BaseEstablisher<TType>(value);
         }
 
-        public static StructEstablisher<TType> ForStruct<TType>(TType value, string parameterName) where TType : struct {
-            Establish.ForObject(parameterName).IsNotNullOrEmpty();
+        public static BaseEstablisher<TType> For<TType>(TType value, string parameterName) {
+            For(parameterName).IsNotNullOrEmpty();
 
-            return new StructEstablisher<TType>(value) {
+            return new BaseEstablisher<TType>(value) {
                 Options = new EstablisherOptions() {
                     ParameterName = parameterName
                 }
             };
         }
 
-        public static StructEstablisher<TType> ForStruct<TType>(TType value, EstablisherOptions options) where TType : struct {
-            Establish.ForObject(options).IsNotNull();
+        public static BaseEstablisher<TType> For<TType>(TType value, EstablisherOptions options) {
+            For(options).IsNotNull();
 
-            return new StructEstablisher<TType>(value) {
-                Options = options
-            };
-        }
-
-        public static ClassEstablisher<TType> ForObject<TType>(TType value) where TType : class {
-            return new ClassEstablisher<TType>(value);
-        }
-
-        public static ClassEstablisher<TType> ForObject<TType>(TType value, string parameterName) where TType : class {
-            Establish.ForObject(parameterName).IsNotNullOrEmpty();
-
-            return new ClassEstablisher<TType>(value) {
-                Options = new EstablisherOptions() {
-                    ParameterName = parameterName
-                }
-            };
-        }
-
-        public static ClassEstablisher<TType> ForObject<TType>(TType value, EstablisherOptions options) where TType : class {
-            Establish.ForObject(options).IsNotNull();
-
-            return new ClassEstablisher<TType>(value) {
+            return new BaseEstablisher<TType>(value) {
                 Options = options
             };
         }
