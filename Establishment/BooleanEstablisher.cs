@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Establishment {
+namespace Establishment
+{
+    
+    public static class BooleanEstablisher
+    {
 
-    public static class BooleanEstablisher {
-
-        /// <summary>
-        /// Establishes that the supplied value equals <c>true</c>
-        /// </summary>
-        /// <returns>The current <see cref="BooleanEstablisher"/></returns>
-        public static BaseEstablisher<bool> IsTrue(this BaseEstablisher<bool> establisher) {
-            if (!establisher.Value) {
-                establisher.RaiseException("bool value must be true");
+        public static EstablisherBase<bool> IsTrue(this EstablisherBase<bool> establisher)
+        {
+            if (!establisher.Value)
+            {
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal True.");
             }
 
             return establisher;
         }
 
-        /// <summary>
-        /// Establishes that the supplied value equals <c>false</c>
-        /// </summary>
-        /// <returns>The current <see cref="BooleanEstablisher"/></returns>
-        public static BaseEstablisher<bool> IsFalse(this BaseEstablisher<bool> establisher) {
-            if (establisher.Value) {
-                establisher.RaiseException("bool value must be false");
+        public static EstablisherBase<bool> IsFalse(this EstablisherBase<bool> establisher)
+        {
+            if (establisher.Value)
+            {
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal False.");
             }
 
             return establisher;

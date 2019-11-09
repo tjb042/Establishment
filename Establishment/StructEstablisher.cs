@@ -1,33 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Establishment
 {
-
+    
     public static class StructEstablisher
     {
 
-        public static BaseEstablisher<TType> IsDefault<TType>(this BaseEstablisher<TType> establisher) where TType : struct
+        public static EstablisherBase<T> IsDefault<T>(this EstablisherBase<T> establisher) where T : struct
         {
-            if (!establisher.DefaultComparer.Equals(establisher.Value, establisher.DefaultTypeValue))
+            if (!establisher.DefaultComparer.Equals(establisher.Value, establisher.TDefault))
             {
-                establisher.RaiseException(establisher.GenericType.Name + " must equal its default value (null)");
+                // does not equal null
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal default(T).");
             }
 
             return establisher;
         }
 
-        public static BaseEstablisher<TType> IsNotDefault<TType>(this BaseEstablisher<TType> establisher) where TType : struct
+        public static EstablisherBase<T> IsNotDefault<T>(this EstablisherBase<T> establisher) where T : struct
         {
-            if (establisher.DefaultComparer.Equals(establisher.Value, establisher.DefaultTypeValue))
+            if (establisher.DefaultComparer.Equals(establisher.Value, establisher.TDefault))
             {
-                establisher.RaiseException(establisher.GenericType.Name + " must not equal its default value (null)");
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must not equal default(T).");
             }
 
             return establisher;
+
         }
 
     }

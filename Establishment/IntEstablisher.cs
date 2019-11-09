@@ -5,10 +5,10 @@ using System.Text;
 namespace Establishment
 {
     
-    public static class LongEstablisher
+    public static class IntEstablisher
     {
 
-        public static EstablisherBase<long> IsGreaterThan(this EstablisherBase<long> establisher, long threshold)
+        public static EstablisherBase<int> IsGreaterThan(this EstablisherBase<int> establisher, int threshold)
         {
             if (establisher.Value <= threshold)
             {
@@ -18,7 +18,7 @@ namespace Establishment
             return establisher;
         }
 
-        public static EstablisherBase<long> IsGreaterThanOrEqualTo(this EstablisherBase<long> establisher, long threshold)
+        public static EstablisherBase<int> IsGreaterThanOrEqualTo(this EstablisherBase<int> establisher, int threshold)
         {
             if (establisher.Value < threshold)
             {
@@ -28,7 +28,7 @@ namespace Establishment
             return establisher;
         }
 
-        public static EstablisherBase<long> IsLessThan(this EstablisherBase<long> establisher, long threshold)
+        public static EstablisherBase<int> IsLessThan(this EstablisherBase<int> establisher, int threshold)
         {
             if (establisher.Value >= threshold)
             {
@@ -38,7 +38,7 @@ namespace Establishment
             return establisher;
         }
 
-        public static EstablisherBase<long> IsLessThanOrEqualTo(this EstablisherBase<long> establisher, long threshold)
+        public static EstablisherBase<int> IsLessThanOrEqualTo(this EstablisherBase<int> establisher, int threshold)
         {
             if (establisher.Value > threshold)
             {
@@ -48,7 +48,7 @@ namespace Establishment
             return establisher;
         }
 
-        public static EstablisherBase<long> IsZero(this EstablisherBase<long> establisher)
+        public static EstablisherBase<int> IsZero(this EstablisherBase<int> establisher)
         {
             if (establisher.Value != 0)
             {
@@ -58,7 +58,7 @@ namespace Establishment
             return establisher;
         }
 
-        public static EstablisherBase<long> IsNotZero(this EstablisherBase<long> establisher)
+        public static EstablisherBase<int> IsNotZero(this EstablisherBase<int> establisher)
         {
             if (establisher.Value == 0)
             {
@@ -68,41 +68,41 @@ namespace Establishment
             return establisher;
         }
 
-        public static EstablisherBase<long> IsMinValue(this EstablisherBase<long> establisher)
+        public static EstablisherBase<int> IsMinValue(this EstablisherBase<int> establisher)
         {
-            if (establisher.Value != long.MinValue)
+            if (establisher.Value != int.MinValue)
             {
-                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal long.MinValue.");
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal int.MinValue.");
             }
 
             return establisher;
         }
 
-        public static EstablisherBase<long> IsNotMinValue(this EstablisherBase<long> establisher)
+        public static EstablisherBase<int> IsNotMinValue(this EstablisherBase<int> establisher)
         {
-            if (establisher.Value == long.MinValue)
+            if (establisher.Value == int.MinValue)
             {
-                establisher.RaiseArgumentException($"{establisher.ParameterName} must not equal long.MinValue.");
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must not equal int.MinValue.");
             }
 
             return establisher;
         }
 
-        public static EstablisherBase<long> IsMaxValue(this EstablisherBase<long> establisher)
+        public static EstablisherBase<int> IsMaxValue(this EstablisherBase<int> establisher)
         {
-            if (establisher.Value != long.MaxValue)
+            if (establisher.Value != int.MaxValue)
             {
-                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal long.MaxValue.");
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must equal int.MaxValue.");
             }
 
             return establisher;
         }
 
-        public static EstablisherBase<long> IsNotMaxValue(this EstablisherBase<long> establisher)
+        public static EstablisherBase<int> IsNotMaxValue(this EstablisherBase<int> establisher)
         {
-            if (establisher.Value == long.MaxValue)
+            if (establisher.Value == int.MaxValue)
             {
-                establisher.RaiseArgumentException($"{establisher.ParameterName} must not equal long.MaxValue.");
+                establisher.RaiseArgumentException($"{establisher.ParameterName} must not equal int.MaxValue.");
             }
 
             return establisher;
