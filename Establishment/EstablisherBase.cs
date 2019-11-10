@@ -43,13 +43,40 @@ namespace Establishment
 
         public IEnumerable<Exception> Exceptions => aggregatedExceptions.AsReadOnly();
 
+        private void ThrowAggregatedExceptions()
+        {
+            switch (aggregatedExceptions.Count)
+            {
+                case 0:
+                    // no exceptions to throw, nice job
+                    return;
+                case 1:
+                    // only 1 exception, so just throw that one
+                    throw aggregatedExceptions[0];
+                default:
+                    // multiple exceptions, so make it an aggregate
+                    var aggregatedException = new AggregateException($"{ParameterName} failed multiple validation steps. See inner exceptions for details.", aggregatedExceptions);
+                    throw aggregatedException;
+            }
+        }
+
         public void RaiseException(Exception exception)
         {
             aggregatedExceptions.Add(exception);
-            
+
             if (ThrowExceptionOnFailure)
             {
-                throw exception;
+                ThrowAggregatedExceptions();
+            }
+        }
+
+        public void RaiseExceptions(IEnumerable<Exception> exceptions)
+        {
+            aggregatedExceptions.AddRange(exceptions);
+
+            if (ThrowExceptionOnFailure)
+            {
+                ThrowAggregatedExceptions();
             }
         }
 
@@ -123,6 +150,8 @@ namespace Establishment
                 var childEstablisher = Establish.For(childValue, paramName).ThrowExceptions(this.ThrowExceptionOnFailure);
 
                 action(childEstablisher);
+
+                RaiseExceptions(childEstablisher.aggregatedExceptions);
             }
             catch (Exception ex)
             {
