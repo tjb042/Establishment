@@ -107,6 +107,30 @@ namespace Establishment
             return this;
         }
 
+        public EstablisherBase<T> Property<T1>(Func<T, T1> selector, Action<EstablisherBase<T1>> action)
+        {
+            var paramName = $"{typeof(T1).Name} instance";
+
+            return Property<T1>(selector, paramName, action);
+        }
+
+        public EstablisherBase<T> Property<T1>(Func<T, T1> selector, string paramName, Action<EstablisherBase<T1>> action)
+        {
+            try
+            {
+                var childValue = selector(Value);
+                var childEstablisher = Establish.For(childValue, paramName).ThrowExceptions(this.ThrowExceptionOnFailure);
+
+                action(childEstablisher);
+            }
+            catch (Exception ex)
+            {
+                RaiseArgumentException($"{ParameterName} threw an exception while attempting to perform validation on a child object. See inner exception for details.", ex);
+            }
+
+            return this;
+        }
+
         public EstablisherBase<T> ThrowExceptions(bool throwExceptions)
         {
             ThrowExceptionOnFailure = throwExceptions;

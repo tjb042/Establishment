@@ -79,6 +79,20 @@ namespace Establishment
             return establisher;
         }
 
+        public static EstablisherBase<string> MatchesPattern(this EstablisherBase<string> establisher, string regexPattern)
+        {
+            var regex = new Regex(regexPattern);
+
+            return MatchesPattern(establisher, regex);
+        }
+
+        public static EstablisherBase<string> MatchesPattern(this EstablisherBase<string> establisher, string regexPattern, RegexOptions options)
+        {
+            var regex = new Regex(regexPattern, options);
+
+            return MatchesPattern(establisher, regex);
+        }
+
         public static EstablisherBase<string> MatchesPattern(this EstablisherBase<string> establisher, Regex regex)
         {
             Establish.For(regex).IsNotNull();
@@ -101,6 +115,20 @@ namespace Establishment
             }
 
             return establisher;
+        }
+
+        public static EstablisherBase<string> DoesNotMatchPattern(this EstablisherBase<string> establisher, string regexPattern)
+        {
+            var regex = new Regex(regexPattern);
+
+            return DoesNotMatchPattern(establisher, regex);
+        }
+
+        public static EstablisherBase<string> DoesNotMatchPattern(this EstablisherBase<string> establisher, string regexPattern, RegexOptions options)
+        {
+            var regex = new Regex(regexPattern, options);
+
+            return DoesNotMatchPattern(establisher, regex);
         }
 
         public static EstablisherBase<string> DoesNotMatchPattern(this EstablisherBase<string> establisher, Regex regex)
