@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>3.0.2</Version>
+    <Version>3.1</Version>
     <Authors>tjb042</Authors>
     <Description>Object validation library</Description>
     <PackageProjectUrl>https://github.com/tjb042/Establishment</PackageProjectUrl>

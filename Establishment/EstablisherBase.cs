@@ -16,6 +16,7 @@ namespace Establishment
             Value = value;
             TDefault = default(T);
             TType = typeof(T);
+            DefaultComparer = EqualityComparer<T>.Default;
             ParameterName = $"{TType.Name} instance";
 
             aggregatedExceptions = new List<Exception>();
